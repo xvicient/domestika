@@ -22,6 +22,26 @@ final class HomePresenter {
     }
 }
 
+// MARK: - HomePresenterProtocol
+
 extension HomePresenter: HomePresenterProtocol {
-    func viewDidLoad() {}
+    func viewDidLoad() {
+        showCourses()
+    }
+}
+
+// MARK: - Private
+
+private extension HomePresenter {
+    func showCourses() {
+        interactor.courses { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(courses):
+                print(courses)
+            case .failure:
+                break
+            }
+        }
+    }
 }

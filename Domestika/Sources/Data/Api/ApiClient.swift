@@ -13,18 +13,13 @@ enum APIError: Error {
     case invalidInput
     case httpCode(Int, Data?)
     case failedDecoding(Error)
-    case failedMappingToDomain
     case unexpectedResponse
-    case timeout
     case other(Error)
 }
 
 protocol APIClientApi {
     var baseURL: String { get }
     func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, APIError>) -> Void)
-    func request<T: Decodable>(_ endpoint: Endpoint, jsonDecoder: JSONDecoder, completion: @escaping (Result<T, APIError>) -> Void)
-    func request<T: Decodable>(_ endpoint: Endpoint, successfulStatusCodes: Range<Int>, completion: @escaping (Result<T, APIError>) -> Void)
-    func request<T: Decodable>(_ endpoint: Endpoint, successfulStatusCodes: Range<Int>, jsonDecoder: JSONDecoder, completion: @escaping (Result<T, APIError>) -> Void)
 }
 
 enum APIClientFactory {
@@ -55,14 +50,6 @@ struct APIClient {
 extension APIClient: APIClientApi {
     func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, APIError>) -> Void) {
         request(endpoint, successfulStatusCodes: Defaults.successfulStatusCodes, jsonDecoder: Defaults.jsonDecoder, completion: completion)
-    }
-
-    func request<T: Decodable>(_ endpoint: Endpoint, jsonDecoder: JSONDecoder, completion: @escaping (Result<T, APIError>) -> Void) {
-        request(endpoint, successfulStatusCodes: Defaults.successfulStatusCodes, jsonDecoder: jsonDecoder, completion: completion)
-    }
-
-    func request<T: Decodable>(_ endpoint: Endpoint, successfulStatusCodes: Range<Int>, completion: @escaping (Result<T, APIError>) -> Void) {
-        request(endpoint, successfulStatusCodes: successfulStatusCodes, jsonDecoder: Defaults.jsonDecoder, completion: completion)
     }
 
     func request<T: Decodable>(_ endpoint: Endpoint,

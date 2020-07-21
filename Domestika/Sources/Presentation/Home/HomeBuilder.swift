@@ -19,7 +19,7 @@ final class HomeBuilder {
 extension HomeBuilder: HomeBuilderProtocol {
     func buildModule() -> UIViewController {
         let view = HomeViewController()
-        let interactor = HomeInteractor()
+        let interactor = HomeInteractor(courseService: container.resolve(CourseServiceApi.self))
         let router = HomeRouter(viewController: view, container: container)
         let presenter = HomePresenter(view: view, interactor: interactor, router: router)
 

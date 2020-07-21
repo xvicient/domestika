@@ -30,7 +30,9 @@ protocol HomePresenterProtocol {
 // MARK: - Interactor
 
 // sourcery: AutoMockable
-protocol HomeInteractorProtocol {}
+protocol HomeInteractorProtocol {
+    func courses(completion: @escaping (Result<[Course], APIError>) -> Void)
+}
 
 // MARK: - View
 

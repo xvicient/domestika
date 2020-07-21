@@ -8,6 +8,16 @@
 
 import Foundation
 
-final class HomeInteractor {}
+final class HomeInteractor {
+    let courseService: CourseServiceApi
 
-extension HomeInteractor: HomeInteractorProtocol {}
+    init(courseService: CourseServiceApi) {
+        self.courseService = courseService
+    }
+}
+
+extension HomeInteractor: HomeInteractorProtocol {
+    func courses(completion: @escaping (Result<[Course], APIError>) -> Void) {
+        courseService.courses(completion: completion)
+    }
+}

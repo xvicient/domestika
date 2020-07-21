@@ -36,6 +36,7 @@ struct DependencyInjection: DependencyInjectionApi {
 
     init(dependencies: Dependencies) {
         container = Container()
+        Container.loggingFunction = nil
         self.dependencies = dependencies
     }
 

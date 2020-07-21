@@ -29,21 +29,6 @@ extension Body {
             return (data, "application/json")
         }
     }
-
-    static func formEncoded(params: [String: Any?]) -> Self {
-        Body {
-            let paramsString = params.compactMap {
-                guard let value = $0.value else { return nil }
-                return "\($0.key)=\(value)"
-            }.joined(separator: "&")
-
-            guard let data = paramsString.data(using: .utf8) else {
-                throw APIError.invalidInput
-            }
-
-            return (data, "application/x-www-form-urlencoded; charset=utf-8")
-        }
-    }
 }
 
 struct Endpoint {

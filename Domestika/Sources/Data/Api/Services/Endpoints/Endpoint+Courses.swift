@@ -8,7 +8,7 @@
 
 extension Endpoint {
     static var courses: Endpoint {
-        Endpoint(path: "/challenge/home.json",
+        Endpoint(path: "challenge/home.json",
                  method: .get,
                  headers: nil,
                  queryParams: nil,
