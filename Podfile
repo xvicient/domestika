@@ -10,6 +10,7 @@ target 'Domestika' do
   common
   pod 'Swinject', '~> 2.7.1'
   pod 'SnapKit', '~> 5.0.1'
+  pod 'SwiftLint', '~> 0.39'
 end
 
 target 'DomestikaTests' do

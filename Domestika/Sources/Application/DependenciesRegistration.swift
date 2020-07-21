@@ -11,4 +11,3 @@ import Swinject
 struct DependenciesRegistration: Dependencies {
     func register(_ container: Container) {}
 }
-

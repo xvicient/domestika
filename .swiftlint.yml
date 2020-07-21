@@ -1,0 +1,31 @@
+disabled_rules:
+- line_length
+- force_cast
+- large_tuple
+- function_parameter_count
+- function_body_length
+- file_length
+- todo
+- type_body_length
+- trailing_whitespace
+
+type_name:
+  min_length: 1
+  max_length: 50
+
+identifier_name:
+  min_length: 1
+  max_length: 
+    warning: 90
+    error: 100
+
+cyclomatic_complexity:
+    warning: 15
+
+included:
+ - Domestika
+ - DomestikaTests
+
+excluded:
+ - Templates
+ - DomestikaTests/Resources/Mock.generated.swift

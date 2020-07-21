@@ -15,8 +15,11 @@ To run the project, clone the repo and run `pod install` from the root directory
 
 **Architecture**
 
+Modular app structured using VIPER architecture. All components of each module have their own responsibility trying to reduce the load and the dependency on controllers.
 
 **API**
+
+Based on Domestika [resource](http://mobile-assets.domestika.org/challenge/home.json).
 
 
 **Testing**
@@ -26,6 +29,7 @@ To run the project, clone the repo and run `pod install` from the root directory
 
 *Swinject* used to define the app dependencies.<br/>
 *SnapKit* used to make Auto Layout programatically.<br/>
+*SwiftLint* used to enforce Swift style and conventions.<br/>
 
 ## Changes
 

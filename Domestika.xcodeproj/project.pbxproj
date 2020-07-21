@@ -363,6 +363,7 @@
 			buildConfigurationList = C760A59024C717B000FA6035 /* Build configuration list for PBXNativeTarget "DomestikaTests" */;
 			buildPhases = (
 				2BA1027D12C6071B154AF81A /* [CP] Check Pods Manifest.lock */,
+				C774744C24C75D7A003067FE /* SwiftLint */,
 				C760A58024C717B000FA6035 /* Sources */,
 				C760A58124C717B000FA6035 /* Frameworks */,
 				C760A58224C717B000FA6035 /* Resources */,
@@ -495,6 +496,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Domestika/Pods-Domestika-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C774744C24C75D7A003067FE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config \".swiftlint.yml\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
