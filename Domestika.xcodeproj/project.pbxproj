@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B5AD104157C73BC0A5AF055 /* Pods_Domestika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */; };
+		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
+		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
+		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
+		C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A58824C717B000FA6035 /* DomestikaTests.swift */; };
+		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C760A58524C717B000FA6035 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C760A56624C717AF00FA6035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C760A56D24C717AF00FA6035;
+			remoteInfo = Domestika;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domestika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41EAD8FD2972FFF1339A76BA /* Pods-DomestikaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.release.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomestikaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.release.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.release.xcconfig"; sourceTree = "<group>"; };
+		C760A56E24C717AF00FA6035 /* Domestika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domestika.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C760A57124C717AF00FA6035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C760A57A24C717B000FA6035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C760A57D24C717B000FA6035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C760A57F24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C760A58424C717B000FA6035 /* DomestikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomestikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C760A58824C717B000FA6035 /* DomestikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomestikaTests.swift; sourceTree = "<group>"; };
+		C760A58A24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C760A56B24C717AF00FA6035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B5AD104157C73BC0A5AF055 /* Pods_Domestika.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C760A58124C717B000FA6035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9AF8640DE60B8F93779C764 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */,
+				6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C760A56524C717AF00FA6035 = {
+			isa = PBXGroup;
+			children = (
+				C760A57024C717AF00FA6035 /* Domestika */,
+				C760A58724C717B000FA6035 /* DomestikaTests */,
+				C760A56F24C717AF00FA6035 /* Products */,
+				E275086DAA5C01D873221460 /* Pods */,
+				A9AF8640DE60B8F93779C764 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C760A56F24C717AF00FA6035 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C760A56E24C717AF00FA6035 /* Domestika.app */,
+				C760A58424C717B000FA6035 /* DomestikaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C760A57024C717AF00FA6035 /* Domestika */ = {
+			isa = PBXGroup;
+			children = (
+				C760A59324C717CB00FA6035 /* Sources */,
+				C760A59424C717D200FA6035 /* Resources */,
+			);
+			path = Domestika;
+			sourceTree = "<group>";
+		};
+		C760A58724C717B000FA6035 /* DomestikaTests */ = {
+			isa = PBXGroup;
+			children = (
+				C760A58824C717B000FA6035 /* DomestikaTests.swift */,
+				C760A58A24C717B000FA6035 /* Info.plist */,
+			);
+			path = DomestikaTests;
+			sourceTree = "<group>";
+		};
+		C760A59324C717CB00FA6035 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C760A59524C717F800FA6035 /* Application */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C760A59424C717D200FA6035 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C760A57A24C717B000FA6035 /* Assets.xcassets */,
+				C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */,
+				C760A57F24C717B000FA6035 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C760A59524C717F800FA6035 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C760A57124C717AF00FA6035 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E275086DAA5C01D873221460 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */,
+				BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */,
+				C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */,
+				41EAD8FD2972FFF1339A76BA /* Pods-DomestikaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C760A56D24C717AF00FA6035 /* Domestika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C760A58D24C717B000FA6035 /* Build configuration list for PBXNativeTarget "Domestika" */;
+			buildPhases = (
+				5A993F20D2E5BBD75CB91784 /* [CP] Check Pods Manifest.lock */,
+				C760A56A24C717AF00FA6035 /* Sources */,
+				C760A56B24C717AF00FA6035 /* Frameworks */,
+				C760A56C24C717AF00FA6035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Domestika;
+			productName = Domestika;
+			productReference = C760A56E24C717AF00FA6035 /* Domestika.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C760A58324C717B000FA6035 /* DomestikaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C760A59024C717B000FA6035 /* Build configuration list for PBXNativeTarget "DomestikaTests" */;
+			buildPhases = (
+				2BA1027D12C6071B154AF81A /* [CP] Check Pods Manifest.lock */,
+				C760A58024C717B000FA6035 /* Sources */,
+				C760A58124C717B000FA6035 /* Frameworks */,
+				C760A58224C717B000FA6035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C760A58624C717B000FA6035 /* PBXTargetDependency */,
+			);
+			name = DomestikaTests;
+			productName = DomestikaTests;
+			productReference = C760A58424C717B000FA6035 /* DomestikaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C760A56624C717AF00FA6035 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = xvicient;
+				TargetAttributes = {
+					C760A56D24C717AF00FA6035 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					C760A58324C717B000FA6035 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = C760A56D24C717AF00FA6035;
+					};
+				};
+			};
+			buildConfigurationList = C760A56924C717AF00FA6035 /* Build configuration list for PBXProject "Domestika" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C760A56524C717AF00FA6035;
+			productRefGroup = C760A56F24C717AF00FA6035 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C760A56D24C717AF00FA6035 /* Domestika */,
+				C760A58324C717B000FA6035 /* DomestikaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C760A56C24C717AF00FA6035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */,
+				C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C760A58224C717B000FA6035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BA1027D12C6071B154AF81A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DomestikaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A993F20D2E5BBD75CB91784 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Domestika-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C760A56A24C717AF00FA6035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C760A58024C717B000FA6035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C760A58624C717B000FA6035 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C760A56D24C717AF00FA6035 /* Domestika */;
+			targetProxy = C760A58524C717B000FA6035 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C760A57D24C717B000FA6035 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C760A58B24C717B000FA6035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C760A58C24C717B000FA6035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C760A58E24C717B000FA6035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Domestika/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xvicient.domestika;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C760A58F24C717B000FA6035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Domestika/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xvicient.domestika;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C760A59124C717B000FA6035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DomestikaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xvicient.DomestikaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Domestika.app/Domestika";
+			};
+			name = Debug;
+		};
+		C760A59224C717B000FA6035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41EAD8FD2972FFF1339A76BA /* Pods-DomestikaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DomestikaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xvicient.DomestikaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Domestika.app/Domestika";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C760A56924C717AF00FA6035 /* Build configuration list for PBXProject "Domestika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C760A58B24C717B000FA6035 /* Debug */,
+				C760A58C24C717B000FA6035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C760A58D24C717B000FA6035 /* Build configuration list for PBXNativeTarget "Domestika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C760A58E24C717B000FA6035 /* Debug */,
+				C760A58F24C717B000FA6035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C760A59024C717B000FA6035 /* Build configuration list for PBXNativeTarget "DomestikaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C760A59124C717B000FA6035 /* Debug */,
+				C760A59224C717B000FA6035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C760A56624C717AF00FA6035 /* Project object */;
+}
