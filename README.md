@@ -25,6 +25,7 @@ To run the project, clone the repo and run `pod install` from the root directory
 **Frameworks**
 
 *Swinject* used to define the app dependencies.<br/>
+*SnapKit* used to make Auto Layout programatically.<br/>
 
 ## Changes
 

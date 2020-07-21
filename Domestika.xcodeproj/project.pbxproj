@@ -14,6 +14,16 @@
 		C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A58824C717B000FA6035 /* DomestikaTests.swift */; };
 		C774740724C7319E003067FE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740624C7319E003067FE /* DependencyInjection.swift */; };
 		C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740824C731B5003067FE /* DependenciesRegistration.swift */; };
+		C774741124C7329B003067FE /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740A24C7329B003067FE /* HomePresenter.swift */; };
+		C774741224C7329B003067FE /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740B24C7329B003067FE /* HomeRouter.swift */; };
+		C774741424C7329B003067FE /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740D24C7329B003067FE /* HomeProtocols.swift */; };
+		C774741524C7329B003067FE /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740E24C7329B003067FE /* HomeBuilder.swift */; };
+		C774741624C7329B003067FE /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740F24C7329B003067FE /* HomeInteractor.swift */; };
+		C774741A24C736C6003067FE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741924C736C6003067FE /* HomeViewController.swift */; };
+		C774741D24C743D6003067FE /* HomeTopCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741C24C743D6003067FE /* HomeTopCollectionView.swift */; };
+		C774741F24C751BB003067FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741E24C751BB003067FE /* HomeView.swift */; };
+		C774742324C75487003067FE /* DOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742224C75487003067FE /* DOView.swift */; };
+		C774742524C7560A003067FE /* DOCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742424C7560A003067FE /* DOCollectionView.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +52,16 @@
 		C760A58A24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C774740624C7319E003067FE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 		C774740824C731B5003067FE /* DependenciesRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesRegistration.swift; sourceTree = "<group>"; };
+		C774740A24C7329B003067FE /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		C774740B24C7329B003067FE /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		C774740D24C7329B003067FE /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		C774740E24C7329B003067FE /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		C774740F24C7329B003067FE /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		C774741924C736C6003067FE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C774741C24C743D6003067FE /* HomeTopCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCollectionView.swift; sourceTree = "<group>"; };
+		C774741E24C751BB003067FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C774742224C75487003067FE /* DOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOView.swift; sourceTree = "<group>"; };
+		C774742424C7560A003067FE /* DOCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOCollectionView.swift; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +136,7 @@
 		C760A59324C717CB00FA6035 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C774742024C75461003067FE /* Common */,
 				C760A59524C717F800FA6035 /* Application */,
 				C774740524C73153003067FE /* Presentation */,
 			);
@@ -145,8 +166,49 @@
 		C774740524C73153003067FE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C774741824C732A0003067FE /* Home */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C774741824C732A0003067FE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C774741B24C7435D003067FE /* Views */,
+				C774740E24C7329B003067FE /* HomeBuilder.swift */,
+				C774740F24C7329B003067FE /* HomeInteractor.swift */,
+				C774740A24C7329B003067FE /* HomePresenter.swift */,
+				C774740D24C7329B003067FE /* HomeProtocols.swift */,
+				C774740B24C7329B003067FE /* HomeRouter.swift */,
+				C774741924C736C6003067FE /* HomeViewController.swift */,
+				C774741E24C751BB003067FE /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C774741B24C7435D003067FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C774741C24C743D6003067FE /* HomeTopCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C774742024C75461003067FE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C774742124C7546B003067FE /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C774742124C7546B003067FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C774742224C75487003067FE /* DOView.swift */,
+				C774742424C7560A003067FE /* DOCollectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E275086DAA5C01D873221460 /* Pods */ = {
@@ -330,6 +392,16 @@
 				C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */,
 				C774740724C7319E003067FE /* DependencyInjection.swift in Sources */,
 				C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */,
+				C774741124C7329B003067FE /* HomePresenter.swift in Sources */,
+				C774741524C7329B003067FE /* HomeBuilder.swift in Sources */,
+				C774742324C75487003067FE /* DOView.swift in Sources */,
+				C774741F24C751BB003067FE /* HomeView.swift in Sources */,
+				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,
+				C774742524C7560A003067FE /* DOCollectionView.swift in Sources */,
+				C774741424C7329B003067FE /* HomeProtocols.swift in Sources */,
+				C774741624C7329B003067FE /* HomeInteractor.swift in Sources */,
+				C774741224C7329B003067FE /* HomeRouter.swift in Sources */,
+				C774741D24C743D6003067FE /* HomeTopCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
