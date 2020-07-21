@@ -8,6 +8,7 @@ end
 
 target 'Domestika' do
   common
+  pod 'Swinject', '~> 2.7'
 end
 
 target 'DomestikaTests' do

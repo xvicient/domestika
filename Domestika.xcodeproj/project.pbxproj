@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
 		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
 		C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A58824C717B000FA6035 /* DomestikaTests.swift */; };
+		C774740724C7319E003067FE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740624C7319E003067FE /* DependencyInjection.swift */; };
+		C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740824C731B5003067FE /* DependenciesRegistration.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		C760A58424C717B000FA6035 /* DomestikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomestikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C760A58824C717B000FA6035 /* DomestikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomestikaTests.swift; sourceTree = "<group>"; };
 		C760A58A24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C774740624C7319E003067FE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		C774740824C731B5003067FE /* DependenciesRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesRegistration.swift; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				C760A59524C717F800FA6035 /* Application */,
+				C774740524C73153003067FE /* Presentation */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -131,8 +136,17 @@
 			isa = PBXGroup;
 			children = (
 				C760A57124C717AF00FA6035 /* AppDelegate.swift */,
+				C774740624C7319E003067FE /* DependencyInjection.swift */,
+				C774740824C731B5003067FE /* DependenciesRegistration.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C774740524C73153003067FE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		E275086DAA5C01D873221460 /* Pods */ = {
@@ -157,6 +171,7 @@
 				C760A56A24C717AF00FA6035 /* Sources */,
 				C760A56B24C717AF00FA6035 /* Frameworks */,
 				C760A56C24C717AF00FA6035 /* Resources */,
+				7E3D82BD4B58B05D35619F8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +303,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7E3D82BD4B58B05D35619F8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Domestika/Pods-Domestika-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Domestika/Pods-Domestika-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Domestika/Pods-Domestika-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,6 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */,
+				C774740724C7319E003067FE /* DependencyInjection.swift in Sources */,
 				C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
