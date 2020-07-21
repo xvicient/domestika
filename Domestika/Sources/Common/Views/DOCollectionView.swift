@@ -10,6 +10,8 @@ import UIKit
 
 class DOCollectionView: UICollectionView {
 
+    override class public var requiresConstraintBasedLayout: Bool { return true }
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         setup()

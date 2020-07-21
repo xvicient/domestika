@@ -21,7 +21,7 @@ extension HomeBuilder: HomeBuilderProtocol {
         let view = HomeViewController()
         let interactor = HomeInteractor(courseService: container.resolve(CourseServiceApi.self))
         let router = HomeRouter(viewController: view, container: container)
-        let presenter = HomePresenter(view: view, interactor: interactor, router: router)
+        let presenter = HomePresenter(view: view, interactor: interactor, router: router, locales: HomeLocales())
 
         view.presenter = presenter
         

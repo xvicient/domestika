@@ -37,8 +37,8 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewProtocol {
     func render(state: HomeViewState) {
         switch state {
-        case let .showTopCourses(courses):
-            showTopCourses(courses)
+        case let .showMainCourses(data):
+            showMainCourses(data)
         }
     }
 }
@@ -50,7 +50,7 @@ private extension HomeViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func showTopCourses(_ courses: [HomeViewMainCourse]) {
-        homeView.showTopCourses(courses)
+    func showMainCourses(_ data: HomeViewMainCourseData) {
+        homeView.showMainCourses(data)
     }
 }

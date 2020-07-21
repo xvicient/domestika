@@ -27,12 +27,8 @@ final class HomeView: DOView {
         return stackView
     }()
 
-    private lazy var mainCoursesCollectionView: HomeMainCoursesCollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = HomeMainCoursesCollectionView(frame: .zero,
-                                                           collectionViewLayout: layout)
-        return collectionView
+    private lazy var mainCoursesView: HomeMainCoursesView = {
+        HomeMainCoursesView()
     }()
 
     override public func setup() {
@@ -42,11 +38,11 @@ final class HomeView: DOView {
     override public func addSubviews() {
         addScrollView()
         addStackView()
-        addTopCollectionView()
+        addMainCoursesView()
     }
 
-    func showTopCourses(_ courses: [HomeViewMainCourse]) {
-        mainCoursesCollectionView.courses = courses
+    func showMainCourses(_ data: HomeViewMainCourseData) {
+        mainCoursesView.data = data
     }
 }
 
@@ -74,10 +70,9 @@ private extension HomeView {
         }
     }
 
-    func addTopCollectionView() {
-        stackView.addArrangedSubview(mainCoursesCollectionView)
-        mainCoursesCollectionView.snp.makeConstraints {
-            $0.width.equalTo(stackView)
+    func addMainCoursesView() {
+        stackView.addArrangedSubview(mainCoursesView)
+        mainCoursesView.snp.makeConstraints {
             $0.height.equalTo(400)
         }
     }

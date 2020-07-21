@@ -10,6 +10,8 @@ import UIKit
 
 class DOView: UIView {
 
+    override class public var requiresConstraintBasedLayout: Bool { return true }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

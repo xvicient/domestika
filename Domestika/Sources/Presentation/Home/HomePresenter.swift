@@ -12,13 +12,16 @@ final class HomePresenter {
     private weak var view: HomeViewProtocol!
     private let interactor: HomeInteractorProtocol
     private let router: HomeRouterProtocol
+    private let locales: HomeLocales
     
     init(view: HomeViewProtocol,
          interactor: HomeInteractorProtocol,
-         router: HomeRouterProtocol) {
+         router: HomeRouterProtocol,
+         locales: HomeLocales) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.locales = locales
     }
 }
 
@@ -38,7 +41,8 @@ private extension HomePresenter {
             guard let self = self else { return }
             switch result {
             case let .success(courses):
-                self.view.render(state: .showTopCourses(courses))
+                let data = HomeViewMainCourseData(courses: courses, watchButtonTitle: self.locales.watchButtonTitle)
+                self.view.render(state: .showMainCourses(data))
             case .failure:
                 break
             }
