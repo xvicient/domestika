@@ -30,6 +30,7 @@ Based on Domestika [resource](http://mobile-assets.domestika.org/challenge/home.
 *Swinject* used to define the app dependencies.<br/>
 *SnapKit* used to make Auto Layout programatically.<br/>
 *SwiftLint* used to enforce Swift style and conventions.<br/>
+*Nuke* used to download and display images on the app.<br/>
 
 ## Changes
 

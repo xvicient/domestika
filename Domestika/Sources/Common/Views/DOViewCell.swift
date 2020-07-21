@@ -1,5 +1,5 @@
 //
-//  DOView.swift
+//  DOViewCell.swift
 //  Domestika
 //
 //  Created by Xavier on 21/07/2020.
@@ -8,15 +8,18 @@
 
 import UIKit
 
-class DOView: UIView {
+public class DOViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        contentView.autoresizingMask = .flexibleHeight
+
         setup()
         addSubviews()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

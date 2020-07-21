@@ -36,7 +36,9 @@ protocol HomeInteractorProtocol {
 
 // MARK: - View
 
-enum HomeViewState {}
+enum HomeViewState {
+    case showTopCourses(_ courses: [HomeViewMainCourse])
+}
 
 // sourcery: AutoMockable
 protocol HomeViewProtocol: AnyObject {

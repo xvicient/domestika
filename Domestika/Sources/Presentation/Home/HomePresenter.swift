@@ -38,7 +38,7 @@ private extension HomePresenter {
             guard let self = self else { return }
             switch result {
             case let .success(courses):
-                print(courses)
+                self.view.render(state: .showTopCourses(courses))
             case .failure:
                 break
             }
