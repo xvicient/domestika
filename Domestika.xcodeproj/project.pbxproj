@@ -24,6 +24,20 @@
 		C774741F24C751BB003067FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741E24C751BB003067FE /* HomeView.swift */; };
 		C774742324C75487003067FE /* DOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742224C75487003067FE /* DOView.swift */; };
 		C774742524C7560A003067FE /* DOCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742424C7560A003067FE /* DOCollectionView.swift */; };
+		C774742924C75740003067FE /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742824C75740003067FE /* ApiClient.swift */; };
+		C774742B24C7575B003067FE /* APIClientLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742A24C7575B003067FE /* APIClientLogger.swift */; };
+		C774742D24C7576F003067FE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742C24C7576F003067FE /* Endpoint.swift */; };
+		C774742F24C757A6003067FE /* NoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742E24C757A6003067FE /* NoResult.swift */; };
+		C774743324C757D0003067FE /* URLRequest+cURLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743224C757D0003067FE /* URLRequest+cURLString.swift */; };
+		C774743824C758D2003067FE /* CourseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743724C758D2003067FE /* CourseService.swift */; };
+		C774743A24C75940003067FE /* Endpoint+Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743924C75940003067FE /* Endpoint+Courses.swift */; };
+		C774743C24C75996003067FE /* CourseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743B24C75996003067FE /* CourseCodable.swift */; };
+		C774743E24C75A1C003067FE /* TeacherCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743D24C75A1C003067FE /* TeacherCodable.swift */; };
+		C774744024C75A63003067FE /* ReviewsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743F24C75A63003067FE /* ReviewsCodable.swift */; };
+		C774744324C75ACF003067FE /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744224C75ACF003067FE /* Course.swift */; };
+		C774744524C75AE0003067FE /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744424C75AE0003067FE /* Teacher.swift */; };
+		C774744724C75AF0003067FE /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744624C75AF0003067FE /* Entities.swift */; };
+		C774744A24C75B23003067FE /* DomainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744924C75B23003067FE /* DomainProtocols.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +76,20 @@
 		C774741E24C751BB003067FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C774742224C75487003067FE /* DOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOView.swift; sourceTree = "<group>"; };
 		C774742424C7560A003067FE /* DOCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOCollectionView.swift; sourceTree = "<group>"; };
+		C774742824C75740003067FE /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		C774742A24C7575B003067FE /* APIClientLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientLogger.swift; sourceTree = "<group>"; };
+		C774742C24C7576F003067FE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C774742E24C757A6003067FE /* NoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResult.swift; sourceTree = "<group>"; };
+		C774743224C757D0003067FE /* URLRequest+cURLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+cURLString.swift"; sourceTree = "<group>"; };
+		C774743724C758D2003067FE /* CourseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseService.swift; sourceTree = "<group>"; };
+		C774743924C75940003067FE /* Endpoint+Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Courses.swift"; sourceTree = "<group>"; };
+		C774743B24C75996003067FE /* CourseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCodable.swift; sourceTree = "<group>"; };
+		C774743D24C75A1C003067FE /* TeacherCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodable.swift; sourceTree = "<group>"; };
+		C774743F24C75A63003067FE /* ReviewsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCodable.swift; sourceTree = "<group>"; };
+		C774744224C75ACF003067FE /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		C774744424C75AE0003067FE /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		C774744624C75AF0003067FE /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		C774744924C75B23003067FE /* DomainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainProtocols.swift; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +164,10 @@
 		C760A59324C717CB00FA6035 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C774742024C75461003067FE /* Common */,
 				C760A59524C717F800FA6035 /* Application */,
+				C774742024C75461003067FE /* Common */,
+				C774742624C75721003067FE /* Data */,
+				C774744124C75AB4003067FE /* Entities */,
 				C774740524C73153003067FE /* Presentation */,
 			);
 			path = Sources;
@@ -197,6 +227,8 @@
 		C774742024C75461003067FE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C774744824C75B12003067FE /* Protocols */,
+				C774743024C757BD003067FE /* Extensions */,
 				C774742124C7546B003067FE /* Views */,
 			);
 			path = Common;
@@ -209,6 +241,88 @@
 				C774742424C7560A003067FE /* DOCollectionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C774742624C75721003067FE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C774742724C75734003067FE /* Api */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C774742724C75734003067FE /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C774742824C75740003067FE /* ApiClient.swift */,
+				C774742A24C7575B003067FE /* APIClientLogger.swift */,
+				C774742C24C7576F003067FE /* Endpoint.swift */,
+				C774742E24C757A6003067FE /* NoResult.swift */,
+				C774743424C7586C003067FE /* Services */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		C774743024C757BD003067FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C774743124C757C8003067FE /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C774743124C757C8003067FE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				C774743224C757D0003067FE /* URLRequest+cURLString.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C774743424C7586C003067FE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C774743524C75878003067FE /* Codables */,
+				C774743624C7587E003067FE /* Endpoints */,
+				C774743724C758D2003067FE /* CourseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C774743524C75878003067FE /* Codables */ = {
+			isa = PBXGroup;
+			children = (
+				C774743B24C75996003067FE /* CourseCodable.swift */,
+				C774743F24C75A63003067FE /* ReviewsCodable.swift */,
+				C774743D24C75A1C003067FE /* TeacherCodable.swift */,
+			);
+			path = Codables;
+			sourceTree = "<group>";
+		};
+		C774743624C7587E003067FE /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				C774743924C75940003067FE /* Endpoint+Courses.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		C774744124C75AB4003067FE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C774744224C75ACF003067FE /* Course.swift */,
+				C774744624C75AF0003067FE /* Entities.swift */,
+				C774744424C75AE0003067FE /* Teacher.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		C774744824C75B12003067FE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C774744924C75B23003067FE /* DomainProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E275086DAA5C01D873221460 /* Pods */ = {
@@ -389,18 +503,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C774744324C75ACF003067FE /* Course.swift in Sources */,
 				C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */,
+				C774743A24C75940003067FE /* Endpoint+Courses.swift in Sources */,
 				C774740724C7319E003067FE /* DependencyInjection.swift in Sources */,
 				C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */,
 				C774741124C7329B003067FE /* HomePresenter.swift in Sources */,
 				C774741524C7329B003067FE /* HomeBuilder.swift in Sources */,
 				C774742324C75487003067FE /* DOView.swift in Sources */,
+				C774743E24C75A1C003067FE /* TeacherCodable.swift in Sources */,
+				C774744A24C75B23003067FE /* DomainProtocols.swift in Sources */,
+				C774742F24C757A6003067FE /* NoResult.swift in Sources */,
+				C774742B24C7575B003067FE /* APIClientLogger.swift in Sources */,
 				C774741F24C751BB003067FE /* HomeView.swift in Sources */,
+				C774742924C75740003067FE /* ApiClient.swift in Sources */,
 				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,
+				C774742D24C7576F003067FE /* Endpoint.swift in Sources */,
 				C774742524C7560A003067FE /* DOCollectionView.swift in Sources */,
+				C774744524C75AE0003067FE /* Teacher.swift in Sources */,
 				C774741424C7329B003067FE /* HomeProtocols.swift in Sources */,
+				C774744724C75AF0003067FE /* Entities.swift in Sources */,
+				C774744024C75A63003067FE /* ReviewsCodable.swift in Sources */,
+				C774743C24C75996003067FE /* CourseCodable.swift in Sources */,
+				C774743824C758D2003067FE /* CourseService.swift in Sources */,
 				C774741624C7329B003067FE /* HomeInteractor.swift in Sources */,
 				C774741224C7329B003067FE /* HomeRouter.swift in Sources */,
+				C774743324C757D0003067FE /* URLRequest+cURLString.swift in Sources */,
 				C774741D24C743D6003067FE /* HomeTopCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
