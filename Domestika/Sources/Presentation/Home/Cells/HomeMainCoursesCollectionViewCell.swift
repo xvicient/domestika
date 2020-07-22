@@ -28,7 +28,7 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
 
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.textColor = .systemGray4
+        titleLabel.textColor = .systemGray6
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .center
