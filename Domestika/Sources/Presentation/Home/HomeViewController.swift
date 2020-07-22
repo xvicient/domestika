@@ -56,8 +56,8 @@ private extension HomeViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func showMainCourses(_ data: HomeViewMainCourseData) {
-        homeView.showMainCourses(data)
+    func showMainCourses(_ courses: [HomeViewMainCourse]) {
+        homeView.showMainCourses(courses)
     }
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {

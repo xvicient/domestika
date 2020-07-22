@@ -18,4 +18,12 @@ final class HomeRouter {
     }
 }
 
-extension HomeRouter: HomeRouterProtocol {}
+extension HomeRouter: HomeRouterProtocol {
+    func show(_ message: String, okTitle: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: okTitle, style: .default))
+        viewController.present(alertController, animated: true)
+    }
+
+    func showCourse(_ course: Course) {}
+}

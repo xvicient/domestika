@@ -6,7 +6,7 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-struct Teacher {
+struct Teacher: Equatable {
     let name: String
     let avatarUrl: String
 }

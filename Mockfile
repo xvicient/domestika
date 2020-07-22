@@ -1,0 +1,12 @@
+sourceryCommand: null
+DomestikaTests:
+  sources:
+    include:
+    - ./Domestika/Sources
+  output: ./DomestikaTests/Resources/Mock.generated.swift
+  targets:
+  - DomestikaTests
+  testable:
+  - Domestika
+  import:
+  - UIKit

@@ -65,10 +65,10 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
         courseImageView.addGradient(.vertical, colors: [.clear, UIColor.black.withAlphaComponent(0.75)])
     }
 
-    func setup(_ course: HomeViewMainCourse, watchCourseTitle: String) {
+    func setup(_ course: HomeViewMainCourse) {
         titleLabel.text = course.title
-        watchButton.setTitle(watchCourseTitle, for: .normal)
-        if let imageURL = course.mainCourseImageURL {
+        watchButton.setTitle(course.watchCourseTitle, for: .normal)
+        if let imageURL = course.imageURL {
             courseImageView.load(url: imageURL)
         }
     }

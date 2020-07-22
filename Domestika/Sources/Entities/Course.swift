@@ -6,7 +6,7 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-struct Course {
+struct Course: Equatable {
     let id: String
     let thumbnailUrl: String
     let title: String

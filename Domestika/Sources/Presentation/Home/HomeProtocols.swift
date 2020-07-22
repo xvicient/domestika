@@ -18,13 +18,17 @@ protocol HomeBuilderProtocol {
 // MARK: - Router
 
 // sourcery: AutoMockable
-protocol HomeRouterProtocol {}
+protocol HomeRouterProtocol {
+    func showCourse(_ course: Course)
+    func show(_ message: String, okTitle: String)
+}
 
 // MARK: - Presenter
 
 // sourcery: AutoMockable
 protocol HomePresenterProtocol {
     func viewDidLoad()
+    func didTapCourse(_ index: Int, section: HomeViewCourseSection)
 }
 
 // MARK: - Interactor
@@ -36,8 +40,8 @@ protocol HomeInteractorProtocol {
 
 // MARK: - View
 
-enum HomeViewState {
-    case showMainCourses(_ data: HomeViewMainCourseData)
+enum HomeViewState: Equatable {
+    case showMainCourses(_ courses: [HomeViewMainCourse])
     case showPopularCourses(_ data: HomeViewPopularCourseData)
 }
 

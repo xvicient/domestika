@@ -9,20 +9,10 @@
 import UIKit
 import SnapKit
 
-struct HomeViewMainCourseData {
-    let courses: [HomeViewMainCourse]
+struct HomeViewMainCourse: Equatable {
+    let imageURL: URL?
+    let title: String
     let watchCourseTitle: String
-}
-
-protocol HomeViewMainCourse {
-    var mainCourseImageURL: URL? { get }
-    var title: String { get }
-}
-
-extension Course: HomeViewMainCourse {
-    var mainCourseImageURL: URL? {
-        URL(string: thumbnailUrl)
-    }
 }
 
 class HomeMainCoursesView: DOView {
@@ -45,9 +35,9 @@ class HomeMainCoursesView: DOView {
         return pageControl
     }()
 
-    var data: HomeViewMainCourseData? {
+    var courses = [HomeViewMainCourse]() {
         didSet {
-            pageControl.numberOfPages = data?.courses.count ?? 0
+            pageControl.numberOfPages = courses.count
             collectionView.reloadData()
         }
     }
@@ -78,12 +68,12 @@ class HomeMainCoursesView: DOView {
 
 extension HomeMainCoursesView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data?.courses.count ?? 0
+        courses.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomeMainCoursesCollectionViewCell = collectionView.dequeue(for: indexPath)
-        cell.setup(data!.courses[indexPath.row], watchCourseTitle: data!.watchCourseTitle)
+        cell.setup(courses[indexPath.row])
         return cell
     }
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum HomeViewCourseSection {
+    case main
+    case popular
+}
+
 final class HomeView: DOView {
 
     private lazy var scrollView: UIScrollView = {
@@ -74,8 +79,8 @@ final class HomeView: DOView {
         }
     }
 
-    func showMainCourses(_ data: HomeViewMainCourseData) {
-        mainCoursesView.data = data
+    func showMainCourses(_ courses: [HomeViewMainCourse]) {
+        mainCoursesView.courses = courses
     }
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {

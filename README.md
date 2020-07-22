@@ -21,9 +21,9 @@ Modular app structured using VIPER architecture. All components of each module h
 
 Based on Domestika [resource](http://mobile-assets.domestika.org/challenge/home.json).
 
-
 **Testing**
 
+Full Unit Testing and API data testing.
 
 **Frameworks**
 
@@ -31,6 +31,7 @@ Based on Domestika [resource](http://mobile-assets.domestika.org/challenge/home.
 *SnapKit* used to make Auto Layout programatically.<br/>
 *SwiftLint* used to enforce Swift style and conventions.<br/>
 *Nuke* used to download and display images on the app.<br/>
+*SwiftyMocky* used to build mocks in runtime. Depends on Sourcery, which scans the source code and generates mocks.<br/>
 
 ## Changes
 

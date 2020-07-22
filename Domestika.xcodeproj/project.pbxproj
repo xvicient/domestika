@@ -11,7 +11,6 @@
 		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
 		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
 		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
-		C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A58824C717B000FA6035 /* DomestikaTests.swift */; };
 		C774740724C7319E003067FE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740624C7319E003067FE /* DependencyInjection.swift */; };
 		C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740824C731B5003067FE /* DependenciesRegistration.swift */; };
 		C774741124C7329B003067FE /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740A24C7329B003067FE /* HomePresenter.swift */; };
@@ -35,7 +34,7 @@
 		C774744024C75A63003067FE /* ReviewsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774743F24C75A63003067FE /* ReviewsCodable.swift */; };
 		C774744324C75ACF003067FE /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744224C75ACF003067FE /* Course.swift */; };
 		C774744524C75AE0003067FE /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744424C75AE0003067FE /* Teacher.swift */; };
-		C774744724C75AF0003067FE /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744624C75AF0003067FE /* Entities.swift */; };
+		C774744724C75AF0003067FE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744624C75AF0003067FE /* Reviews.swift */; };
 		C774744A24C75B23003067FE /* DomainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744924C75B23003067FE /* DomainProtocols.swift */; };
 		C774744F24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774744E24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift */; };
 		C774745124C7678A003067FE /* DOViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774745024C7678A003067FE /* DOViewCell.swift */; };
@@ -52,6 +51,10 @@
 		C774747224C79EFD003067FE /* HomePopularCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747124C79EFD003067FE /* HomePopularCoursesView.swift */; };
 		C774747424C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */; };
 		C774747624C7A295003067FE /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747524C7A295003067FE /* UIView+Shadow.swift */; };
+		C7B0435724C88533002CC419 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B0435624C88533002CC419 /* DomestikaTests.swift */; };
+		C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B0435824C8853A002CC419 /* Mock.generated.swift */; };
+		C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */; };
+		C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0D24C889E80093CD8B /* CourseMock.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +79,6 @@
 		C760A57D24C717B000FA6035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C760A57F24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C760A58424C717B000FA6035 /* DomestikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomestikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C760A58824C717B000FA6035 /* DomestikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomestikaTests.swift; sourceTree = "<group>"; };
-		C760A58A24C717B000FA6035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C774740624C7319E003067FE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 		C774740824C731B5003067FE /* DependenciesRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesRegistration.swift; sourceTree = "<group>"; };
 		C774740A24C7329B003067FE /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -101,7 +102,7 @@
 		C774743F24C75A63003067FE /* ReviewsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCodable.swift; sourceTree = "<group>"; };
 		C774744224C75ACF003067FE /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		C774744424C75AE0003067FE /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
-		C774744624C75AF0003067FE /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		C774744624C75AF0003067FE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		C774744924C75B23003067FE /* DomainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainProtocols.swift; sourceTree = "<group>"; };
 		C774744E24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C774745024C7678A003067FE /* DOViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +119,11 @@
 		C774747124C79EFD003067FE /* HomePopularCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesView.swift; sourceTree = "<group>"; };
 		C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C774747524C7A295003067FE /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		C7B0435624C88533002CC419 /* DomestikaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomestikaTests.swift; sourceTree = "<group>"; };
+		C7B0435824C8853A002CC419 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
+		C7B0435924C8853A002CC419 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		C7CBEC0D24C889E80093CD8B /* CourseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseMock.swift; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,8 +189,8 @@
 		C760A58724C717B000FA6035 /* DomestikaTests */ = {
 			isa = PBXGroup;
 			children = (
-				C760A58824C717B000FA6035 /* DomestikaTests.swift */,
-				C760A58A24C717B000FA6035 /* Info.plist */,
+				C7B0435324C8835C002CC419 /* Sources */,
+				C7B0434C24C88331002CC419 /* Resources */,
 			);
 			path = DomestikaTests;
 			sourceTree = "<group>";
@@ -346,7 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				C774744224C75ACF003067FE /* Course.swift */,
-				C774744624C75AF0003067FE /* Entities.swift */,
+				C774744624C75AF0003067FE /* Reviews.swift */,
 				C774744424C75AE0003067FE /* Teacher.swift */,
 			);
 			path = Entities;
@@ -391,6 +397,49 @@
 			path = Locales;
 			sourceTree = "<group>";
 		};
+		C7B0434C24C88331002CC419 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C7B0435924C8853A002CC419 /* Info.plist */,
+				C7B0435824C8853A002CC419 /* Mock.generated.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C7B0435324C8835C002CC419 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C7B0435624C88533002CC419 /* DomestikaTests.swift */,
+				C7CBEC0C24C889CF0093CD8B /* Entities */,
+				C7CBEC0424C887070093CD8B /* Presentation */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C7CBEC0424C887070093CD8B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC0524C887170093CD8B /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C7CBEC0524C887170093CD8B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C7CBEC0C24C889CF0093CD8B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC0D24C889E80093CD8B /* CourseMock.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E275086DAA5C01D873221460 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +482,7 @@
 				C760A58024C717B000FA6035 /* Sources */,
 				C760A58124C717B000FA6035 /* Frameworks */,
 				C760A58224C717B000FA6035 /* Resources */,
+				66BD6A71A7E718C11BE1D74C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -459,6 +509,7 @@
 					};
 					C760A58324C717B000FA6035 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = C760A56D24C717AF00FA6035;
 					};
 				};
@@ -549,6 +600,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		66BD6A71A7E718C11BE1D74C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E3D82BD4B58B05D35619F8F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -616,7 +684,7 @@
 				C774745424C768AC003067FE /* UICollectionView+DO.swift in Sources */,
 				C774741424C7329B003067FE /* HomeProtocols.swift in Sources */,
 				C774744F24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift in Sources */,
-				C774744724C75AF0003067FE /* Entities.swift in Sources */,
+				C774744724C75AF0003067FE /* Reviews.swift in Sources */,
 				C774744024C75A63003067FE /* ReviewsCodable.swift in Sources */,
 				C774743C24C75996003067FE /* CourseCodable.swift in Sources */,
 				C774745A24C788B1003067FE /* HomeLocales.swift in Sources */,
@@ -636,7 +704,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C760A58924C717B000FA6035 /* DomestikaTests.swift in Sources */,
+				C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */,
+				C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */,
+				C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */,
+				C7B0435724C88533002CC419 /* DomestikaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,10 +915,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DomestikaTests/Info.plist;
+				INFOPLIST_FILE = DomestikaTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -856,6 +927,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xvicient.DomestikaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Domestika.app/Domestika";
@@ -866,10 +938,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41EAD8FD2972FFF1339A76BA /* Pods-DomestikaTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DomestikaTests/Info.plist;
+				INFOPLIST_FILE = DomestikaTests/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

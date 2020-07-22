@@ -16,6 +16,7 @@ end
 
 target 'DomestikaTests' do
   common
+  pod 'SwiftyMocky', '~> 3.5'
 end
 
 workspace 'Domestika'

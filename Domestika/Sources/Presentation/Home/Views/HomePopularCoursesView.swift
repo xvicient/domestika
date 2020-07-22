@@ -9,25 +9,16 @@
 import UIKit
 import SnapKit
 
-struct HomeViewPopularCourseData {
+struct HomeViewPopularCourseData: Equatable {
     let courses: [HomeViewPopularCourse]
-    let watchCourseTitle: String
     let popularCourseTitle: String
 }
 
-protocol HomeViewPopularCourse {
-    var popularCourseImageURL: URL? { get }
-    var title: String { get }
-    var teacherName: String { get }
-}
-
-extension Course: HomeViewPopularCourse {
-    var popularCourseImageURL: URL? {
-        URL(string: thumbnailUrl)
-    }
-    var teacherName: String {
-        teacher.name
-    }
+struct HomeViewPopularCourse: Equatable {
+    let imageURL: URL?
+    let title: String
+    let teacher: String
+    let watchCourseTitle: String
 }
 
 class HomePopularCoursesView: DOView {
@@ -115,7 +106,7 @@ extension HomePopularCoursesView: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomePopularCoursesCollectionViewCell = collectionView.dequeue(for: indexPath)
-        cell.setup(data!.courses[indexPath.row], watchCourseTitle: data!.watchCourseTitle)
+        cell.setup(data!.courses[indexPath.row])
         return cell
     }
 

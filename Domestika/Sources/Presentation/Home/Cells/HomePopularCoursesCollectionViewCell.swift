@@ -129,11 +129,11 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
         }
     }
 
-    func setup(_ course: HomeViewPopularCourse, watchCourseTitle: String) {
+    func setup(_ course: HomeViewPopularCourse) {
         titleLabel.text = course.title
-        teacherLabel.text = course.teacherName
-        watchCourseLabel.text = watchCourseTitle
-        if let imageURL = course.popularCourseImageURL {
+        teacherLabel.text = course.teacher
+        watchCourseLabel.text = course.watchCourseTitle
+        if let imageURL = course.imageURL {
             courseImageView.load(url: imageURL)
         }
     }

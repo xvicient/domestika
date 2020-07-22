@@ -13,6 +13,8 @@ final class HomePresenter {
     private let interactor: HomeInteractorProtocol
     private let router: HomeRouterProtocol
     private let locales: HomeLocales
+    private var mainCourses = [Course]()
+    private var popularCourses = [Course]()
     
     init(view: HomeViewProtocol,
          interactor: HomeInteractorProtocol,
@@ -31,6 +33,13 @@ extension HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
         showCourses()
     }
+    
+    func didTapCourse(_ index: Int, section: HomeViewCourseSection) {
+        switch section {
+        case .main: router.showCourse(mainCourses[index])
+        case .popular: router.showCourse(popularCourses[index])
+        }
+    }
 }
 
 // MARK: - Private
@@ -41,16 +50,34 @@ private extension HomePresenter {
             guard let self = self else { return }
             switch result {
             case let .success(courses):
-                let mainCourseData = HomeViewMainCourseData(courses: Array(courses.prefix(4)),
-                                                            watchCourseTitle: self.locales.watchMainCourseTitle)
-                self.view.render(state: .showMainCourses(mainCourseData))
-                let popularCourseData = HomeViewPopularCourseData(courses: Array(courses.dropFirst(4)),
-                                                                  watchCourseTitle: self.locales.watchMainCourseTitle,
-                                                                  popularCourseTitle: self.locales.popularCourseTitle)
-                self.view.render(state: .showPopularCourses(popularCourseData))
+                self.showMainCourses(courses)
+                self.showPopularCourses(courses)
             case .failure:
-                break
+                self.router.show(self.locales.genericErrorMessage, okTitle: self.locales.alertOkTitle)
             }
         }
+    }
+
+    func showMainCourses(_ courses: [Course]) {
+        mainCourses = Array(courses.prefix(4))
+        let courses = mainCourses.map {
+            HomeViewMainCourse(imageURL: URL(string: $0.thumbnailUrl),
+                               title: $0.title,
+                               watchCourseTitle: locales.watchMainCourseTitle)
+        }
+        view.render(state: .showMainCourses(courses))
+    }
+
+    func showPopularCourses(_ courses: [Course]) {
+        popularCourses = Array(courses.dropFirst(4))
+        let courses = popularCourses.map {
+            HomeViewPopularCourse(imageURL: URL(string: $0.thumbnailUrl),
+                                  title: $0.title,
+                                  teacher: $0.teacher.name,
+                                  watchCourseTitle: locales.watchMainCourseTitle)
+        }
+        let popularCourseData = HomeViewPopularCourseData(courses: courses,
+                                                          popularCourseTitle: locales.popularCourseTitle)
+        view.render(state: .showPopularCourses(popularCourseData))
     }
 }
