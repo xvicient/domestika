@@ -54,6 +54,9 @@
 		C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B0435824C8853A002CC419 /* Mock.generated.swift */; };
 		C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */; };
 		C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0D24C889E80093CD8B /* CourseMock.swift */; };
+		C7CBEC1224C8A1AF0093CD8B /* ApiStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC1124C8A1AF0093CD8B /* ApiStub.swift */; };
+		C7CBEC1724C8A2CA0093CD8B /* courses.json in Resources */ = {isa = PBXBuildFile; fileRef = C7CBEC1624C8A2CA0093CD8B /* courses.json */; };
+		C7CBEC1924C8A2E50093CD8B /* CourseServiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC1824C8A2E50093CD8B /* CourseServiseTests.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +125,9 @@
 		C7B0435924C8853A002CC419 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		C7CBEC0D24C889E80093CD8B /* CourseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseMock.swift; sourceTree = "<group>"; };
+		C7CBEC1124C8A1AF0093CD8B /* ApiStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiStub.swift; sourceTree = "<group>"; };
+		C7CBEC1624C8A2CA0093CD8B /* courses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = courses.json; sourceTree = "<group>"; };
+		C7CBEC1824C8A2E50093CD8B /* CourseServiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseServiseTests.swift; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,8 +413,9 @@
 		C7B0435324C8835C002CC419 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C7CBEC0F24C8A15E0093CD8B /* Data */,
 				C7CBEC0C24C889CF0093CD8B /* Entities */,
-				C7CBEC0424C887070093CD8B /* Presentation */,
+				C7CBEC1324C8A2480093CD8B /* TestCases */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -435,6 +442,48 @@
 				C7CBEC0D24C889E80093CD8B /* CourseMock.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		C7CBEC0F24C8A15E0093CD8B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC1024C8A1A30093CD8B /* Api */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C7CBEC1024C8A1A30093CD8B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC1124C8A1AF0093CD8B /* ApiStub.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		C7CBEC1324C8A2480093CD8B /* TestCases */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC0424C887070093CD8B /* Presentation */,
+				C7CBEC1424C8A25C0093CD8B /* Services */,
+			);
+			path = TestCases;
+			sourceTree = "<group>";
+		};
+		C7CBEC1424C8A25C0093CD8B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC1524C8A2680093CD8B /* Stubs */,
+				C7CBEC1824C8A2E50093CD8B /* CourseServiseTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C7CBEC1524C8A2680093CD8B /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				C7CBEC1624C8A2CA0093CD8B /* courses.json */,
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		E275086DAA5C01D873221460 /* Pods */ = {
@@ -547,6 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CBEC1724C8A2CA0093CD8B /* courses.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +751,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CBEC1924C8A2E50093CD8B /* CourseServiseTests.swift in Sources */,
+				C7CBEC1224C8A1AF0093CD8B /* ApiStub.swift in Sources */,
 				C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */,
 				C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */,
 				C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */,

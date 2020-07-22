@@ -1,0 +1,25 @@
+[
+  {
+    "id": "387",
+    "thumbnailUrl": "http://domestika.org",
+    "title": "Introduction to Adobe Photoshop",
+    "trailerUrl": "https://player.vimeo.com",
+    "description": "Learn Adobe Photoshop.",
+    "location": "Barcelona, Spain",
+    "teacher": {
+      "name": "Carles Marsal",
+      "avatarUrl": "http://domestika.org"
+    },
+    "reviews": {
+      "positive": 4008,
+      "total": 4100
+    },
+    "lessonsCount": 50,
+    "students": 161905,
+    "audio": "Spanish",
+    "subtitles": [
+      "English"
+    ],
+    "level": "Beginner"
+  }
+]
