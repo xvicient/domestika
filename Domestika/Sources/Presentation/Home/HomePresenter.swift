@@ -33,12 +33,13 @@ extension HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
         showCourses()
     }
-    
-    func didTapCourse(_ index: Int, section: HomeViewCourseSection) {
-        switch section {
-        case .main: router.showCourse(mainCourses[index])
-        case .popular: router.showCourse(popularCourses[index])
-        }
+
+    func didSelectMainCourse(_ index: Int) {
+        router.showCourse(mainCourses[index])
+    }
+
+    func didSelectPopularCourse(_ index: Int) {
+        router.showCourse(popularCourses[index])
     }
 }
 

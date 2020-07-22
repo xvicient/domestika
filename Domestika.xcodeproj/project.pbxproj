@@ -51,7 +51,6 @@
 		C774747224C79EFD003067FE /* HomePopularCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747124C79EFD003067FE /* HomePopularCoursesView.swift */; };
 		C774747424C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */; };
 		C774747624C7A295003067FE /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747524C7A295003067FE /* UIView+Shadow.swift */; };
-		C7B0435724C88533002CC419 /* DomestikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B0435624C88533002CC419 /* DomestikaTests.swift */; };
 		C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B0435824C8853A002CC419 /* Mock.generated.swift */; };
 		C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */; };
 		C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBEC0D24C889E80093CD8B /* CourseMock.swift */; };
@@ -119,7 +118,6 @@
 		C774747124C79EFD003067FE /* HomePopularCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesView.swift; sourceTree = "<group>"; };
 		C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
 		C774747524C7A295003067FE /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
-		C7B0435624C88533002CC419 /* DomestikaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomestikaTests.swift; sourceTree = "<group>"; };
 		C7B0435824C8853A002CC419 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		C7B0435924C8853A002CC419 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7CBEC0A24C8878E0093CD8B /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 		C7B0435324C8835C002CC419 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C7B0435624C88533002CC419 /* DomestikaTests.swift */,
 				C7CBEC0C24C889CF0093CD8B /* Entities */,
 				C7CBEC0424C887070093CD8B /* Presentation */,
 			);
@@ -707,7 +704,6 @@
 				C7B0435A24C8853A002CC419 /* Mock.generated.swift in Sources */,
 				C7CBEC0B24C8878E0093CD8B /* HomeTests.swift in Sources */,
 				C7CBEC0E24C889E80093CD8B /* CourseMock.swift in Sources */,
-				C7B0435724C88533002CC419 /* DomestikaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

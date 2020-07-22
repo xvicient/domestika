@@ -21,7 +21,13 @@ struct HomeViewPopularCourse: Equatable {
     let watchCourseTitle: String
 }
 
+protocol HomePopularCoursesViewDelegate: class {
+    func didSelectPopularCourse(_ index: Int)
+}
+
 class HomePopularCoursesView: DOView {
+
+    weak var coursesDelegate: HomePopularCoursesViewDelegate?
 
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -114,5 +120,9 @@ extension HomePopularCoursesView: UICollectionViewDelegate, UICollectionViewData
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width, height: frame.size.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        coursesDelegate?.didSelectPopularCourse(indexPath.row)
     }
 }

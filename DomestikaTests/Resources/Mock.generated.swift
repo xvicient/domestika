@@ -521,24 +521,33 @@ open class HomePresenterProtocolMock: HomePresenterProtocol, Mock {
 		perform?()
     }
 
-    open func didTapCourse(_ index: Int, section: HomeViewCourseSection) {
-        addInvocation(.m_didTapCourse__indexsection_section(Parameter<Int>.value(`index`), Parameter<HomeViewCourseSection>.value(`section`)))
-		let perform = methodPerformValue(.m_didTapCourse__indexsection_section(Parameter<Int>.value(`index`), Parameter<HomeViewCourseSection>.value(`section`))) as? (Int, HomeViewCourseSection) -> Void
-		perform?(`index`, `section`)
+    open func didSelectMainCourse(_ index: Int) {
+        addInvocation(.m_didSelectMainCourse__index(Parameter<Int>.value(`index`)))
+		let perform = methodPerformValue(.m_didSelectMainCourse__index(Parameter<Int>.value(`index`))) as? (Int) -> Void
+		perform?(`index`)
+    }
+
+    open func didSelectPopularCourse(_ index: Int) {
+        addInvocation(.m_didSelectPopularCourse__index(Parameter<Int>.value(`index`)))
+		let perform = methodPerformValue(.m_didSelectPopularCourse__index(Parameter<Int>.value(`index`))) as? (Int) -> Void
+		perform?(`index`)
     }
 
 
     fileprivate enum MethodType {
         case m_viewDidLoad
-        case m_didTapCourse__indexsection_section(Parameter<Int>, Parameter<HomeViewCourseSection>)
+        case m_didSelectMainCourse__index(Parameter<Int>)
+        case m_didSelectPopularCourse__index(Parameter<Int>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
             case (.m_viewDidLoad, .m_viewDidLoad):
                 return true 
-            case (.m_didTapCourse__indexsection_section(let lhsIndex, let lhsSection), .m_didTapCourse__indexsection_section(let rhsIndex, let rhsSection)):
+            case (.m_didSelectMainCourse__index(let lhsIndex), .m_didSelectMainCourse__index(let rhsIndex)):
                 guard Parameter.compare(lhs: lhsIndex, rhs: rhsIndex, with: matcher) else { return false } 
-                guard Parameter.compare(lhs: lhsSection, rhs: rhsSection, with: matcher) else { return false } 
+                return true 
+            case (.m_didSelectPopularCourse__index(let lhsIndex), .m_didSelectPopularCourse__index(let rhsIndex)):
+                guard Parameter.compare(lhs: lhsIndex, rhs: rhsIndex, with: matcher) else { return false } 
                 return true 
             default: return false
             }
@@ -547,7 +556,8 @@ open class HomePresenterProtocolMock: HomePresenterProtocol, Mock {
         func intValue() -> Int {
             switch self {
             case .m_viewDidLoad: return 0
-            case let .m_didTapCourse__indexsection_section(p0, p1): return p0.intValue + p1.intValue
+            case let .m_didSelectMainCourse__index(p0): return p0.intValue
+            case let .m_didSelectPopularCourse__index(p0): return p0.intValue
             }
         }
     }
@@ -567,7 +577,8 @@ open class HomePresenterProtocolMock: HomePresenterProtocol, Mock {
         fileprivate var method: MethodType
 
         public static func viewDidLoad() -> Verify { return Verify(method: .m_viewDidLoad)}
-        public static func didTapCourse(_ index: Parameter<Int>, section: Parameter<HomeViewCourseSection>) -> Verify { return Verify(method: .m_didTapCourse__indexsection_section(`index`, `section`))}
+        public static func didSelectMainCourse(_ index: Parameter<Int>) -> Verify { return Verify(method: .m_didSelectMainCourse__index(`index`))}
+        public static func didSelectPopularCourse(_ index: Parameter<Int>) -> Verify { return Verify(method: .m_didSelectPopularCourse__index(`index`))}
     }
 
     public struct Perform {
@@ -577,8 +588,11 @@ open class HomePresenterProtocolMock: HomePresenterProtocol, Mock {
         public static func viewDidLoad(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_viewDidLoad, performs: perform)
         }
-        public static func didTapCourse(_ index: Parameter<Int>, section: Parameter<HomeViewCourseSection>, perform: @escaping (Int, HomeViewCourseSection) -> Void) -> Perform {
-            return Perform(method: .m_didTapCourse__indexsection_section(`index`, `section`), performs: perform)
+        public static func didSelectMainCourse(_ index: Parameter<Int>, perform: @escaping (Int) -> Void) -> Perform {
+            return Perform(method: .m_didSelectMainCourse__index(`index`), performs: perform)
+        }
+        public static func didSelectPopularCourse(_ index: Parameter<Int>, perform: @escaping (Int) -> Void) -> Perform {
+            return Perform(method: .m_didSelectPopularCourse__index(`index`), performs: perform)
         }
     }
 

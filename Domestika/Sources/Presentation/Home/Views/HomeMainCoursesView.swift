@@ -15,7 +15,13 @@ struct HomeViewMainCourse: Equatable {
     let watchCourseTitle: String
 }
 
+protocol HomeMainCoursesViewDelegate: class {
+    func didSelectMainCourse(_ index: Int)
+}
+
 class HomeMainCoursesView: DOView {
+
+    weak var coursesDelegate: HomeMainCoursesViewDelegate?
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -91,5 +97,9 @@ extension HomeMainCoursesView: UICollectionViewDelegate, UICollectionViewDataSou
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        coursesDelegate?.didSelectMainCourse(indexPath.row)
     }
 }

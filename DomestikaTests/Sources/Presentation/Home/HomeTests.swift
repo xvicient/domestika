@@ -26,6 +26,21 @@ class HomeViewTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+
+    func test_viewLoaded() {
+        view.viewDidLoad()
+        Verify(presenterMock, 1, .viewDidLoad())
+    }
+
+    func test_mainCourseSelected() {
+        view.didSelectMainCourse(0)
+        Verify(presenterMock, 1, .didSelectMainCourse(.value(0)))
+    }
+
+    func test_popularCourseSelected() {
+        view.didSelectPopularCourse(0)
+        Verify(presenterMock, 1, .didSelectPopularCourse(.value(0)))
+    }
 }
 
 private extension HomeViewTests {
@@ -92,7 +107,7 @@ class HomePresenterTests: XCTestCase {
 
         let tapIndex = 0
         let mainCourses = Array(coursesMock.prefix(4))
-        presenter.didTapCourse(tapIndex, section: .main)
+        presenter.didSelectMainCourse(tapIndex)
 
         Verify(routerMock, 1, .showCourse(.value(mainCourses[tapIndex])))
     }
@@ -103,7 +118,7 @@ class HomePresenterTests: XCTestCase {
 
         let tapIndex = 0
         let popularCourses = Array(coursesMock.dropFirst(4))
-        presenter.didTapCourse(tapIndex, section: .popular)
+        presenter.didSelectPopularCourse(tapIndex)
 
         Verify(routerMock, 1, .showCourse(.value(popularCourses[tapIndex])))
     }
@@ -136,6 +151,11 @@ class HomeInteractorTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
+    }
+
+    func test_coursesRequested() {
+        interactor.courses(completion: { _ in })
+        Verify(courseServiceMock, 1, .courses(completion: .any))
     }
 }
 

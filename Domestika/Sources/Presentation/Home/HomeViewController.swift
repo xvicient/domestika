@@ -13,7 +13,9 @@ final class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol!
 
     private lazy var homeView: HomeView = {
-        HomeView()
+        let homeView = HomeView()
+        homeView.homeDelegate = self
+        return homeView
     }()
 
     override func viewWillAppear(_ animated: Bool) {
@@ -62,5 +64,17 @@ private extension HomeViewController {
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {
         homeView.showPopularCourses(data)
+    }
+}
+
+// MARK: - HomeViewDelegate
+
+extension HomeViewController: HomeViewDelegate {
+    func didSelectMainCourse(_ index: Int) {
+        presenter.didSelectMainCourse(index)
+    }
+
+    func didSelectPopularCourse(_ index: Int) {
+        presenter.didSelectPopularCourse(index)
     }
 }

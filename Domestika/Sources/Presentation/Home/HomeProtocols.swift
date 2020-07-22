@@ -28,7 +28,8 @@ protocol HomeRouterProtocol {
 // sourcery: AutoMockable
 protocol HomePresenterProtocol {
     func viewDidLoad()
-    func didTapCourse(_ index: Int, section: HomeViewCourseSection)
+    func didSelectMainCourse(_ index: Int)
+    func didSelectPopularCourse(_ index: Int)
 }
 
 // MARK: - Interactor

@@ -8,12 +8,14 @@
 
 import UIKit
 
-enum HomeViewCourseSection {
-    case main
-    case popular
+protocol HomeViewDelegate: class {
+    func didSelectMainCourse(_ index: Int)
+    func didSelectPopularCourse(_ index: Int)
 }
 
 final class HomeView: DOView {
+
+    weak var homeDelegate: HomeViewDelegate?
 
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -35,11 +37,15 @@ final class HomeView: DOView {
     }()
 
     private lazy var mainCoursesView: HomeMainCoursesView = {
-        HomeMainCoursesView()
+        let mainCoursesView = HomeMainCoursesView()
+        mainCoursesView.coursesDelegate = self
+        return mainCoursesView
     }()
 
     private lazy var popularCoursesView: HomePopularCoursesView = {
-        HomePopularCoursesView()
+        let popularCoursesView = HomePopularCoursesView()
+        popularCoursesView.coursesDelegate = self
+        return popularCoursesView
     }()
 
     override public func setup() {
@@ -85,5 +91,17 @@ final class HomeView: DOView {
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {
         popularCoursesView.data = data
+    }
+}
+
+// MARK: - HomeMainCoursesViewDelegate && HomePopularCoursesViewDelegate
+
+extension HomeView: HomeMainCoursesViewDelegate, HomePopularCoursesViewDelegate {
+    func didSelectMainCourse(_ index: Int) {
+        homeDelegate?.didSelectMainCourse(index)
+    }
+
+    func didSelectPopularCourse(_ index: Int) {
+        homeDelegate?.didSelectPopularCourse(index)
     }
 }
