@@ -16,6 +16,7 @@ class DOView: UIView {
         super.init(frame: frame)
         setup()
         addSubviews()
+        addConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,4 +26,6 @@ class DOView: UIView {
     func setup() {}
 
     func addSubviews() {}
+
+    func addConstraints() {}
 }

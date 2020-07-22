@@ -11,16 +11,16 @@ import SnapKit
 
 struct HomeViewMainCourseData {
     let courses: [HomeViewMainCourse]
-    let watchButtonTitle: String
+    let watchCourseTitle: String
 }
 
 protocol HomeViewMainCourse {
-    var imageURL: URL? { get }
+    var mainCourseImageURL: URL? { get }
     var title: String { get }
 }
 
 extension Course: HomeViewMainCourse {
-    var imageURL: URL? {
+    var mainCourseImageURL: URL? {
         URL(string: thumbnailUrl)
     }
 }
@@ -36,7 +36,7 @@ class HomeMainCoursesView: DOView {
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        backgroundColor = .clear
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
 
@@ -57,29 +57,21 @@ class HomeMainCoursesView: DOView {
     }
 
     override public func addSubviews() {
-        addCollectionView()
-        addPageControl()
+        addSubview(collectionView)
+        addSubview(pageControl)
     }
 
-}
-
-// MARK: - Life cycle
-
-private extension HomeMainCoursesView {
-    func addPageControl() {
-        addSubview(pageControl)
+    override public func addConstraints() {
         pageControl.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-10)
         }
-    }
 
-    func addCollectionView() {
-        addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
+
 }
 
 // MARK: - UICollectionViewDelegate && UICollectionViewDataSource && UICollectionViewDelegateFlowLayout
@@ -91,7 +83,7 @@ extension HomeMainCoursesView: UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HomeMainCoursesCollectionViewCell = collectionView.dequeue(for: indexPath)
-        cell.setup(data!.courses[indexPath.row], watchButtonTitle: data!.watchButtonTitle)
+        cell.setup(data!.courses[indexPath.row], watchCourseTitle: data!.watchCourseTitle)
         return cell
     }
 

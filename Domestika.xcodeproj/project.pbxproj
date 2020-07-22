@@ -23,7 +23,6 @@
 		C774741D24C743D6003067FE /* HomeMainCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741C24C743D6003067FE /* HomeMainCoursesView.swift */; };
 		C774741F24C751BB003067FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741E24C751BB003067FE /* HomeView.swift */; };
 		C774742324C75487003067FE /* DOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742224C75487003067FE /* DOView.swift */; };
-		C774742524C7560A003067FE /* DOCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742424C7560A003067FE /* DOCollectionView.swift */; };
 		C774742924C75740003067FE /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742824C75740003067FE /* ApiClient.swift */; };
 		C774742B24C7575B003067FE /* APIClientLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742A24C7575B003067FE /* APIClientLogger.swift */; };
 		C774742D24C7576F003067FE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742C24C7576F003067FE /* Endpoint.swift */; };
@@ -50,6 +49,9 @@
 		C774746A24C78B2D003067FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C774746C24C78B2D003067FE /* InfoPlist.strings */; };
 		C774746E24C78C7F003067FE /* UIView+RoundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774746D24C78C7F003067FE /* UIView+RoundCorners.swift */; };
 		C774747024C78DBA003067FE /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774746F24C78DBA003067FE /* UIView+Gradient.swift */; };
+		C774747224C79EFD003067FE /* HomePopularCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747124C79EFD003067FE /* HomePopularCoursesView.swift */; };
+		C774747424C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */; };
+		C774747624C7A295003067FE /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774747524C7A295003067FE /* UIView+Shadow.swift */; };
 		D418448E7EA9C455BB364D98 /* Pods_DomestikaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +89,6 @@
 		C774741C24C743D6003067FE /* HomeMainCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCoursesView.swift; sourceTree = "<group>"; };
 		C774741E24C751BB003067FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C774742224C75487003067FE /* DOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOView.swift; sourceTree = "<group>"; };
-		C774742424C7560A003067FE /* DOCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOCollectionView.swift; sourceTree = "<group>"; };
 		C774742824C75740003067FE /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C774742A24C7575B003067FE /* APIClientLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientLogger.swift; sourceTree = "<group>"; };
 		C774742C24C7576F003067FE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -114,6 +115,9 @@
 		C774746B24C78B2D003067FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C774746D24C78C7F003067FE /* UIView+RoundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorners.swift"; sourceTree = "<group>"; };
 		C774746F24C78DBA003067FE /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		C774747124C79EFD003067FE /* HomePopularCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesView.swift; sourceTree = "<group>"; };
+		C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCoursesCollectionViewCell.swift; sourceTree = "<group>"; };
+		C774747524C7A295003067FE /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		C86253E0859714BEE34B9548 /* Pods-DomestikaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.debug.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA8A014FBE3CEE42A08D3F85 /* Pods-Domestika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.debug.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				C774741C24C743D6003067FE /* HomeMainCoursesView.swift */,
+				C774747124C79EFD003067FE /* HomePopularCoursesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,7 +269,6 @@
 		C774742124C7546B003067FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C774742424C7560A003067FE /* DOCollectionView.swift */,
 				C774742224C75487003067FE /* DOView.swift */,
 				C774745024C7678A003067FE /* DOViewCell.swift */,
 			);
@@ -360,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				C774744E24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift */,
+				C774747324C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -369,8 +374,9 @@
 			children = (
 				C774745324C768AC003067FE /* UICollectionView+DO.swift */,
 				C774745724C7694A003067FE /* UIImageView+URL.swift */,
-				C774746D24C78C7F003067FE /* UIView+RoundCorners.swift */,
 				C774746F24C78DBA003067FE /* UIView+Gradient.swift */,
+				C774746D24C78C7F003067FE /* UIView+RoundCorners.swift */,
+				C774747524C7A295003067FE /* UIView+Shadow.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				C774742324C75487003067FE /* DOView.swift in Sources */,
 				C774743E24C75A1C003067FE /* TeacherCodable.swift in Sources */,
 				C774744A24C75B23003067FE /* DomainProtocols.swift in Sources */,
+				C774747224C79EFD003067FE /* HomePopularCoursesView.swift in Sources */,
 				C774747024C78DBA003067FE /* UIView+Gradient.swift in Sources */,
 				C774745824C7694A003067FE /* UIImageView+URL.swift in Sources */,
 				C774742F24C757A6003067FE /* NoResult.swift in Sources */,
@@ -605,7 +612,6 @@
 				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,
 				C774745124C7678A003067FE /* DOViewCell.swift in Sources */,
 				C774742D24C7576F003067FE /* Endpoint.swift in Sources */,
-				C774742524C7560A003067FE /* DOCollectionView.swift in Sources */,
 				C774744524C75AE0003067FE /* Teacher.swift in Sources */,
 				C774745424C768AC003067FE /* UICollectionView+DO.swift in Sources */,
 				C774741424C7329B003067FE /* HomeProtocols.swift in Sources */,
@@ -617,8 +623,10 @@
 				C774745C24C788F3003067FE /* String+Localization.swift in Sources */,
 				C774745624C768CA003067FE /* String+Class.swift in Sources */,
 				C774743824C758D2003067FE /* CourseService.swift in Sources */,
+				C774747624C7A295003067FE /* UIView+Shadow.swift in Sources */,
 				C774741624C7329B003067FE /* HomeInteractor.swift in Sources */,
 				C774741224C7329B003067FE /* HomeRouter.swift in Sources */,
+				C774747424C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift in Sources */,
 				C774743324C757D0003067FE /* URLRequest+cURLString.swift in Sources */,
 				C774741D24C743D6003067FE /* HomeMainCoursesView.swift in Sources */,
 			);
@@ -798,6 +806,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPMAMPZRCV;
 				INFOPLIST_FILE = Domestika/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -817,6 +826,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPMAMPZRCV;
 				INFOPLIST_FILE = Domestika/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

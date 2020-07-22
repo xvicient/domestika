@@ -20,9 +20,9 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
     private lazy var watchButton: UIButton = {
         let watchButton = UIButton()
         watchButton.backgroundColor = .white
-        watchButton.setTitleColor(.darkGray, for: .normal)
+        watchButton.setTitleColor(.black, for: .normal)
         watchButton.roundCorners(radius: 2.0)
-        watchButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .heavy)
+        watchButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
         return watchButton
     }()
 
@@ -36,9 +36,28 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
     }()
 
     override public func addSubviews() {
-        addCourseImageView()
-        addWatchButton()
-        addTitleLabel()
+        contentView.addSubview(courseImageView)
+        courseImageView.addSubview(watchButton)
+        courseImageView.addSubview(titleLabel)
+    }
+
+    override public func addConstraints() {
+        courseImageView.snp.makeConstraints {
+            $0.edges.equalTo(contentView)
+            $0.bottom.equalTo(watchButton).offset(55)
+        }
+
+        watchButton.snp.makeConstraints {
+            $0.width.equalTo(120)
+            $0.height.equalTo(35)
+            $0.centerX.equalTo(courseImageView)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+        }
+
+        titleLabel.snp.makeConstraints {
+            $0.width.equalTo(courseImageView).multipliedBy(0.7)
+            $0.centerX.equalTo(courseImageView)
+        }
     }
 
     override func layoutSubviews() {
@@ -46,41 +65,11 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
         courseImageView.addGradient(.vertical, colors: [.clear, UIColor.black.withAlphaComponent(0.75)])
     }
 
-    func setup(_ course: HomeViewMainCourse, watchButtonTitle: String) {
+    func setup(_ course: HomeViewMainCourse, watchCourseTitle: String) {
         titleLabel.text = course.title
-        watchButton.setTitle(watchButtonTitle, for: .normal)
-        if let imageURL = course.imageURL {
+        watchButton.setTitle(watchCourseTitle, for: .normal)
+        if let imageURL = course.mainCourseImageURL {
             courseImageView.load(url: imageURL)
-        }
-    }
-}
-
-// MARK: - Life cycle
-
-private extension HomeMainCoursesCollectionViewCell {
-    func addCourseImageView() {
-        contentView.addSubview(courseImageView)
-        courseImageView.snp.makeConstraints {
-            $0.edges.equalTo(contentView)
-        }
-    }
-
-    func addWatchButton() {
-        courseImageView.addSubview(watchButton)
-        watchButton.snp.makeConstraints {
-            $0.width.equalTo(120)
-            $0.height.equalTo(35)
-            $0.centerX.equalTo(courseImageView)
-            $0.bottom.equalTo(courseImageView).offset(-55)
-        }
-    }
-
-    func addTitleLabel() {
-        courseImageView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.width.equalTo(courseImageView).multipliedBy(0.7)
-            $0.centerX.equalTo(courseImageView)
-            $0.bottom.equalTo(watchButton.snp.top).offset(-10)
         }
     }
 }

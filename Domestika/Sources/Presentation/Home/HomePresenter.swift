@@ -41,8 +41,13 @@ private extension HomePresenter {
             guard let self = self else { return }
             switch result {
             case let .success(courses):
-                let data = HomeViewMainCourseData(courses: courses, watchButtonTitle: self.locales.watchButtonTitle)
-                self.view.render(state: .showMainCourses(data))
+                let mainCourseData = HomeViewMainCourseData(courses: courses,
+                                                            watchCourseTitle: self.locales.watchMainCourseTitle)
+                self.view.render(state: .showMainCourses(mainCourseData))
+                let popularCourseData = HomeViewPopularCourseData(courses: courses,
+                                                                  watchCourseTitle: self.locales.watchMainCourseTitle,
+                                                                  popularCourseTitle: self.locales.popularCourseTitle)
+                self.view.render(state: .showPopularCourses(popularCourseData))
             case .failure:
                 break
             }

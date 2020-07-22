@@ -7,5 +7,7 @@
 //
 
 struct HomeLocales {
-    let watchButtonTitle = "watch_button_title".localized
+    let watchMainCourseTitle = "watch_main_course_title".localized
+    let popularCourseTitle = "popular_course_title".localized
+    let watchPopularCourseTitle = "watch_popular_course_title".localized
 }

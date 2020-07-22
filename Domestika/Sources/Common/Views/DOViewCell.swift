@@ -19,6 +19,7 @@ public class DOViewCell: UICollectionViewCell {
 
         setup()
         addSubviews()
+        addConstraints()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -28,4 +29,6 @@ public class DOViewCell: UICollectionViewCell {
     func setup() {}
 
     func addSubviews() {}
+
+    func addConstraints() {}
 }

@@ -30,6 +30,10 @@ final class HomeViewController: UIViewController {
         super.loadView()
         view = homeView
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
 }
 
 // MARK: - HomeViewProtocol
@@ -39,6 +43,8 @@ extension HomeViewController: HomeViewProtocol {
         switch state {
         case let .showMainCourses(data):
             showMainCourses(data)
+        case let .showPopularCourses(data):
+            showPopularCourses(data)
         }
     }
 }
@@ -52,5 +58,9 @@ private extension HomeViewController {
 
     func showMainCourses(_ data: HomeViewMainCourseData) {
         homeView.showMainCourses(data)
+    }
+
+    func showPopularCourses(_ data: HomeViewPopularCourseData) {
+        homeView.showPopularCourses(data)
     }
 }

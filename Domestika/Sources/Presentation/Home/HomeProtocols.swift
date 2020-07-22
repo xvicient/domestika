@@ -38,6 +38,7 @@ protocol HomeInteractorProtocol {
 
 enum HomeViewState {
     case showMainCourses(_ data: HomeViewMainCourseData)
+    case showPopularCourses(_ data: HomeViewPopularCourseData)
 }
 
 // sourcery: AutoMockable

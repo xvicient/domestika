@@ -13,6 +13,7 @@ final class HomeView: DOView {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.bounces = false
+        scrollView.contentInsetAdjustmentBehavior = .never
         return scrollView
     }()
 
@@ -24,6 +25,7 @@ final class HomeView: DOView {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 40
         return stackView
     }()
 
@@ -31,49 +33,52 @@ final class HomeView: DOView {
         HomeMainCoursesView()
     }()
 
+    private lazy var popularCoursesView: HomePopularCoursesView = {
+        HomePopularCoursesView()
+    }()
+
     override public func setup() {
         backgroundColor = .white
     }
 
     override public func addSubviews() {
-        addScrollView()
-        addStackView()
-        addMainCoursesView()
-    }
-
-    func showMainCourses(_ data: HomeViewMainCourseData) {
-        mainCoursesView.data = data
-    }
-}
-
-// MARK: - Life cycle
-
-private extension HomeView {
-    func addScrollView() {
         addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(mainCoursesView)
+        stackView.addArrangedSubview(popularCoursesView)
+    }
+
+    override public func addConstraints() {
         scrollView.snp.makeConstraints {
-            $0.edges.equalTo(self)
+            $0.edges.equalToSuperview()
         }
 
-        scrollView.addSubview(contentView)
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(self)
             $0.height.equalTo(self).priority(250)
         }
-    }
 
-    func addStackView() {
-        contentView.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.edges.equalTo(contentView)
+            $0.leading.top.trailing.equalTo(contentView)
+            $0.bottom.equalTo(contentView).offset(-40)
+        }
+
+        mainCoursesView.snp.makeConstraints {
+            $0.height.equalTo(450)
+        }
+
+        popularCoursesView.snp.makeConstraints {
+            $0.height.equalTo(325)
         }
     }
 
-    func addMainCoursesView() {
-        stackView.addArrangedSubview(mainCoursesView)
-        mainCoursesView.snp.makeConstraints {
-            $0.height.equalTo(400)
-        }
+    func showMainCourses(_ data: HomeViewMainCourseData) {
+        mainCoursesView.data = data
+    }
+
+    func showPopularCourses(_ data: HomeViewPopularCourseData) {
+        popularCoursesView.data = data
     }
 }
