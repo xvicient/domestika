@@ -48,16 +48,16 @@ class HomeMainCoursesView: DOView {
         }
     }
 
-    override public func setup() {
+    override func setup() {
         backgroundColor = .clear
     }
 
-    override public func addSubviews() {
+    override func addSubviews() {
         addSubview(collectionView)
         addSubview(pageControl)
     }
 
-    override public func addConstraints() {
+    override func addConstraints() {
         pageControl.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-10)

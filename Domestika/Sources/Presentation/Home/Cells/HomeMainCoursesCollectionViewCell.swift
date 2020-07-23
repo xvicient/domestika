@@ -35,13 +35,13 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
         return titleLabel
     }()
 
-    override public func addSubviews() {
+    override func addSubviews() {
         contentView.addSubview(courseImageView)
         courseImageView.addSubview(watchButton)
         courseImageView.addSubview(titleLabel)
     }
 
-    override public func addConstraints() {
+    override func addConstraints() {
         courseImageView.snp.makeConstraints {
             $0.edges.equalTo(contentView)
             $0.bottom.equalTo(watchButton).offset(55)

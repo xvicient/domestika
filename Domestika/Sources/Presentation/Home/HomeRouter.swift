@@ -25,5 +25,8 @@ extension HomeRouter: HomeRouterProtocol {
         viewController.present(alertController, animated: true)
     }
 
-    func showCourse(_ course: Course) {}
+    func showCourse(_ course: Course) {
+        let courseDetailController = CourseDetailBuilder(container: container).buildModule(course)
+        viewController.show(courseDetailController, sender: nil)
+    }
 }

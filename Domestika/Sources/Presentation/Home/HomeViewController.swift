@@ -26,9 +26,10 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        onViewDidLoad()
     }
 
-    override public func loadView() {
+    override func loadView() {
         super.loadView()
         view = homeView
     }
@@ -55,7 +56,15 @@ extension HomeViewController: HomeViewProtocol {
 
 private extension HomeViewController {
     func onViewWillAppear() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    func onViewDidLoad() {
+        let backButton = UIBarButtonItem(image: UIImage(), style: .plain, target: nil, action: nil)
+        backButton.tintColor = .black
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back_arrow")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back_arrow")
     }
 
     func showMainCourses(_ courses: [HomeViewMainCourse]) {

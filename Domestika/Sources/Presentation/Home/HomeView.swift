@@ -48,11 +48,11 @@ final class HomeView: DOView {
         return popularCoursesView
     }()
 
-    override public func setup() {
+    override func setup() {
         backgroundColor = .white
     }
 
-    override public func addSubviews() {
+    override func addSubviews() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
@@ -60,7 +60,7 @@ final class HomeView: DOView {
         stackView.addArrangedSubview(popularCoursesView)
     }
 
-    override public func addConstraints() {
+    override func addConstraints() {
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

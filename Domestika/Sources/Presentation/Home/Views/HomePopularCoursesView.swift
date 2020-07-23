@@ -56,16 +56,16 @@ class HomePopularCoursesView: DOView {
         }
     }
 
-    override public func setup() {
+    override func setup() {
         backgroundColor = .clear
     }
 
-    override public func addSubviews() {
+    override func addSubviews() {
         addSubview(titleLabel)
         addSubview(collectionView)
     }
 
-    override public func addConstraints() {
+    override func addConstraints() {
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().offset(20)
             $0.top.equalToSuperview()

@@ -70,7 +70,7 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
         return arrowImageView
     }()
 
-    override public func addSubviews() {
+    override func addSubviews() {
         contentView.addSubview(containerView)
         containerView.addSubview(courseImageView)
         containerView.addSubview(detailView)
@@ -81,7 +81,7 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
         detailView.addSubview(arrowImageView)
     }
 
-    override public func addConstraints() {
+    override func addConstraints() {
         containerView.snp.makeConstraints {
             $0.edges.equalTo(contentView).inset(UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
         }
