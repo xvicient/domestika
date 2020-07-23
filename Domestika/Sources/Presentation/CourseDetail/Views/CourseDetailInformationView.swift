@@ -14,7 +14,7 @@ protocol CourseDetailInformationViewData {
     var teacher: String { get }
     var teacherAvatarUrl: URL? { get }
     var location: String { get }
-    var information: [String] { get }
+    var data: [CourseDetailItemViewData] { get }
 }
 
 extension CourseDetailViewData: CourseDetailInformationViewData {}
@@ -29,7 +29,7 @@ class CourseDetailInformationView: DOView {
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .regular)
+        titleLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
         titleLabel.numberOfLines = 2
         return titleLabel
     }()
@@ -67,13 +67,14 @@ class CourseDetailInformationView: DOView {
 
     private lazy var separatorView: UIView = {
         let separatorView = UIView()
-        separatorView.backgroundColor = .systemGray6
+        separatorView.backgroundColor = .systemGray4
         return separatorView
     }()
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 16
         return stackView
     }()
 
@@ -91,7 +92,6 @@ class CourseDetailInformationView: DOView {
     override func addConstraints() {
         containerView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(20)
-            $0.height.equalTo(400)
         }
 
         titleLabel.snp.makeConstraints {
@@ -122,16 +122,15 @@ class CourseDetailInformationView: DOView {
         }
 
         separatorView.snp.makeConstraints {
-            $0.top.equalTo(teacherAvatarView.snp.bottom).offset(6)
+            $0.top.equalTo(teacherAvatarView.snp.bottom).offset(28)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(0.5)
         }
 
         stackView.snp.makeConstraints {
-            $0.top.equalTo(separatorView.snp.bottom).offset(6)
+            $0.top.equalTo(separatorView.snp.bottom).offset(38)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(50)
-            $0.bottom.lessThanOrEqualToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 
@@ -142,6 +141,11 @@ class CourseDetailInformationView: DOView {
         locationLabel.text = data.location
         if let url = data.teacherAvatarUrl {
             teacherAvatarView.load(url: url)
+        }
+        data.data.forEach {
+            let itemView = CourseDetailItemView()
+            stackView.addArrangedSubview(itemView)
+            itemView.show($0)
         }
     }
 }

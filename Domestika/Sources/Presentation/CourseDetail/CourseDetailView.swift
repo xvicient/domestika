@@ -17,7 +17,7 @@ struct CourseDetailViewData: Equatable {
     let teacher: String
     let teacherAvatarUrl: URL?
     let location: String
-    let information: [String]
+    let data: [CourseDetailItemViewData]
 }
 
 final class CourseDetailView: DOView {

@@ -13,14 +13,17 @@ final class CourseDetailPresenter {
     private let interactor: CourseDetailInteractorProtocol
     private let router: CourseDetailRouterProtocol
     private let course: Course
+    private let locales: CourseDetailLocales
     
     init(view: CourseDetailViewProtocol,
          interactor: CourseDetailInteractorProtocol,
          router: CourseDetailRouterProtocol,
-        course: Course) {
+         locales: CourseDetailLocales,
+         course: Course) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.locales = locales
         self.course = course
     }
 }
@@ -44,7 +47,17 @@ private extension CourseDetailPresenter {
                                         teacher: course.teacher.name,
                                         teacherAvatarUrl: URL(string: course.teacher.avatarUrl),
                                         location: course.location,
-                                        information: [])
+                                        data: courseData(course))
         view.render(state: .show(data))
+    }
+
+    func courseData(_ course: Course) -> [CourseDetailItemViewData] {
+        let reviewPercentage = "\((course.reviews.positive * 100) / course.reviews.total)%"
+        return [CourseDetailItemViewData(iconKey: "like", title: locales.coursePositiveReviews(reviewPercentage, count: course.reviews.positive)),
+                CourseDetailItemViewData(iconKey: "lesson", title: locales.courseLessons(course.lessonsCount)),
+                CourseDetailItemViewData(iconKey: "user", title: locales.courseStudents(course.students)),
+                CourseDetailItemViewData(iconKey: "audio", title: locales.courseAudio(course.audio)),
+                CourseDetailItemViewData(iconKey: "subtitle", title: course.subtitles.joined(separator: " / ")),
+                CourseDetailItemViewData(iconKey: "level", title: locales.courseLevel, subtitle: course.level.uppercased())]
     }
 }

@@ -24,6 +24,7 @@ extension CourseDetailBuilder: CourseDetailBuilderProtocol {
         let presenter = CourseDetailPresenter(view: view,
                                               interactor: interactor,
                                               router: router,
+                                              locales: CourseDetailLocales(),
                                               course: course)
 
         view.presenter = presenter

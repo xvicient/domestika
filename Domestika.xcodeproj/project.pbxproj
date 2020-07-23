@@ -10,7 +10,10 @@
 		5B5AD104157C73BC0A5AF055 /* Pods_Domestika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */; };
 		C748808E24C9AE0400A7089A /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748808D24C9AE0400A7089A /* CourseDetailView.swift */; };
 		C748809124C9AF2600A7089A /* CourseDetailVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */; };
-		C748809324C9BFD400A7089A /* CourseDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* CourseDetailViewData.swift */; };
+		C748809324C9BFD400A7089A /* CourseDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */; };
+		C748809524C9E07100A7089A /* CourseDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809424C9E07100A7089A /* CourseDetailItemView.swift */; };
+		C748809724C9E2C600A7089A /* CourseDetailLocales.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809624C9E2C600A7089A /* CourseDetailLocales.swift */; };
+		C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809824C9FC1A00A7089A /* InsetLabel.swift */; };
 		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
 		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
 		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
@@ -86,7 +89,10 @@
 		BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.release.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.release.xcconfig"; sourceTree = "<group>"; };
 		C748808D24C9AE0400A7089A /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoView.swift; sourceTree = "<group>"; };
-		C748809224C9BFD400A7089A /* CourseDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewData.swift; sourceTree = "<group>"; };
+		C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailInformationView.swift; sourceTree = "<group>"; };
+		C748809424C9E07100A7089A /* CourseDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailItemView.swift; sourceTree = "<group>"; };
+		C748809624C9E2C600A7089A /* CourseDetailLocales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailLocales.swift; sourceTree = "<group>"; };
+		C748809824C9FC1A00A7089A /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		C760A56E24C717AF00FA6035 /* Domestika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domestika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C760A57124C717AF00FA6035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C760A57A24C717B000FA6035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,8 +188,9 @@
 		C748808F24C9AF1700A7089A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C748809424C9E07100A7089A /* CourseDetailItemView.swift */,
+				C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */,
 				C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */,
-				C748809224C9BFD400A7089A /* CourseDetailViewData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +316,7 @@
 			children = (
 				C774742224C75487003067FE /* DOView.swift */,
 				C774745024C7678A003067FE /* DOViewCell.swift */,
+				C748809824C9FC1A00A7089A /* InsetLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -520,6 +528,7 @@
 				C748808F24C9AF1700A7089A /* Views */,
 				C7CBEC1F24C8A6E70093CD8B /* CourseDetailBuilder.swift */,
 				C7CBEC2024C8A6E70093CD8B /* CourseDetailInteractor.swift */,
+				C748809624C9E2C600A7089A /* CourseDetailLocales.swift */,
 				C7CBEC1B24C8A6E70093CD8B /* CourseDetailPresenter.swift */,
 				C7CBEC1E24C8A6E70093CD8B /* CourseDetailProtocols.swift */,
 				C7CBEC1C24C8A6E70093CD8B /* CourseDetailRouter.swift */,
@@ -751,6 +760,8 @@
 			files = (
 				C774744324C75ACF003067FE /* Course.swift in Sources */,
 				C774740924C731B5003067FE /* DependenciesRegistration.swift in Sources */,
+				C748809524C9E07100A7089A /* CourseDetailItemView.swift in Sources */,
+				C748809724C9E2C600A7089A /* CourseDetailLocales.swift in Sources */,
 				C774743A24C75940003067FE /* Endpoint+Courses.swift in Sources */,
 				C774740724C7319E003067FE /* DependencyInjection.swift in Sources */,
 				C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */,
@@ -771,7 +782,7 @@
 				C774742924C75740003067FE /* ApiClient.swift in Sources */,
 				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,
 				C774745124C7678A003067FE /* DOViewCell.swift in Sources */,
-				C748809324C9BFD400A7089A /* CourseDetailViewData.swift in Sources */,
+				C748809324C9BFD400A7089A /* CourseDetailInformationView.swift in Sources */,
 				C774742D24C7576F003067FE /* Endpoint.swift in Sources */,
 				C774744524C75AE0003067FE /* Teacher.swift in Sources */,
 				C774745424C768AC003067FE /* UICollectionView+DO.swift in Sources */,
@@ -785,6 +796,7 @@
 				C774745C24C788F3003067FE /* String+Localization.swift in Sources */,
 				C748808E24C9AE0400A7089A /* CourseDetailView.swift in Sources */,
 				C7CBEC2624C8A6E70093CD8B /* CourseDetailBuilder.swift in Sources */,
+				C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */,
 				C7CBEC2224C8A6E70093CD8B /* CourseDetailPresenter.swift in Sources */,
 				C748809124C9AF2600A7089A /* CourseDetailVideoView.swift in Sources */,
 				C774745624C768CA003067FE /* String+Class.swift in Sources */,

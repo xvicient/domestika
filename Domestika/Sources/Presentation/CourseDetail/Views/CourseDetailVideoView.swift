@@ -24,26 +24,35 @@ class CourseDetailVideoView: DOView {
         return courseImageView
     }()
 
+    private lazy var playImageView: UIImageView = {
+        let playImageView = UIImageView()
+        playImageView.image = UIImage(systemName: "play.circle.fill")
+        playImageView.tintColor = .white
+        return playImageView
+    }()
+
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
 
     override func addSubviews() {
         addSubview(courseImageView)
+        courseImageView.addSubview(playImageView)
     }
 
     override func addConstraints() {
         courseImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+
+        playImageView.snp.makeConstraints {
+            $0.size.equalTo(60)
+            $0.center.equalToSuperview()
+        }
     }
 
     func show(_ data: CourseDetailVideoViewData) {
         if let url = data.imageUrl {
             courseImageView.load(url: url)
-        }
-
-        if let url = data.videoUrl {
-//            play(url)
         }
     }
 

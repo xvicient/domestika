@@ -3,3 +3,8 @@
 "watch_popular_course_title" = "Watch";
 "generic_error_message" = "An error has occurred.";
 "alert_ok_title" = "Ok";
+"course_positive_reviews" = "%@ Positive reviews (%li)";
+"course_lessons" = "%li Lessons";
+"course_students" = "%li Students";
+"course_audio" = "Audio: %@";
+"course_level" = "Level";
