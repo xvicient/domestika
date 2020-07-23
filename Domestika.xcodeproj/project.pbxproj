@@ -10,7 +10,7 @@
 		5B5AD104157C73BC0A5AF055 /* Pods_Domestika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */; };
 		C748808E24C9AE0400A7089A /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748808D24C9AE0400A7089A /* CourseDetailView.swift */; };
 		C748809124C9AF2600A7089A /* CourseDetailVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */; };
-		C748809324C9BFD400A7089A /* GameDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* GameDetailInformationView.swift */; };
+		C748809324C9BFD400A7089A /* CourseDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* CourseDetailViewData.swift */; };
 		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
 		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
 		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
@@ -86,7 +86,7 @@
 		BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.release.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.release.xcconfig"; sourceTree = "<group>"; };
 		C748808D24C9AE0400A7089A /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoView.swift; sourceTree = "<group>"; };
-		C748809224C9BFD400A7089A /* GameDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailInformationView.swift; sourceTree = "<group>"; };
+		C748809224C9BFD400A7089A /* CourseDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewData.swift; sourceTree = "<group>"; };
 		C760A56E24C717AF00FA6035 /* Domestika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domestika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C760A57124C717AF00FA6035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C760A57A24C717B000FA6035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */,
-				C748809224C9BFD400A7089A /* GameDetailInformationView.swift */,
+				C748809224C9BFD400A7089A /* CourseDetailViewData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -771,7 +771,7 @@
 				C774742924C75740003067FE /* ApiClient.swift in Sources */,
 				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,
 				C774745124C7678A003067FE /* DOViewCell.swift in Sources */,
-				C748809324C9BFD400A7089A /* GameDetailInformationView.swift in Sources */,
+				C748809324C9BFD400A7089A /* CourseDetailViewData.swift in Sources */,
 				C774742D24C7576F003067FE /* Endpoint.swift in Sources */,
 				C774744524C75AE0003067FE /* Teacher.swift in Sources */,
 				C774745424C768AC003067FE /* UICollectionView+DO.swift in Sources */,

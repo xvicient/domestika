@@ -45,8 +45,8 @@ final class CourseDetailView: DOView {
         return videoView
     }()
 
-    private lazy var informationView: GameDetailInformationView = {
-        let informationView = GameDetailInformationView()
+    private lazy var informationView: CourseDetailInformationView = {
+        let informationView = CourseDetailInformationView()
         return informationView
     }()
 

@@ -1,5 +1,5 @@
 //
-//  GameDetailInformationView.swift
+//  CourseDetailInformationView.swift
 //  Domestika
 //
 //  Created by Xavier on 23/07/2020.
@@ -19,7 +19,7 @@ protocol CourseDetailInformationViewData {
 
 extension CourseDetailViewData: CourseDetailInformationViewData {}
 
-class GameDetailInformationView: DOView {
+class CourseDetailInformationView: DOView {
 
     private lazy var containerView: UIView = {
         let containerView = UIView()
@@ -61,7 +61,7 @@ class GameDetailInformationView: DOView {
     private lazy var teacherAvatarView: UIImageView = {
         let teacherAvatarView = UIImageView()
         teacherAvatarView.contentMode = .scaleAspectFill
-        teacherAvatarView.roundCorners(radius: teacherAvatarView.frame.size.width / 2)
+        teacherAvatarView.roundCorners(radius: 20.0)
         return teacherAvatarView
     }()
 

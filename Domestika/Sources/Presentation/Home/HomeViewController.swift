@@ -60,9 +60,8 @@ private extension HomeViewController {
     }
 
     func onViewDidLoad() {
-        let backButton = UIBarButtonItem(image: UIImage(), style: .plain, target: nil, action: nil)
-        backButton.tintColor = .black
-        navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+        navigationItem.backBarButtonItem?.tintColor = .black
         navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back_arrow")
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back_arrow")
     }
