@@ -3,7 +3,7 @@
 
 ## Installation
 
-To run the project, clone the repo and run `pod install` from the root directory first.
+To run the project, clone the repo and run `pod update` from the root directory first.
 
 ## Requirements
 
@@ -23,17 +23,18 @@ Based on Domestika [resource](http://mobile-assets.domestika.org/challenge/home.
 
 **Testing**
 
-Full Unit Testing and API data testing.
+Full Unit Testing using [SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky).<br/>
+API data testing using [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs).
 
 **Frameworks**
 
-*Swinject* used to define the app dependencies.<br/>
-*SnapKit* used to make Auto Layout programatically.<br/>
-*SwiftLint* used to enforce Swift style and conventions.<br/>
-*Nuke* used to download and display images on the app.<br/>
-*SwiftyMocky* used to build mocks in runtime. Depends on Sourcery, which scans the source code and generates mocks.<br/>
-*OHHTTPStubs* used to stub network requests on service tests.<br/>
-*SwiftFormat* used to for reformatting Swift code.
+[Swinject](https://github.com/Swinject/Swinject) used to define the app dependencies.<br/>
+[SnapKit](https://github.com/SnapKit/SnapKit) used to make Auto Layout programatically.<br/>
+[Nuke](https://github.com/kean/Nuke) used to download and display images on the app.<br/>
+[SwiftLint](https://github.com/realm/SwiftLint) used to enforce Swift style and conventions.<br/>
+[SwiftFormat](https://github.com/nicklockwood/SwiftFormat) used to for reformatting Swift code.<br/>
+[SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky) used to build mocks in runtime. Depends on Sourcery, which scans the source code and generates mocks.<br/>
+[OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs) used to stub network requests on service tests.
 
 ## Changes
 
