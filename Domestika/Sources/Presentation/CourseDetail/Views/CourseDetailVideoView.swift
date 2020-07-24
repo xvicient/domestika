@@ -10,7 +10,6 @@ import UIKit
 import AVKit
 
 protocol CourseDetailVideoViewData {
-    var imageUrl: URL? { get }
     var videoUrl: URL? { get }
 }
 
@@ -18,66 +17,226 @@ extension CourseDetailViewData: CourseDetailVideoViewData {}
 
 class CourseDetailVideoView: DOView {
 
-    private lazy var courseImageView: UIImageView = {
-        let courseImageView = UIImageView()
-        courseImageView.contentMode = .scaleAspectFill
-        return courseImageView
+    private lazy var playerOverlayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }()
 
-    private lazy var playImageView: UIImageView = {
-        let playImageView = UIImageView()
-        playImageView.image = UIImage(systemName: "play.circle.fill")
-        playImageView.tintColor = .white
-        return playImageView
+    private lazy var playerControlsView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        view.roundCorners(radius: 12.0)
+        return view
     }()
 
-    private var player: AVPlayer?
+    private lazy var currentTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray5
+        label.font = UIFont.systemFont(ofSize: 10.0, weight: .medium)
+        label.numberOfLines = 1
+        label.text = "00:00"
+        return label
+    }()
+
+    private lazy var timeSlider: UISlider = {
+        let slider = UISlider()
+        slider.setThumbSize(CGSize(width: 6.0, height: 6.0))
+        slider.isUserInteractionEnabled = false
+        slider.minimumTrackTintColor = .systemGray5
+        slider.minimumValue = 0
+        return slider
+    }()
+
+    private lazy var leftTimeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray5
+        label.font = UIFont.systemFont(ofSize: 10.0, weight: .medium)
+        label.numberOfLines = 1
+        label.text = "00:00"
+        return label
+    }()
+
+    private lazy var toggleVideoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        button.tintColor = .systemGray5
+        button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
+        button.addTarget(self, action: #selector(didTapPlayPauseButton), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var backwardButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "backward"), for: .normal)
+        button.setTitle("\(Int(backwardForwardTime))", for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
+        button.addTarget(self, action: #selector(didTapBackwardButton), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var forwardButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
+        button.setTitle("\(Int(backwardForwardTime))", for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
+        button.addTarget(self, action: #selector(didTapForwardButton), for: .touchUpInside)
+        return button
+    }()
+
+    private var player: AVPlayer? {
+        willSet {
+            removePeriodicTimeObserver()
+        }
+        didSet {
+            addPeriodicTimeObserver()
+        }
+    }
     private var playerLayer: AVPlayerLayer?
+    private var timeObserverToken: Any?
+    private var isVideoPlaying = false
+    private let backwardForwardTime: Float64 = 10
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        playerLayer?.frame = bounds
+    }
+
+    override func setup() {
+        backgroundColor = .systemGray6
+    }
 
     override func addSubviews() {
-        addSubview(courseImageView)
-        courseImageView.addSubview(playImageView)
+        addSubview(playerOverlayView)
+        playerOverlayView.addSubview(playerControlsView)
+        playerControlsView.addSubview(currentTimeLabel)
+        playerControlsView.addSubview(timeSlider)
+        playerControlsView.addSubview(leftTimeLabel)
+        playerControlsView.addSubview(toggleVideoButton)
+        playerControlsView.addSubview(backwardButton)
+        playerControlsView.addSubview(forwardButton)
     }
 
     override func addConstraints() {
-        courseImageView.snp.makeConstraints {
+        playerOverlayView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
 
-        playImageView.snp.makeConstraints {
-            $0.size.equalTo(60)
-            $0.center.equalToSuperview()
+        playerControlsView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalTo(playerOverlayView).inset(8)
+            $0.height.equalTo(46)
+        }
+
+        currentTimeLabel.snp.makeConstraints {
+            $0.leading.top.equalToSuperview().inset(8)
+            $0.width.equalTo(30)
+        }
+
+        timeSlider.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(11)
+            $0.left.equalTo(currentTimeLabel.snp.right).offset(12)
+            $0.right.equalTo(leftTimeLabel.snp.left).offset(-12)
+        }
+
+        leftTimeLabel.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(8)
+            $0.width.equalTo(30)
+        }
+
+        toggleVideoButton.snp.makeConstraints {
+            $0.size.equalTo(25)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(2)
+        }
+
+        backwardButton.snp.makeConstraints {
+            $0.size.equalTo(25)
+            $0.right.equalTo(toggleVideoButton.snp.left).offset(-12)
+            $0.centerY.equalTo(toggleVideoButton)
+        }
+
+        forwardButton.snp.makeConstraints {
+            $0.size.equalTo(25)
+            $0.left.equalTo(toggleVideoButton.snp.right).offset(12)
+            $0.centerY.equalTo(toggleVideoButton)
         }
     }
 
     func show(_ data: CourseDetailVideoViewData) {
-        if let url = data.imageUrl {
-            courseImageView.load(url: url)
-        }
-    }
+        guard let url = data.videoUrl else { return }
 
-    func play(_ url: URL) {
-        let asset = AVAsset(url: url)
-
-        if let player = player, let playerLayer = playerLayer {
-            player.pause()
-            playerLayer.removeFromSuperlayer()
-        }
-        let playerItem = AVPlayerItem(asset: asset)
-        let player = AVPlayer(playerItem: playerItem)
+        let player = AVPlayer(url: url)
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
-        playerLayer.frame = bounds
-        playerLayer.name = "AVPlayerLayer"
-        layer.addSublayer(playerLayer)
-        player.play()
+        layer.insertSublayer(playerLayer, at: 0)
 
         self.player = player
         self.playerLayer = playerLayer
+
+        player.play()
+        isVideoPlaying = true
+    }
+}
+
+// MARK: - Actions
+
+private extension CourseDetailVideoView {
+    @objc func didTapPlayPauseButton() {
+        if isVideoPlaying {
+            player?.pause()
+            toggleVideoButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        } else {
+            player?.play()
+            toggleVideoButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        }
+
+        isVideoPlaying = !isVideoPlaying
     }
 
-    func pause() {
-        player?.pause()
-        layer.sublayers?.filter { $0.name == "AVPlayerLayer" }.forEach { $0.removeFromSuperlayer() }
+    @objc func didTapBackwardButton() {
+        guard let time = player?.currentTime() else { return }
+        let currentTime = CMTimeGetSeconds(time)
+        var newTime = currentTime - backwardForwardTime
+        newTime = newTime < 0 ? 0 : newTime
+
+        player?.seek(to: CMTimeMake(value: Int64(newTime * 1000), timescale: 1000))
+    }
+
+    @objc func didTapForwardButton() {
+        guard let duration = player?.currentItem?.duration, let time = player?.currentTime() else { return }
+        let currentTime = CMTimeGetSeconds(time)
+        let newTime = currentTime + backwardForwardTime
+
+        if newTime < (CMTimeGetSeconds(duration) - backwardForwardTime) {
+            player?.seek(to: CMTimeMake(value: Int64(newTime * 1000), timescale: 1000))
+        }
+    }
+}
+
+// MARK: - Private
+
+private extension CourseDetailVideoView {
+    func addPeriodicTimeObserver() {
+        let interval = CMTime(seconds: 1.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let mainQueue = DispatchQueue.main
+        timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
+            guard let self = self, let currentItem = self.player?.currentItem, !currentItem.duration.seconds.isNaN else {return}
+            self.timeSlider.maximumValue = Float(currentItem.duration.seconds)
+            self.timeSlider.value = Float(currentItem.currentTime().seconds)
+            let leftTime = currentItem.duration.seconds - currentItem.currentTime().seconds
+            self.leftTimeLabel.text = leftTime.time
+            self.currentTimeLabel.text = currentItem.currentTime().seconds.time
+        })
+    }
+
+    func removePeriodicTimeObserver() {
+        if let timeObserverToken = timeObserverToken {
+            player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
     }
 }

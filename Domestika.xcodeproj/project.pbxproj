@@ -14,6 +14,8 @@
 		C748809524C9E07100A7089A /* CourseDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809424C9E07100A7089A /* CourseDetailItemView.swift */; };
 		C748809724C9E2C600A7089A /* CourseDetailLocales.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809624C9E2C600A7089A /* CourseDetailLocales.swift */; };
 		C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809824C9FC1A00A7089A /* InsetLabel.swift */; };
+		C748809B24CA43D400A7089A /* UISlider+Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809A24CA43D400A7089A /* UISlider+Thumbnail.swift */; };
+		C748809D24CAC2F500A7089A /* Double+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809C24CAC2F500A7089A /* Double+Time.swift */; };
 		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
 		C760A57B24C717B000FA6035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C760A57A24C717B000FA6035 /* Assets.xcassets */; };
 		C760A57E24C717B000FA6035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C760A57C24C717B000FA6035 /* LaunchScreen.storyboard */; };
@@ -93,6 +95,8 @@
 		C748809424C9E07100A7089A /* CourseDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailItemView.swift; sourceTree = "<group>"; };
 		C748809624C9E2C600A7089A /* CourseDetailLocales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailLocales.swift; sourceTree = "<group>"; };
 		C748809824C9FC1A00A7089A /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		C748809A24CA43D400A7089A /* UISlider+Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Thumbnail.swift"; sourceTree = "<group>"; };
+		C748809C24CAC2F500A7089A /* Double+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Time.swift"; sourceTree = "<group>"; };
 		C760A56E24C717AF00FA6035 /* Domestika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domestika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C760A57124C717AF00FA6035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C760A57A24C717B000FA6035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -353,9 +357,10 @@
 		C774743124C757C8003067FE /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C748809C24CAC2F500A7089A /* Double+Time.swift */,
 				C774745524C768CA003067FE /* String+Class.swift */,
-				C774743224C757D0003067FE /* URLRequest+cURLString.swift */,
 				C774745B24C788F3003067FE /* String+Localization.swift */,
+				C774743224C757D0003067FE /* URLRequest+cURLString.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				C774746F24C78DBA003067FE /* UIView+Gradient.swift */,
 				C774746D24C78C7F003067FE /* UIView+RoundCorners.swift */,
 				C774747524C7A295003067FE /* UIView+Shadow.swift */,
+				C748809A24CA43D400A7089A /* UISlider+Thumbnail.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -787,6 +793,7 @@
 				C774744524C75AE0003067FE /* Teacher.swift in Sources */,
 				C774745424C768AC003067FE /* UICollectionView+DO.swift in Sources */,
 				C774741424C7329B003067FE /* HomeProtocols.swift in Sources */,
+				C748809D24CAC2F500A7089A /* Double+Time.swift in Sources */,
 				C774744F24C7670C003067FE /* HomeMainCoursesCollectionViewCell.swift in Sources */,
 				C774744724C75AF0003067FE /* Reviews.swift in Sources */,
 				C774744024C75A63003067FE /* ReviewsCodable.swift in Sources */,
@@ -807,6 +814,7 @@
 				C774747424C7A0D8003067FE /* HomePopularCoursesCollectionViewCell.swift in Sources */,
 				C774743324C757D0003067FE /* URLRequest+cURLString.swift in Sources */,
 				C7CBEC2724C8A6E70093CD8B /* CourseDetailInteractor.swift in Sources */,
+				C748809B24CA43D400A7089A /* UISlider+Thumbnail.swift in Sources */,
 				C774741D24C743D6003067FE /* HomeMainCoursesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@ final class CourseDetailViewController: UIViewController {
     var presenter: CourseDetailPresenterProtocol!
 
     private lazy var courseDetailView: CourseDetailView = {
-        let courseDetailView = CourseDetailView()
+        let courseDetailView = CourseDetailView(frame: view.frame)
         return courseDetailView
     }()
 
