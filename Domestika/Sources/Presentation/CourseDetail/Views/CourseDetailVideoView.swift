@@ -188,12 +188,12 @@ class CourseDetailVideoView: DOView {
         isVideoPlaying = true
     }
 
-    func playVideo () {
+    func playVideo() {
         player?.play()
         toggleVideoButton.setImage(.playerPause, for: .normal)
     }
 
-    func pauseVideo () {
+    func pauseVideo() {
         player?.pause()
         toggleVideoButton.setImage(.playerPlay, for: .normal)
     }

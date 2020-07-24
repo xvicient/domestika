@@ -29,7 +29,7 @@ class HomeViewTests: XCTestCase {
 
     func test_viewLoaded() {
         view.viewDidLoad()
-        Verify(presenterMock, 1, .viewDidLoad())
+        Verify(presenterMock, .viewDidLoad())
     }
 
     func test_mainCourseSelected() {
@@ -45,7 +45,7 @@ class HomeViewTests: XCTestCase {
 
 private extension HomeViewTests {
     func setupView() {
-        view = HomeViewController(nibName: nil, bundle: nil)
+        view = HomeViewController()
         view.presenter = presenterMock
     }
 }

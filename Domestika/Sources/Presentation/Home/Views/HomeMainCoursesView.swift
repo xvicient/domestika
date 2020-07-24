@@ -37,7 +37,9 @@ class HomeMainCoursesView: DOView {
     }()
 
     private lazy var pageControl: UIPageControl = {
-        UIPageControl()
+        let pageControl = UIPageControl()
+        pageControl.isUserInteractionEnabled = false
+        return pageControl
     }()
 
     var courses = [HomeViewMainCourse]() {
@@ -85,7 +87,7 @@ extension HomeMainCoursesView: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: frame.size.height)
+        frame.size
     }
 
     func collectionView(_ collectionView: UICollectionView,

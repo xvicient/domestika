@@ -135,11 +135,11 @@ private extension CourseDetailViewController {
         informationView.show(data)
     }
 
-    func playVideo () {
+    func playVideo() {
         videoView.playVideo()
     }
 
-    func pauseVideo () {
+    func pauseVideo() {
         videoView.pauseVideo()
     }
 

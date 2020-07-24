@@ -28,7 +28,6 @@
 		C774741624C7329B003067FE /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774740F24C7329B003067FE /* HomeInteractor.swift */; };
 		C774741A24C736C6003067FE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741924C736C6003067FE /* HomeViewController.swift */; };
 		C774741D24C743D6003067FE /* HomeMainCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741C24C743D6003067FE /* HomeMainCoursesView.swift */; };
-		C774741F24C751BB003067FE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774741E24C751BB003067FE /* HomeView.swift */; };
 		C774742324C75487003067FE /* DOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742224C75487003067FE /* DOView.swift */; };
 		C774742924C75740003067FE /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742824C75740003067FE /* ApiClient.swift */; };
 		C774742B24C7575B003067FE /* APIClientLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C774742A24C7575B003067FE /* APIClientLogger.swift */; };
@@ -112,7 +111,6 @@
 		C774740F24C7329B003067FE /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		C774741924C736C6003067FE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C774741C24C743D6003067FE /* HomeMainCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainCoursesView.swift; sourceTree = "<group>"; };
-		C774741E24C751BB003067FE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C774742224C75487003067FE /* DOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOView.swift; sourceTree = "<group>"; };
 		C774742824C75740003067FE /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C774742A24C7575B003067FE /* APIClientLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientLogger.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				C774740D24C7329B003067FE /* HomeProtocols.swift */,
 				C774740B24C7329B003067FE /* HomeRouter.swift */,
 				C774741924C736C6003067FE /* HomeViewController.swift */,
-				C774741E24C751BB003067FE /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -783,7 +780,6 @@
 				C774745824C7694A003067FE /* UIImageView+URL.swift in Sources */,
 				C774742F24C757A6003067FE /* NoResult.swift in Sources */,
 				C774742B24C7575B003067FE /* APIClientLogger.swift in Sources */,
-				C774741F24C751BB003067FE /* HomeView.swift in Sources */,
 				C774746E24C78C7F003067FE /* UIView+RoundCorners.swift in Sources */,
 				C774742924C75740003067FE /* ApiClient.swift in Sources */,
 				C774741A24C736C6003067FE /* HomeViewController.swift in Sources */,

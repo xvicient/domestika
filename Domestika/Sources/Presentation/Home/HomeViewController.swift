@@ -12,10 +12,34 @@ import SnapKit
 final class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol!
 
-    private lazy var homeView: HomeView = {
-        let homeView = HomeView()
-        homeView.homeDelegate = self
-        return homeView
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.bounces = false
+        view.contentInsetAdjustmentBehavior = .never
+        return view
+    }()
+
+    private lazy var contentView: UIView = {
+        UIView()
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 40
+        return view
+    }()
+
+    private lazy var mainCoursesView: HomeMainCoursesView = {
+        let view = HomeMainCoursesView()
+        view.coursesDelegate = self
+        return view
+    }()
+
+    private lazy var popularCoursesView: HomePopularCoursesView = {
+        let view = HomePopularCoursesView()
+        view.coursesDelegate = self
+        return view
     }()
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,14 +52,46 @@ final class HomeViewController: UIViewController {
         presenter.viewDidLoad()
         onViewDidLoad()
     }
-
-    override func loadView() {
-        super.loadView()
-        view = homeView
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
+    }
+}
+
+// MARK: - Life cycle
+
+extension HomeViewController {
+    func addSubviews() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(mainCoursesView)
+        stackView.addArrangedSubview(popularCoursesView)
+    }
+
+    func addConstraints() {
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(view)
+            $0.height.equalTo(view).priority(250)
+        }
+
+        stackView.snp.makeConstraints {
+            $0.leading.top.trailing.equalTo(contentView)
+            $0.bottom.equalTo(contentView).inset(40)
+        }
+
+        mainCoursesView.snp.makeConstraints {
+            $0.height.equalTo(450)
+        }
+
+        popularCoursesView.snp.makeConstraints {
+            $0.height.equalTo(325)
+        }
     }
 }
 
@@ -60,6 +116,9 @@ private extension HomeViewController {
     }
 
     func onViewDidLoad() {
+        addSubviews()
+        addConstraints()
+        view.backgroundColor = .white
         navigationItem.backBarButtonItem = UIBarButtonItem()
         navigationItem.backBarButtonItem?.tintColor = .black
         navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back_arrow")
@@ -67,17 +126,17 @@ private extension HomeViewController {
     }
 
     func showMainCourses(_ courses: [HomeViewMainCourse]) {
-        homeView.showMainCourses(courses)
+        mainCoursesView.courses = courses
     }
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {
-        homeView.showPopularCourses(data)
+        popularCoursesView.data = data
     }
 }
 
-// MARK: - HomeViewDelegate
+// MARK: - HomeMainCoursesViewDelegate && HomePopularCoursesViewDelegate
 
-extension HomeViewController: HomeViewDelegate {
+extension HomeViewController: HomeMainCoursesViewDelegate, HomePopularCoursesViewDelegate {
     func didSelectMainCourse(_ index: Int) {
         presenter.didSelectMainCourse(index)
     }
