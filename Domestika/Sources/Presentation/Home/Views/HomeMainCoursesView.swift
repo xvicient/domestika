@@ -6,8 +6,8 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 struct HomeViewMainCourse: Equatable {
     let imageURL: URL?
@@ -15,12 +15,11 @@ struct HomeViewMainCourse: Equatable {
     let watchCourseTitle: String
 }
 
-protocol HomeMainCoursesViewDelegate: class {
+protocol HomeMainCoursesViewDelegate: AnyObject {
     func didSelectMainCourse(_ index: Int)
 }
 
 class HomeMainCoursesView: DOView {
-
     weak var coursesDelegate: HomeMainCoursesViewDelegate?
 
     private lazy var collectionView: UICollectionView = {
@@ -68,7 +67,6 @@ class HomeMainCoursesView: DOView {
             $0.edges.equalToSuperview()
         }
     }
-
 }
 
 // MARK: - UICollectionViewDelegate && UICollectionViewDataSource && UICollectionViewDelegateFlowLayout

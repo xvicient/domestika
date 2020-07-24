@@ -9,8 +9,7 @@
 import UIKit
 
 public class DOViewCell: UICollectionViewCell {
-
-    override class public var requiresConstraintBasedLayout: Bool { return true }
+    override public class var requiresConstraintBasedLayout: Bool { return true }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +21,7 @@ public class DOViewCell: UICollectionViewCell {
         addConstraints()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

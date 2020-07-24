@@ -15,7 +15,7 @@ final class CourseDetailPresenter {
     private let course: Course
     private let locales: CourseDetailLocales
     private let backwardForwardTime: Float64 = 10
-    
+
     init(view: CourseDetailViewProtocol,
          interactor: CourseDetailInteractorProtocol,
          router: CourseDetailRouterProtocol,

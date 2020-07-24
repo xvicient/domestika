@@ -9,7 +9,6 @@
 import UIKit
 
 class HomeMainCoursesCollectionViewCell: DOViewCell {
-
     private lazy var courseImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill

@@ -21,7 +21,6 @@ struct CourseDetailViewItemData: Equatable {
 }
 
 class CourseDetailItemView: DOView {
-
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal

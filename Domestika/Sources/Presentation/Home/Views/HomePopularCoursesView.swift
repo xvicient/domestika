@@ -6,8 +6,8 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 struct HomeViewPopularCourseData: Equatable {
     let courses: [HomeViewPopularCourse]
@@ -21,12 +21,11 @@ struct HomeViewPopularCourse: Equatable {
     let watchCourseTitle: String
 }
 
-protocol HomePopularCoursesViewDelegate: class {
+protocol HomePopularCoursesViewDelegate: AnyObject {
     func didSelectPopularCourse(_ index: Int)
 }
 
 class HomePopularCoursesView: DOView {
-
     weak var coursesDelegate: HomePopularCoursesViewDelegate?
 
     private lazy var titleLabel: UILabel = {
@@ -76,7 +75,6 @@ class HomePopularCoursesView: DOView {
             $0.leading.bottom.trailing.equalToSuperview()
         }
     }
-
 }
 
 // MARK: - Private
@@ -98,7 +96,7 @@ private extension HomePopularCoursesView {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
         section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 10.0, bottom: 0.0, trailing: 10.0)
-        
+
         return section
     }
 }

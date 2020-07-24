@@ -28,7 +28,7 @@ extension CourseDetailBuilder: CourseDetailBuilderProtocol {
                                               course: course)
 
         view.presenter = presenter
-        
+
         return view
     }
 }

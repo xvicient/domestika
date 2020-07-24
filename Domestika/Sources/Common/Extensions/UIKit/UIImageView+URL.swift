@@ -6,8 +6,8 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-import UIKit
 import Nuke
+import UIKit
 
 extension UIImageView {
     func load(url: URL, _ completion: ((UIImage?, ImagePipeline.Error?) -> Void)? = nil) {

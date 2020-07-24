@@ -63,9 +63,9 @@ struct Endpoint {
     private func completeURL(baseURL: String) -> URL? {
         var urlComponents = URLComponents(string: baseURL + path)
         if let queryParams = queryParams {
-            let queryItems = queryParams.reduce(into: [], { result, keyValue in
+            let queryItems = queryParams.reduce(into: []) { result, keyValue in
                 result.append(URLQueryItem(name: keyValue.key, value: keyValue.value))
-            })
+            }
             if urlComponents?.queryItems != nil {
                 urlComponents?.queryItems?.append(contentsOf: queryItems)
             } else {

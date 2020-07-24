@@ -34,7 +34,7 @@ enum APIClientFactory {
 
 struct APIClient {
     enum Defaults {
-        static let successfulStatusCodes = 200..<300
+        static let successfulStatusCodes = 200 ..< 300
         static let jsonDecoder: JSONDecoder = {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -92,7 +92,7 @@ private extension APIClient {
             }
             guard let data = data,
                 let code = (response as? HTTPURLResponse)?.statusCode else {
-                    throw APIError.unexpectedResponse
+                throw APIError.unexpectedResponse
             }
             guard successfulStatusCodes.contains(code) else {
                 throw APIError.httpCode(code, data)

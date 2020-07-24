@@ -20,7 +20,6 @@ protocol CourseDetailInformationViewData {
 extension CourseDetailViewData: CourseDetailInformationViewData {}
 
 class CourseDetailInformationView: DOView {
-
     private lazy var containerView: UIView = {
         UIView()
     }()

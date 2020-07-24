@@ -6,8 +6,8 @@
 //  Copyright © 2020 xvicient All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 final class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol!
@@ -52,7 +52,7 @@ final class HomeViewController: UIViewController {
         presenter.viewDidLoad()
         onViewDidLoad()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }

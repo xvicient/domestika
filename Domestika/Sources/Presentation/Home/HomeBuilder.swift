@@ -24,7 +24,7 @@ extension HomeBuilder: HomeBuilderProtocol {
         let presenter = HomePresenter(view: view, interactor: interactor, router: router, locales: HomeLocales())
 
         view.presenter = presenter
-        
+
         return view
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class InsetLabel: UILabel {
-
     var contentInsets = UIEdgeInsets.zero
 
     override func drawText(in rect: CGRect) {
@@ -30,5 +29,4 @@ class InsetLabel: UILabel {
         let height = size.height + contentInsets.top + contentInsets.bottom
         return CGSize(width: width, height: height)
     }
-
 }

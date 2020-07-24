@@ -11,6 +11,7 @@ target 'Domestika' do
   pod 'Swinject', '~> 2.7.1'
   pod 'SnapKit', '~> 5.0.1'
   pod 'SwiftLint', '~> 0.39'
+  pod 'SwiftFormat/CLI', '~> 0.44.16'
   pod 'Nuke', '~> 9.1.1'
 end
 

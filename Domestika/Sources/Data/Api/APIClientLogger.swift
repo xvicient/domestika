@@ -37,7 +37,7 @@ extension APIClientLogger: APIClientLoggerApi {
             responseLog += "\(urlString)"
             responseLog += "\n\n"
         }
-        if let statusCode =  response?.statusCode {
+        if let statusCode = response?.statusCode {
             responseLog += "HTTP Status Code \(statusCode)\n"
         }
         if let host = components?.host {

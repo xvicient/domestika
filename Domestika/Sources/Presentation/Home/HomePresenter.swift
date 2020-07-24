@@ -15,7 +15,7 @@ final class HomePresenter {
     private let locales: HomeLocales
     private var mainCourses = [Course]()
     private var popularCourses = [Course]()
-    
+
     init(view: HomeViewProtocol,
          interactor: HomeInteractorProtocol,
          router: HomeRouterProtocol,

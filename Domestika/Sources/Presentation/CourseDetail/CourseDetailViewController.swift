@@ -121,7 +121,7 @@ private extension CourseDetailViewController {
         navigationController?.isNavigationBarHidden = false
         let shareButton = UIBarButtonItem(image: .share, style: .plain, target: self, action: nil)
         shareButton.tintColor = .black
-        navigationItem.rightBarButtonItem  = shareButton
+        navigationItem.rightBarButtonItem = shareButton
     }
 
     func onViewDidLoad() {
@@ -175,7 +175,7 @@ extension CourseDetailViewController: CourseDetailVideoViewDelegate {
     func didTapForwardButton() {
         presenter.didTapForwardButton()
     }
-    
+
     func didStartVideoBuffering() {
         presenter.didStartVideoBuffering()
     }

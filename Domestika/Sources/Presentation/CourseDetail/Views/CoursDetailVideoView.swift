@@ -6,11 +6,10 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-import UIKit
 import AVKit
+import UIKit
 
 class CourseDetailVideoView: DOView {
-
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
 

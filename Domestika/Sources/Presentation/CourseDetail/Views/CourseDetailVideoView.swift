@@ -6,8 +6,8 @@
 //  Copyright © 2020 xvicient. All rights reserved.
 //
 
-import UIKit
 import AVKit
+import UIKit
 
 enum VideoBufferingKey: String {
     case playbackBufferEmpty
@@ -15,7 +15,7 @@ enum VideoBufferingKey: String {
     case playbackBufferFull
 }
 
-protocol CourseDetailVideoViewDelegate: class {
+protocol CourseDetailVideoViewDelegate: AnyObject {
     func didTapPlayButton()
     func didTapPauseButton()
     func didTapBackwardButton()
@@ -30,7 +30,6 @@ struct CourseDetailVideoViewData: Equatable {
 }
 
 class CourseDetailVideoView: DOView {
-
     weak var videoDelegate: CourseDetailVideoViewDelegate?
 
     private lazy var playerOverlayView: UIView = {
@@ -117,6 +116,7 @@ class CourseDetailVideoView: DOView {
             addBufferObserver()
         }
     }
+
     private var playerLayer: AVPlayerLayer?
     private var timeObserverToken: Any?
     private var isVideoPlaying = false
@@ -225,7 +225,7 @@ class CourseDetailVideoView: DOView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let key = keyPath, let bufferingKey = VideoBufferingKey.init(rawValue: key) else { return }
+        guard let key = keyPath, let bufferingKey = VideoBufferingKey(rawValue: key) else { return }
         switch bufferingKey {
         case .playbackBufferEmpty:
             videoDelegate?.didStartVideoBuffering()
@@ -290,7 +290,7 @@ private extension CourseDetailVideoView {
         let interval = CMTime(seconds: 1.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main
         timeObserverToken = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
-            guard let self = self, let currentItem = self.player?.currentItem, !currentItem.duration.seconds.isNaN else {return}
+            guard let self = self, let currentItem = self.player?.currentItem, !currentItem.duration.seconds.isNaN else { return }
             self.timeSlider.maximumValue = Float(currentItem.duration.seconds)
             self.timeSlider.value = Float(currentItem.currentTime().seconds)
             let leftTime = currentItem.duration.seconds - currentItem.currentTime().seconds
@@ -323,7 +323,7 @@ private extension CourseDetailVideoView {
 
     func addPlayerDidFinishPlayingNotification() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.playerDidFinishPlaying(sender:)),
+                                               selector: #selector(playerDidFinishPlaying(sender:)),
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: player?.currentItem)
     }

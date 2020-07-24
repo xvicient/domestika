@@ -32,7 +32,8 @@ Full Unit Testing and API data testing.
 *SwiftLint* used to enforce Swift style and conventions.<br/>
 *Nuke* used to download and display images on the app.<br/>
 *SwiftyMocky* used to build mocks in runtime. Depends on Sourcery, which scans the source code and generates mocks.<br/>
-*OHHTTPStubs* used to stub network requests on service tests.
+*OHHTTPStubs* used to stub network requests on service tests.<br/>
+*SwiftFormat* used to for reformatting Swift code.
 
 ## Changes
 

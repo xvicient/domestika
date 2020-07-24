@@ -9,7 +9,6 @@
 import UIKit
 
 class HomePopularCoursesCollectionViewCell: DOViewCell {
-
     private lazy var containerView: UIView = {
         let view = UIView()
         view.addShadow()
