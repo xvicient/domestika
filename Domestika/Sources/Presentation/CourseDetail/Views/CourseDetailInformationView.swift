@@ -22,60 +22,59 @@ extension CourseDetailViewData: CourseDetailInformationViewData {}
 class CourseDetailInformationView: DOView {
 
     private lazy var containerView: UIView = {
-        let containerView = UIView()
-        return containerView
+        UIView()
     }()
 
     private lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
-        titleLabel.numberOfLines = 2
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        label.numberOfLines = 2
+        return label
     }()
 
     private lazy var descriptionLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .gray
-        titleLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
-        titleLabel.numberOfLines = 2
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        label.numberOfLines = 2
+        return label
     }()
 
     private lazy var teacherLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
-        titleLabel.numberOfLines = 1
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+        label.numberOfLines = 1
+        return label
     }()
 
     private lazy var locationLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .gray
-        titleLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
-        titleLabel.numberOfLines = 1
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        label.numberOfLines = 1
+        return label
     }()
 
     private lazy var teacherAvatarView: UIImageView = {
-        let teacherAvatarView = UIImageView()
-        teacherAvatarView.contentMode = .scaleAspectFill
-        teacherAvatarView.roundCorners(radius: 20.0)
-        return teacherAvatarView
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.roundCorners(radius: 20.0)
+        return view
     }()
 
     private lazy var separatorView: UIView = {
-        let separatorView = UIView()
-        separatorView.backgroundColor = .systemGray4
-        return separatorView
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        return view
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        return stackView
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 16
+        return view
     }()
 
     override func addSubviews() {

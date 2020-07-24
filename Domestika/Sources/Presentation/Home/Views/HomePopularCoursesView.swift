@@ -30,23 +30,23 @@ class HomePopularCoursesView: DOView {
     weak var coursesDelegate: HomePopularCoursesViewDelegate?
 
     private lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+        return label
     }()
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.collectionViewLayout = collectionViewLayout
-        collectionView.register(HomePopularCoursesCollectionViewCell.self)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .clear
-        return collectionView
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.collectionViewLayout = collectionViewLayout
+        view.register(HomePopularCoursesCollectionViewCell.self)
+        view.delegate = self
+        view.dataSource = self
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = .clear
+        return view
     }()
 
     var data: HomeViewPopularCourseData? {

@@ -26,19 +26,18 @@ class HomeMainCoursesView: DOView {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(HomeMainCoursesCollectionViewCell.self)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.isPagingEnabled = true
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .clear
-        return collectionView
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(HomeMainCoursesCollectionViewCell.self)
+        view.delegate = self
+        view.dataSource = self
+        view.isPagingEnabled = true
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = .clear
+        return view
     }()
 
     private lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        return pageControl
+        UIPageControl()
     }()
 
     var courses = [HomeViewMainCourse]() {

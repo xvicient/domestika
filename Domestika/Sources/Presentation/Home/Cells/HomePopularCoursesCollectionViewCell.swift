@@ -11,63 +11,63 @@ import UIKit
 class HomePopularCoursesCollectionViewCell: DOViewCell {
 
     private lazy var containerView: UIView = {
-        let containerView = UIView()
-        containerView.addShadow()
-        return containerView
+        let view = UIView()
+        view.addShadow()
+        return view
     }()
 
     private lazy var courseImageView: UIImageView = {
-        let courseImageView = UIImageView()
-        courseImageView.contentMode = .scaleAspectFill
-        courseImageView.layer.masksToBounds = true
-        courseImageView.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 4.0)
-        return courseImageView
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.layer.masksToBounds = true
+        view.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 4.0)
+        return view
     }()
 
     private lazy var detailView: UIView = {
-        let detailView = UIView()
-        detailView.backgroundColor = .white
-        detailView.roundCorners([.layerMaxXMaxYCorner, .layerMinXMaxYCorner], radius: 4.0)
-        return detailView
+        let view = UIView()
+        view.backgroundColor = .white
+        view.roundCorners([.layerMaxXMaxYCorner, .layerMinXMaxYCorner], radius: 4.0)
+        return view
     }()
 
     private lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.numberOfLines = 2
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
-        return titleLabel
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
+        return label
     }()
 
     private lazy var teacherLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.numberOfLines = 1
-        titleLabel.textColor = .lightGray
-        titleLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
-        return titleLabel
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .lightGray
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        return label
     }()
 
     private lazy var separatorView: UIView = {
-        let separatorView = UIView()
-        separatorView.backgroundColor = .systemGray6
-        return separatorView
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        return view
     }()
 
     private lazy var watchCourseLabel: UILabel = {
-        let showCourseLabel = UILabel()
-        showCourseLabel.numberOfLines = 1
-        showCourseLabel.textColor = .darkGray
-        showCourseLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
-        return showCourseLabel
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        return label
     }()
 
     private lazy var arrowImageView: UIImageView = {
-        let arrowImageView = UIImageView()
-        arrowImageView.tintColor = .gray
-        arrowImageView.image = UIImage(systemName: "chevron.right")
-        arrowImageView.contentMode = .scaleAspectFill
-        arrowImageView.layer.masksToBounds = true
-        return arrowImageView
+        let view = UIImageView()
+        view.tintColor = .gray
+        view.image = UIImage(systemName: "chevron.right")
+        view.contentMode = .scaleAspectFill
+        view.layer.masksToBounds = true
+        return view
     }()
 
     override func addSubviews() {

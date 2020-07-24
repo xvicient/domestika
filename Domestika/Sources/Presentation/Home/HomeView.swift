@@ -18,34 +18,33 @@ final class HomeView: DOView {
     weak var homeDelegate: HomeViewDelegate?
 
     private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.bounces = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        return scrollView
+        let view = UIScrollView()
+        view.bounces = false
+        view.contentInsetAdjustmentBehavior = .never
+        return view
     }()
 
     private lazy var contentView: UIView = {
-        let contentView = UIView()
-        return contentView
+        UIView()
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 40
-        return stackView
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 40
+        return view
     }()
 
     private lazy var mainCoursesView: HomeMainCoursesView = {
-        let mainCoursesView = HomeMainCoursesView()
-        mainCoursesView.coursesDelegate = self
-        return mainCoursesView
+        let view = HomeMainCoursesView()
+        view.coursesDelegate = self
+        return view
     }()
 
     private lazy var popularCoursesView: HomePopularCoursesView = {
-        let popularCoursesView = HomePopularCoursesView()
-        popularCoursesView.coursesDelegate = self
-        return popularCoursesView
+        let view = HomePopularCoursesView()
+        view.coursesDelegate = self
+        return view
     }()
 
     override func setup() {

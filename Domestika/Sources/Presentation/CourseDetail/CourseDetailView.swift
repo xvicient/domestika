@@ -23,31 +23,28 @@ struct CourseDetailViewData: Equatable {
 final class CourseDetailView: DOView {
 
     private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.bounces = false
-        scrollView.contentInsetAdjustmentBehavior = .never
-        return scrollView
+        let view = UIScrollView()
+        view.bounces = false
+        view.contentInsetAdjustmentBehavior = .never
+        return view
     }()
 
     private lazy var contentView: UIView = {
-        let contentView = UIView()
-        return contentView
+        UIView()
     }()
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
+        let view = UIStackView()
+        view.axis = .vertical
+        return view
     }()
 
     private lazy var videoView: CourseDetailVideoView = {
-        let videoView = CourseDetailVideoView()
-        return videoView
+        CourseDetailVideoView()
     }()
 
     private lazy var informationView: CourseDetailInformationView = {
-        let informationView = CourseDetailInformationView()
-        return informationView
+        CourseDetailInformationView()
     }()
 
     override func setup() {

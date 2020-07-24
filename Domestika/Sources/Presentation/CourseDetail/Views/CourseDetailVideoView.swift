@@ -18,9 +18,7 @@ extension CourseDetailViewData: CourseDetailVideoViewData {}
 class CourseDetailVideoView: DOView {
 
     private lazy var playerOverlayView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
+        UIView()
     }()
 
     private lazy var playerControlsView: UIView = {

@@ -23,36 +23,35 @@ struct CourseDetailItemViewData: Equatable {
 class CourseDetailItemView: DOView {
 
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 12
-        return stackView
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.spacing = 12
+        return view
     }()
 
     private lazy var iconView: UIImageView = {
-        let iconView = UIImageView()
-        return iconView
+        UIImageView()
     }()
 
     private lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .black
-        titleLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
-        titleLabel.numberOfLines = 1
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        label.numberOfLines = 1
+        return label
     }()
 
     private lazy var subtitleLabel: InsetLabel = {
-        let subtitleLabel = InsetLabel()
-        subtitleLabel.textColor = .white
-        subtitleLabel.font = UIFont.systemFont(ofSize: 10.0, weight: .bold)
-        subtitleLabel.numberOfLines = 1
-        subtitleLabel.isHidden = true
-        subtitleLabel.backgroundColor = .systemOrange
-        subtitleLabel.roundCorners(radius: 8.0)
-        subtitleLabel.contentInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
-        return subtitleLabel
+        let label = InsetLabel()
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 10.0, weight: .bold)
+        label.numberOfLines = 1
+        label.isHidden = true
+        label.backgroundColor = .systemOrange
+        label.roundCorners(radius: 8.0)
+        label.contentInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+        return label
     }()
 
     override func addSubviews() {

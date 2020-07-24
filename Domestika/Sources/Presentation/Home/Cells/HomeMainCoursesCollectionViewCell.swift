@@ -11,28 +11,28 @@ import UIKit
 class HomeMainCoursesCollectionViewCell: DOViewCell {
 
     private lazy var courseImageView: UIImageView = {
-        let courseImageView = UIImageView()
-        courseImageView.contentMode = .scaleAspectFill
-        courseImageView.layer.masksToBounds = true
-        return courseImageView
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.layer.masksToBounds = true
+        return view
     }()
 
     private lazy var watchButton: UIButton = {
-        let watchButton = UIButton()
-        watchButton.backgroundColor = .white
-        watchButton.setTitleColor(.black, for: .normal)
-        watchButton.roundCorners(radius: 2.0)
-        watchButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
-        return watchButton
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.setTitleColor(.black, for: .normal)
+        button.roundCorners(radius: 2.0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
+        return button
     }()
 
     private lazy var titleLabel: UILabel = {
-        let titleLabel = UILabel()
-        titleLabel.textColor = .systemGray6
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
-        titleLabel.numberOfLines = 2
-        titleLabel.textAlignment = .center
-        return titleLabel
+        let label = UILabel()
+        label.textColor = .systemGray6
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
     }()
 
     override func addSubviews() {
