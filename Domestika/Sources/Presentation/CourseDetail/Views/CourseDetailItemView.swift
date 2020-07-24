@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CourseDetailItemViewData: Equatable {
+struct CourseDetailViewItemData: Equatable {
     let iconKey: String
     let title: String
     let subtitle: String?
@@ -72,7 +72,7 @@ class CourseDetailItemView: DOView {
         }
     }
 
-    func show(_ data: CourseDetailItemViewData) {
+    func show(_ data: CourseDetailViewItemData) {
         iconView.image = UIImage(named: data.iconKey)
         titleLabel.text = data.title
         subtitleLabel.text = data.subtitle

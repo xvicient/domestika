@@ -8,13 +8,45 @@
 
 import UIKit
 
+struct CourseDetailViewData: Equatable {
+    let imageUrl: URL?
+    let videoUrl: URL?
+    let title: String
+    let description: String
+    let teacher: String
+    let teacherAvatarUrl: URL?
+    let location: String
+    let data: [CourseDetailViewItemData]
+}
+
 final class CourseDetailViewController: UIViewController {
     var presenter: CourseDetailPresenterProtocol!
 
-    private lazy var courseDetailView: CourseDetailView = {
-        let courseDetailView = CourseDetailView(frame: view.frame)
-        courseDetailView.detailViewDelegate = self
-        return courseDetailView
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.bounces = false
+        view.contentInsetAdjustmentBehavior = .never
+        return view
+    }()
+
+    private lazy var contentView: UIView = {
+        UIView()
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        return view
+    }()
+
+    private lazy var videoView: CourseDetailVideoView = {
+        let view = CourseDetailVideoView()
+        view.videoDelegate = self
+        return view
+    }()
+
+    private lazy var informationView: CourseDetailInformationView = {
+        CourseDetailInformationView()
     }()
 
     override func viewWillAppear(_ animated: Bool) {
@@ -22,19 +54,43 @@ final class CourseDetailViewController: UIViewController {
         onViewWillAppear()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         onViewDidLoad()
     }
+}
 
-    override func loadView() {
-        super.loadView()
-        view = courseDetailView
+// MARK: - Life cycle
+
+extension CourseDetailViewController {
+    func addSubviews() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(videoView)
+        stackView.addArrangedSubview(informationView)
+    }
+
+    func addConstraints() {
+        scrollView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView)
+            $0.width.equalTo(view)
+            $0.height.equalTo(view).priority(250)
+        }
+
+        stackView.snp.makeConstraints {
+            $0.edges.equalTo(contentView)
+        }
+
+        videoView.snp.makeConstraints {
+            $0.height.equalTo(225)
+        }
     }
 }
 
@@ -62,40 +118,43 @@ extension CourseDetailViewController: CourseDetailViewProtocol {
 private extension CourseDetailViewController {
     func onViewWillAppear() {
         navigationController?.isNavigationBarHidden = false
-        let shareButton = UIBarButtonItem(image: #imageLiteral(resourceName: "share"), style: .plain, target: self, action: nil)
+        let shareButton = UIBarButtonItem(image: .share, style: .plain, target: self, action: nil)
         shareButton.tintColor = .black
         navigationItem.rightBarButtonItem  = shareButton
     }
 
     func onViewDidLoad() {
+        addSubviews()
+        addConstraints()
         view.backgroundColor = .white
         navigationController?.navigationBar.barTintColor = .white
     }
 
     func show(_ data: CourseDetailViewData) {
-        courseDetailView.show(data)
+        videoView.show(data)
+        informationView.show(data)
     }
 
     func playVideo () {
-        courseDetailView.playVideo()
+        videoView.playVideo()
     }
 
     func pauseVideo () {
-        courseDetailView.pauseVideo()
+        videoView.pauseVideo()
     }
 
     func backwardVideo(_ time: Float64) {
-        courseDetailView.backwardVideo(time)
+        videoView.backwardVideo(time)
     }
 
     func forwardVideo(_ time: Float64) {
-        courseDetailView.forwardVideo(time)
+        videoView.forwardVideo(time)
     }
 }
 
 // MARK: - CourseDetailVideoViewDelegate
 
-extension CourseDetailViewController: CourseDetailViewDelegate {
+extension CourseDetailViewController: CourseDetailVideoViewDelegate {
     func didTapPlayButton() {
         presenter.didTapPlayButton()
     }

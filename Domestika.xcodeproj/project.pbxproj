@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B5AD104157C73BC0A5AF055 /* Pods_Domestika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E90F07EF990B5525999CF47 /* Pods_Domestika.framework */; };
-		C748808E24C9AE0400A7089A /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748808D24C9AE0400A7089A /* CourseDetailView.swift */; };
 		C748809124C9AF2600A7089A /* CourseDetailVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */; };
 		C748809324C9BFD400A7089A /* CourseDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */; };
 		C748809524C9E07100A7089A /* CourseDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809424C9E07100A7089A /* CourseDetailItemView.swift */; };
@@ -90,7 +89,6 @@
 		41EAD8FD2972FFF1339A76BA /* Pods-DomestikaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DomestikaTests.release.xcconfig"; path = "Target Support Files/Pods-DomestikaTests/Pods-DomestikaTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D60A33AFAF4A6BC68BC7A3A /* Pods_DomestikaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomestikaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB438A497E002C2B220EDF24 /* Pods-Domestika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domestika.release.xcconfig"; path = "Target Support Files/Pods-Domestika/Pods-Domestika.release.xcconfig"; sourceTree = "<group>"; };
-		C748808D24C9AE0400A7089A /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		C748809024C9AF2600A7089A /* CourseDetailVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoView.swift; sourceTree = "<group>"; };
 		C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailInformationView.swift; sourceTree = "<group>"; };
 		C748809424C9E07100A7089A /* CourseDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailItemView.swift; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 				C7CBEC1E24C8A6E70093CD8B /* CourseDetailProtocols.swift */,
 				C7CBEC1C24C8A6E70093CD8B /* CourseDetailRouter.swift */,
 				C7CBEC1D24C8A6E70093CD8B /* CourseDetailViewController.swift */,
-				C748808D24C9AE0400A7089A /* CourseDetailView.swift */,
 			);
 			path = CourseDetail;
 			sourceTree = "<group>";
@@ -805,7 +802,6 @@
 				C773063924CAD87200FB05CB /* UIImage+Images.swift in Sources */,
 				C774745A24C788B1003067FE /* HomeLocales.swift in Sources */,
 				C774745C24C788F3003067FE /* String+Localization.swift in Sources */,
-				C748808E24C9AE0400A7089A /* CourseDetailView.swift in Sources */,
 				C7CBEC2624C8A6E70093CD8B /* CourseDetailBuilder.swift in Sources */,
 				C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */,
 				C7CBEC2224C8A6E70093CD8B /* CourseDetailPresenter.swift in Sources */,

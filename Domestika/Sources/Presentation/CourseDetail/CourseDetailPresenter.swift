@@ -68,13 +68,13 @@ private extension CourseDetailPresenter {
         view.render(state: .show(data))
     }
 
-    func courseData(_ course: Course) -> [CourseDetailItemViewData] {
+    func courseData(_ course: Course) -> [CourseDetailViewItemData] {
         let reviewPercentage = "\((course.reviews.positive * 100) / course.reviews.total)%"
-        return [CourseDetailItemViewData(iconKey: "like", title: locales.coursePositiveReviews(reviewPercentage, count: course.reviews.positive)),
-                CourseDetailItemViewData(iconKey: "lesson", title: locales.courseLessons(course.lessonsCount)),
-                CourseDetailItemViewData(iconKey: "user", title: locales.courseStudents(course.students)),
-                CourseDetailItemViewData(iconKey: "audio", title: locales.courseAudio(course.audio)),
-                CourseDetailItemViewData(iconKey: "subtitle", title: course.subtitles.joined(separator: " / ")),
-                CourseDetailItemViewData(iconKey: "level", title: locales.courseLevel, subtitle: course.level.uppercased())]
+        return [CourseDetailViewItemData(iconKey: "like", title: locales.coursePositiveReviews(reviewPercentage, count: course.reviews.positive)),
+                CourseDetailViewItemData(iconKey: "lesson", title: locales.courseLessons(course.lessonsCount)),
+                CourseDetailViewItemData(iconKey: "user", title: locales.courseStudents(course.students)),
+                CourseDetailViewItemData(iconKey: "audio", title: locales.courseAudio(course.audio)),
+                CourseDetailViewItemData(iconKey: "subtitle", title: course.subtitles.joined(separator: " / ")),
+                CourseDetailViewItemData(iconKey: "level", title: locales.courseLevel, subtitle: course.level.uppercased())]
     }
 }

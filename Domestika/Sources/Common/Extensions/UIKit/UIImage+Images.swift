@@ -12,4 +12,5 @@ extension UIImage {
     static var playerPause = UIImage(systemName: "pause.fill")!
     static var playerPlay = UIImage(systemName: "play.fill")!
     static var rightArrow = UIImage(systemName: "chevron.right")!
+    static var share = #imageLiteral(resourceName: "share")
 }

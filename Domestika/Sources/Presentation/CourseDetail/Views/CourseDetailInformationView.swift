@@ -14,7 +14,7 @@ protocol CourseDetailInformationViewData {
     var teacher: String { get }
     var teacherAvatarUrl: URL? { get }
     var location: String { get }
-    var data: [CourseDetailItemViewData] { get }
+    var data: [CourseDetailViewItemData] { get }
 }
 
 extension CourseDetailViewData: CourseDetailInformationViewData {}
