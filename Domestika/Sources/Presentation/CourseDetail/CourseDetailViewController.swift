@@ -9,8 +9,7 @@
 import UIKit
 
 struct CourseDetailViewData: Equatable {
-    let imageUrl: URL?
-    let videoUrl: URL?
+    let videoData: CourseDetailVideoViewData
     let title: String
     let description: String
     let teacher: String
@@ -131,7 +130,7 @@ private extension CourseDetailViewController {
     }
 
     func show(_ data: CourseDetailViewData) {
-        videoView.show(data)
+        videoView.show(data.videoData)
         informationView.show(data)
     }
 

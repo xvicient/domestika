@@ -16,11 +16,10 @@ protocol CourseDetailVideoViewDelegate: class {
     func didTapForwardButton()
 }
 
-protocol CourseDetailVideoViewData {
-    var videoUrl: URL? { get }
+struct CourseDetailVideoViewData: Equatable {
+    let videoUrl: URL?
+    let backwardForwardTime: Float64
 }
-
-extension CourseDetailViewData: CourseDetailVideoViewData {}
 
 class CourseDetailVideoView: DOView {
 
@@ -74,7 +73,6 @@ class CourseDetailVideoView: DOView {
     private lazy var backwardButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "backward"), for: .normal)
-        button.setTitle("\(Int(backwardForwardTime))", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
@@ -85,7 +83,6 @@ class CourseDetailVideoView: DOView {
     private lazy var forwardButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
-        button.setTitle("\(Int(backwardForwardTime))", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
@@ -105,7 +102,6 @@ class CourseDetailVideoView: DOView {
     private var playerLayer: AVPlayerLayer?
     private var timeObserverToken: Any?
     private var isVideoPlaying = false
-    private let backwardForwardTime: Float64 = 10
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -173,19 +169,8 @@ class CourseDetailVideoView: DOView {
     }
 
     func show(_ data: CourseDetailVideoViewData) {
-        guard let url = data.videoUrl else { return }
-
-        let player = AVPlayer(url: url)
-        player.automaticallyWaitsToMinimizeStalling = true
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = .resizeAspectFill
-        layer.insertSublayer(playerLayer, at: 0)
-
-        self.player = player
-        self.playerLayer = playerLayer
-
-        player.play()
-        isVideoPlaying = true
+        setupPlayer(data.videoUrl)
+        setupControls(data.backwardForwardTime)
     }
 
     func playVideo() {
@@ -199,19 +184,17 @@ class CourseDetailVideoView: DOView {
     }
 
     func backwardVideo(_ time: Float64) {
-        guard let time = player?.currentTime() else { return }
-        var newTime = CMTimeGetSeconds(time) - backwardForwardTime
+        guard let currentTime = player?.currentTime() else { return }
+        var newTime = CMTimeGetSeconds(currentTime) - time
         newTime = newTime < 0 ? 0 : newTime
-
-        player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
+        seekTime(newTime)
     }
 
     func forwardVideo(_ time: Float64) {
-        guard let duration = player?.currentItem?.duration, let time = player?.currentTime() else { return }
-        var newTime = CMTimeGetSeconds(time) + backwardForwardTime
+        guard let duration = player?.currentItem?.duration, let currentTime = player?.currentTime() else { return }
+        var newTime = CMTimeGetSeconds(currentTime) + time
         newTime = newTime > duration.seconds ? duration.seconds : newTime
-
-        player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
+        seekTime(newTime)
     }
 }
 
@@ -220,9 +203,9 @@ class CourseDetailVideoView: DOView {
 private extension CourseDetailVideoView {
     @objc func didTapPlayPauseButton() {
         if isVideoPlaying {
-            videoDelegate?.didTapPlayButton()
-        } else {
             videoDelegate?.didTapPauseButton()
+        } else {
+            videoDelegate?.didTapPlayButton()
         }
 
         isVideoPlaying = !isVideoPlaying
@@ -240,6 +223,33 @@ private extension CourseDetailVideoView {
 // MARK: - Private
 
 private extension CourseDetailVideoView {
+    func setupPlayer(_ url: URL?) {
+        guard let url = url else { return }
+
+        let player = AVPlayer(url: url)
+        player.automaticallyWaitsToMinimizeStalling = true
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = .resizeAspectFill
+        layer.insertSublayer(playerLayer, at: 0)
+
+        self.player = player
+        self.playerLayer = playerLayer
+
+        player.play()
+        isVideoPlaying = true
+    }
+
+    func setupControls(_ time: Float64) {
+        backwardButton.setTitle("\(Int(time))", for: .normal)
+        forwardButton.setTitle("\(Int(time))", for: .normal)
+    }
+
+    func seekTime(_ time: Double) {
+        player?.pause()
+        player?.seek(to: CMTimeMake(value: Int64(time), timescale: 1))
+        player?.play()
+    }
+
     func addPeriodicTimeObserver() {
         let interval = CMTime(seconds: 1.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main

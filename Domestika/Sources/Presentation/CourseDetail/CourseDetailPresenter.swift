@@ -57,8 +57,9 @@ extension CourseDetailPresenter: CourseDetailPresenterProtocol {
 
 private extension CourseDetailPresenter {
     func renderView() {
-        let data = CourseDetailViewData(imageUrl: URL(string: course.thumbnailUrl),
-                                        videoUrl: URL(string: course.trailerUrl),
+        let videoData = CourseDetailVideoViewData(videoUrl: URL(string: course.trailerUrl),
+                                                  backwardForwardTime: backwardForwardTime)
+        let data = CourseDetailViewData(videoData: videoData,
                                         title: course.title,
                                         description: course.description,
                                         teacher: course.teacher.name,
