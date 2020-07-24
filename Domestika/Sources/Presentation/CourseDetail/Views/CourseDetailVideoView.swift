@@ -89,6 +89,7 @@ class CourseDetailVideoView: DOView {
             removePeriodicTimeObserver()
         }
         didSet {
+            addPlayerDidFinishPlayingNotification()
             addPeriodicTimeObserver()
         }
     }
@@ -196,21 +197,18 @@ private extension CourseDetailVideoView {
 
     @objc func didTapBackwardButton() {
         guard let time = player?.currentTime() else { return }
-        let currentTime = CMTimeGetSeconds(time)
-        var newTime = currentTime - backwardForwardTime
+        var newTime = CMTimeGetSeconds(time) - backwardForwardTime
         newTime = newTime < 0 ? 0 : newTime
 
-        player?.seek(to: CMTimeMake(value: Int64(newTime * 1000), timescale: 1000))
+        player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
     }
 
     @objc func didTapForwardButton() {
         guard let duration = player?.currentItem?.duration, let time = player?.currentTime() else { return }
-        let currentTime = CMTimeGetSeconds(time)
-        let newTime = currentTime + backwardForwardTime
+        var newTime = CMTimeGetSeconds(time) + backwardForwardTime
+        newTime = newTime > duration.seconds ? duration.seconds : newTime
 
-        if newTime < (CMTimeGetSeconds(duration) - backwardForwardTime) {
-            player?.seek(to: CMTimeMake(value: Int64(newTime * 1000), timescale: 1000))
-        }
+        player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
     }
 }
 
@@ -235,5 +233,19 @@ private extension CourseDetailVideoView {
             player?.removeTimeObserver(timeObserverToken)
             self.timeObserverToken = nil
         }
+    }
+
+    func addPlayerDidFinishPlayingNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.playerDidFinishPlaying(sender:)),
+                                               name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                               object: player?.currentItem)
+    }
+
+    @objc func playerDidFinishPlaying(sender: Notification) {
+        isVideoPlaying = false
+        toggleVideoButton.setImage(.playerPlay, for: .normal)
+        timeSlider.value = 0
+        player?.seek(to: .zero)
     }
 }
