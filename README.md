@@ -32,7 +32,7 @@ API data testing using [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
 [SnapKit](https://github.com/SnapKit/SnapKit) used to make Auto Layout programatically.<br/>
 [Nuke](https://github.com/kean/Nuke) used to download and display images on the app.<br/>
 [SwiftLint](https://github.com/realm/SwiftLint) used to enforce Swift style and conventions.<br/>
-[SwiftFormat](https://github.com/nicklockwood/SwiftFormat) used to for reformatting Swift code.<br/>
+[SwiftFormat](https://github.com/nicklockwood/SwiftFormat) used to reformatting Swift code.<br/>
 [SwiftyMocky](https://github.com/MakeAWishFoundation/SwiftyMocky) used to build mocks in runtime. Depends on Sourcery, which scans the source code and generates mocks.<br/>
 [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs) used to stub network requests on service tests.
 

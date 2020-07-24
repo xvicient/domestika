@@ -94,7 +94,7 @@ class CourseDetailPresenterTests: XCTestCase {
         presenter.viewDidLoad()
 
         let videoData = CourseDetailVideoViewData(videoUrl: URL(string: course.trailerUrl),
-                                                  backwardForwardTime: backwardForwardTime)
+                                                  timeText: String(Int(backwardForwardTime)))
         let data = CourseDetailViewData(videoData: videoData,
                                         title: course.title,
                                         description: course.description,

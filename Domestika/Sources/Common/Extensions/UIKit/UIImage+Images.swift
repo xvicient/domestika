@@ -13,4 +13,5 @@ extension UIImage {
     static var playerPlay = UIImage(systemName: "play.fill")!
     static var rightArrow = UIImage(systemName: "chevron.right")!
     static var share = #imageLiteral(resourceName: "share")
+    static var backArrow = #imageLiteral(resourceName: "back_arrow")
 }

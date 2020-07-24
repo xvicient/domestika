@@ -36,6 +36,7 @@ class CourseDetailInformationView: DOView {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        label.numberOfLines = 0
         return label
     }()
 

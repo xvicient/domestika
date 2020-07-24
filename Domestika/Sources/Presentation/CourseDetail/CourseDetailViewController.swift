@@ -35,6 +35,7 @@ final class CourseDetailViewController: UIViewController {
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
+        view.distribution = .fill
         return view
     }()
 

@@ -26,7 +26,7 @@ protocol CourseDetailVideoViewDelegate: AnyObject {
 
 struct CourseDetailVideoViewData: Equatable {
     let videoUrl: URL?
-    let backwardForwardTime: Float64
+    let timeText: String
 }
 
 class CourseDetailVideoView: DOView {
@@ -109,11 +109,13 @@ class CourseDetailVideoView: DOView {
     private var player: AVPlayer? {
         willSet {
             removePeriodicTimeObserver()
+            removeBufferObserver()
+            removePlayerDidFinishPlayingNotification()
         }
         didSet {
-            addPlayerDidFinishPlayingNotification()
             addPeriodicTimeObserver()
             addBufferObserver()
+            addPlayerDidFinishPlayingNotification()
         }
     }
 
@@ -193,17 +195,19 @@ class CourseDetailVideoView: DOView {
 
     func show(_ data: CourseDetailVideoViewData) {
         setupPlayer(data.videoUrl)
-        setupControls(data.backwardForwardTime)
+        setupControls(data.timeText)
     }
 
     func playVideo() {
         player?.play()
         toggleVideoButton.setImage(.playerPause, for: .normal)
+        isVideoPlaying = true
     }
 
     func pauseVideo() {
         player?.pause()
         toggleVideoButton.setImage(.playerPlay, for: .normal)
+        isVideoPlaying = false
     }
 
     func backwardVideo(_ time: Float64) {
@@ -244,7 +248,6 @@ private extension CourseDetailVideoView {
         } else {
             videoDelegate?.didTapPlayButton()
         }
-        isVideoPlaying = !isVideoPlaying
     }
 
     @objc func didTapBackwardButton() {
@@ -263,7 +266,7 @@ private extension CourseDetailVideoView {
         guard let url = url else { return }
 
         let player = AVPlayer(url: url)
-        player.automaticallyWaitsToMinimizeStalling = true
+        player.automaticallyWaitsToMinimizeStalling = false
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
         layer.insertSublayer(playerLayer, at: 0)
@@ -275,15 +278,17 @@ private extension CourseDetailVideoView {
         isVideoPlaying = true
     }
 
-    func setupControls(_ time: Float64) {
-        backwardButton.setTitle("\(Int(time))", for: .normal)
-        forwardButton.setTitle("\(Int(time))", for: .normal)
+    func setupControls(_ timeLabel: String) {
+        backwardButton.setTitle(timeLabel, for: .normal)
+        forwardButton.setTitle(timeLabel, for: .normal)
     }
 
     func seekTime(_ time: Double) {
         player?.pause()
         player?.seek(to: CMTimeMake(value: Int64(time), timescale: 1))
-        player?.play()
+        if isVideoPlaying {
+            player?.play()
+        }
     }
 
     func addPeriodicTimeObserver() {
@@ -321,11 +326,23 @@ private extension CourseDetailVideoView {
                                          context: nil)
     }
 
+    func removeBufferObserver() {
+        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferEmpty.rawValue)
+        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackLikelyToKeepUp.rawValue)
+        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue)
+    }
+
     func addPlayerDidFinishPlayingNotification() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(playerDidFinishPlaying(sender:)),
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: player?.currentItem)
+    }
+
+    func removePlayerDidFinishPlayingNotification() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+                                                  object: player?.currentItem)
     }
 
     @objc func playerDidFinishPlaying(sender: Notification) {

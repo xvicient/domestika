@@ -19,11 +19,9 @@ struct ApiStub {
                 abort()
         }
         stub(condition: isHost(host)) { _ in
-            HTTPStubsResponse(
-                fileAtPath: fileAtPath,
-                statusCode: statusCode,
-                headers: ["Content-Type": "application/json"]
-            )
+            HTTPStubsResponse(fileAtPath: fileAtPath,
+                              statusCode: statusCode,
+                              headers: ["Content-Type": "application/json"])
         }
     }
 }

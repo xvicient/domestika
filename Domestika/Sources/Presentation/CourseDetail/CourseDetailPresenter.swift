@@ -66,7 +66,7 @@ extension CourseDetailPresenter: CourseDetailPresenterProtocol {
 private extension CourseDetailPresenter {
     func renderView() {
         let videoData = CourseDetailVideoViewData(videoUrl: URL(string: course.trailerUrl),
-                                                  backwardForwardTime: backwardForwardTime)
+                                                  timeText: String(Int(backwardForwardTime)))
         let data = CourseDetailViewData(videoData: videoData,
                                         title: course.title,
                                         description: course.description,

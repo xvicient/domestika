@@ -121,8 +121,8 @@ private extension HomeViewController {
         view.backgroundColor = .white
         navigationItem.backBarButtonItem = UIBarButtonItem()
         navigationItem.backBarButtonItem?.tintColor = .black
-        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back_arrow")
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back_arrow")
+        navigationController?.navigationBar.backIndicatorImage = .backArrow
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = .backArrow
     }
 
     func showMainCourses(_ courses: [HomeViewMainCourse]) {
