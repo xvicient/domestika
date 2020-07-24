@@ -108,6 +108,8 @@ extension CourseDetailViewController: CourseDetailViewProtocol {
             backwardVideo(time)
         case let .forwardVideo(time):
             forwardVideo(time)
+        case let .showLoading(on):
+            showLoading(on)
         }
     }
 }
@@ -149,6 +151,10 @@ private extension CourseDetailViewController {
     func forwardVideo(_ time: Float64) {
         videoView.forwardVideo(time)
     }
+
+    func showLoading(_ on: Bool) {
+        videoView.showLoading(on)
+    }
 }
 
 // MARK: - CourseDetailVideoViewDelegate
@@ -168,5 +174,13 @@ extension CourseDetailViewController: CourseDetailVideoViewDelegate {
 
     func didTapForwardButton() {
         presenter.didTapForwardButton()
+    }
+    
+    func didStartVideoBuffering() {
+        presenter.didStartVideoBuffering()
+    }
+
+    func didStopVideoBuffering() {
+        presenter.didStopVideoBuffering()
     }
 }

@@ -375,6 +375,18 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
 		perform?()
     }
 
+    open func didStartVideoBuffering() {
+        addInvocation(.m_didStartVideoBuffering)
+		let perform = methodPerformValue(.m_didStartVideoBuffering) as? () -> Void
+		perform?()
+    }
+
+    open func didStopVideoBuffering() {
+        addInvocation(.m_didStopVideoBuffering)
+		let perform = methodPerformValue(.m_didStopVideoBuffering) as? () -> Void
+		perform?()
+    }
+
 
     fileprivate enum MethodType {
         case m_viewDidLoad
@@ -382,6 +394,8 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
         case m_didTapPauseButton
         case m_didTapBackwardButton
         case m_didTapForwardButton
+        case m_didStartVideoBuffering
+        case m_didStopVideoBuffering
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Bool {
             switch (lhs, rhs) {
@@ -395,6 +409,10 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
                 return true 
             case (.m_didTapForwardButton, .m_didTapForwardButton):
                 return true 
+            case (.m_didStartVideoBuffering, .m_didStartVideoBuffering):
+                return true 
+            case (.m_didStopVideoBuffering, .m_didStopVideoBuffering):
+                return true 
             default: return false
             }
         }
@@ -406,6 +424,8 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
             case .m_didTapPauseButton: return 0
             case .m_didTapBackwardButton: return 0
             case .m_didTapForwardButton: return 0
+            case .m_didStartVideoBuffering: return 0
+            case .m_didStopVideoBuffering: return 0
             }
         }
     }
@@ -429,6 +449,8 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
         public static func didTapPauseButton() -> Verify { return Verify(method: .m_didTapPauseButton)}
         public static func didTapBackwardButton() -> Verify { return Verify(method: .m_didTapBackwardButton)}
         public static func didTapForwardButton() -> Verify { return Verify(method: .m_didTapForwardButton)}
+        public static func didStartVideoBuffering() -> Verify { return Verify(method: .m_didStartVideoBuffering)}
+        public static func didStopVideoBuffering() -> Verify { return Verify(method: .m_didStopVideoBuffering)}
     }
 
     public struct Perform {
@@ -449,6 +471,12 @@ open class CourseDetailPresenterProtocolMock: CourseDetailPresenterProtocol, Moc
         }
         public static func didTapForwardButton(perform: @escaping () -> Void) -> Perform {
             return Perform(method: .m_didTapForwardButton, performs: perform)
+        }
+        public static func didStartVideoBuffering(perform: @escaping () -> Void) -> Perform {
+            return Perform(method: .m_didStartVideoBuffering, performs: perform)
+        }
+        public static func didStopVideoBuffering(perform: @escaping () -> Void) -> Perform {
+            return Perform(method: .m_didStopVideoBuffering, performs: perform)
         }
     }
 

@@ -9,11 +9,19 @@
 import UIKit
 import AVKit
 
+enum VideoBufferingKey: String {
+    case playbackBufferEmpty
+    case playbackLikelyToKeepUp
+    case playbackBufferFull
+}
+
 protocol CourseDetailVideoViewDelegate: class {
     func didTapPlayButton()
     func didTapPauseButton()
     func didTapBackwardButton()
     func didTapForwardButton()
+    func didStartVideoBuffering()
+    func didStopVideoBuffering()
 }
 
 struct CourseDetailVideoViewData: Equatable {
@@ -90,6 +98,15 @@ class CourseDetailVideoView: DOView {
         return button
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.color = .gray
+        view.style = .large
+        view.hidesWhenStopped = true
+        view.startAnimating()
+        return view
+    }()
+
     private var player: AVPlayer? {
         willSet {
             removePeriodicTimeObserver()
@@ -97,6 +114,7 @@ class CourseDetailVideoView: DOView {
         didSet {
             addPlayerDidFinishPlayingNotification()
             addPeriodicTimeObserver()
+            addBufferObserver()
         }
     }
     private var playerLayer: AVPlayerLayer?
@@ -114,6 +132,7 @@ class CourseDetailVideoView: DOView {
 
     override func addSubviews() {
         addSubview(playerOverlayView)
+        playerOverlayView.addSubview(activityIndicator)
         playerOverlayView.addSubview(playerControlsView)
         playerControlsView.addSubview(currentTimeLabel)
         playerControlsView.addSubview(timeSlider)
@@ -125,6 +144,10 @@ class CourseDetailVideoView: DOView {
 
     override func addConstraints() {
         playerOverlayView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        activityIndicator.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
 
@@ -196,6 +219,20 @@ class CourseDetailVideoView: DOView {
         newTime = newTime > duration.seconds ? duration.seconds : newTime
         seekTime(newTime)
     }
+
+    func showLoading(_ on: Bool) {
+        on ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard let key = keyPath, let bufferingKey = VideoBufferingKey.init(rawValue: key) else { return }
+        switch bufferingKey {
+        case .playbackBufferEmpty:
+            videoDelegate?.didStartVideoBuffering()
+        case .playbackLikelyToKeepUp, .playbackBufferFull:
+            videoDelegate?.didStopVideoBuffering()
+        }
+    }
 }
 
 // MARK: - Actions
@@ -207,7 +244,6 @@ private extension CourseDetailVideoView {
         } else {
             videoDelegate?.didTapPlayButton()
         }
-
         isVideoPlaying = !isVideoPlaying
     }
 
@@ -268,6 +304,21 @@ private extension CourseDetailVideoView {
             player?.removeTimeObserver(timeObserverToken)
             self.timeObserverToken = nil
         }
+    }
+
+    func addBufferObserver() {
+        player?.currentItem?.addObserver(self,
+                                         forKeyPath: VideoBufferingKey.playbackBufferEmpty.rawValue,
+                                         options: .new,
+                                         context: nil)
+        player?.currentItem?.addObserver(self,
+                                         forKeyPath: VideoBufferingKey.playbackLikelyToKeepUp.rawValue,
+                                         options: .new,
+                                         context: nil)
+        player?.currentItem?.addObserver(self,
+                                         forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue,
+                                         options: .new,
+                                         context: nil)
     }
 
     func addPlayerDidFinishPlayingNotification() {

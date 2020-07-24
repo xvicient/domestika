@@ -51,6 +51,16 @@ class CourseDetailViewTests: XCTestCase {
         view.didTapForwardButton()
         Verify(presenterMock, .didTapForwardButton())
     }
+
+    func test_videoBufferingStarted() {
+        view.didStartVideoBuffering()
+        Verify(presenterMock, .didStartVideoBuffering())
+    }
+
+    func test_videoBufferingStopped() {
+        view.didStopVideoBuffering()
+        Verify(presenterMock, .didStopVideoBuffering())
+    }
 }
 
 private extension CourseDetailViewTests {
@@ -106,14 +116,24 @@ class CourseDetailPresenterTests: XCTestCase {
         Verify(viewMock, 1, .render(state: .value(.pauseVideo)))
     }
 
-    func test_backwardButton() {
+    func test_backwardVideo() {
         presenter.didTapBackwardButton()
         Verify(viewMock, 1, .render(state: .value(.backwardVideo(backwardForwardTime))))
     }
 
-    func test_forwardButton() {
+    func test_forwardVideo() {
         presenter.didTapForwardButton()
         Verify(viewMock, 1, .render(state: .value(.forwardVideo(backwardForwardTime))))
+    }
+
+    func test_startBuffering() {
+        presenter.didStartVideoBuffering()
+        Verify(viewMock, 1, .render(state: .value(.showLoading(true))))
+    }
+
+    func test_stopBuffering() {
+        presenter.didStopVideoBuffering()
+        Verify(viewMock, 1, .render(state: .value(.showLoading(false))))
     }
 }
 
