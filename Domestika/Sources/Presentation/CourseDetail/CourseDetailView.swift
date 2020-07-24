@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol CourseDetailViewDelegate: class {
+    func didTapPlayButton()
+    func didTapPauseButton()
+    func didTapBackwardButton()
+    func didTapForwardButton()
+}
+
 struct CourseDetailViewData: Equatable {
     let imageUrl: URL?
     let videoUrl: URL?
@@ -20,6 +27,8 @@ struct CourseDetailViewData: Equatable {
 }
 
 final class CourseDetailView: DOView {
+
+    weak var detailViewDelegate: CourseDetailViewDelegate?
 
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -39,7 +48,9 @@ final class CourseDetailView: DOView {
     }()
 
     private lazy var videoView: CourseDetailVideoView = {
-        CourseDetailVideoView()
+        let view = CourseDetailVideoView()
+        view.videoDelegate = self
+        return view
     }()
 
     private lazy var informationView: CourseDetailInformationView = {
@@ -82,5 +93,41 @@ final class CourseDetailView: DOView {
     func show(_ data: CourseDetailViewData) {
         videoView.show(data)
         informationView.show(data)
+    }
+
+    func playVideo () {
+        videoView.playVideo()
+    }
+
+    func pauseVideo () {
+        videoView.pauseVideo()
+    }
+
+    func backwardVideo(_ time: Float64) {
+        videoView.backwardVideo(time)
+    }
+
+    func forwardVideo(_ time: Float64) {
+        videoView.forwardVideo(time)
+    }
+}
+
+// MARK: - CourseDetailVideoViewDelegate
+
+extension CourseDetailView: CourseDetailVideoViewDelegate {
+    func didTapPlayButton() {
+        detailViewDelegate?.didTapPlayButton()
+    }
+    
+    func didTapPauseButton() {
+        detailViewDelegate?.didTapPauseButton()
+    }
+    
+    func didTapBackwardButton() {
+        detailViewDelegate?.didTapBackwardButton()
+    }
+    
+    func didTapForwardButton() {
+        detailViewDelegate?.didTapForwardButton()
     }
 }

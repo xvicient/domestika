@@ -14,6 +14,7 @@ final class CourseDetailPresenter {
     private let router: CourseDetailRouterProtocol
     private let course: Course
     private let locales: CourseDetailLocales
+    private let backwardForwardTime: Float64 = 10
     
     init(view: CourseDetailViewProtocol,
          interactor: CourseDetailInteractorProtocol,
@@ -33,6 +34,22 @@ final class CourseDetailPresenter {
 extension CourseDetailPresenter: CourseDetailPresenterProtocol {
     func viewDidLoad() {
         renderView()
+    }
+
+    func didTapPlayButton() {
+        view.render(state: .playVideo)
+    }
+
+    func didTapPauseButton() {
+        view.render(state: .pauseVideo)
+    }
+
+    func didTapBackwardButton() {
+        view.render(state: .backwardVideo(backwardForwardTime))
+    }
+
+    func didTapForwardButton() {
+        view.render(state: .forwardVideo(backwardForwardTime))
     }
 }
 

@@ -13,6 +13,7 @@ final class CourseDetailViewController: UIViewController {
 
     private lazy var courseDetailView: CourseDetailView = {
         let courseDetailView = CourseDetailView(frame: view.frame)
+        courseDetailView.detailViewDelegate = self
         return courseDetailView
     }()
 
@@ -44,6 +45,14 @@ extension CourseDetailViewController: CourseDetailViewProtocol {
         switch state {
         case let .show(data):
             show(data)
+        case .playVideo:
+            playVideo()
+        case .pauseVideo:
+            pauseVideo()
+        case let .backwardVideo(time):
+            backwardVideo(time)
+        case let .forwardVideo(time):
+            forwardVideo(time)
         }
     }
 }
@@ -65,5 +74,41 @@ private extension CourseDetailViewController {
 
     func show(_ data: CourseDetailViewData) {
         courseDetailView.show(data)
+    }
+
+    func playVideo () {
+        courseDetailView.playVideo()
+    }
+
+    func pauseVideo () {
+        courseDetailView.pauseVideo()
+    }
+
+    func backwardVideo(_ time: Float64) {
+        courseDetailView.backwardVideo(time)
+    }
+
+    func forwardVideo(_ time: Float64) {
+        courseDetailView.forwardVideo(time)
+    }
+}
+
+// MARK: - CourseDetailVideoViewDelegate
+
+extension CourseDetailViewController: CourseDetailViewDelegate {
+    func didTapPlayButton() {
+        presenter.didTapPlayButton()
+    }
+
+    func didTapPauseButton() {
+        presenter.didTapPauseButton()
+    }
+
+    func didTapBackwardButton() {
+        presenter.didTapBackwardButton()
+    }
+
+    func didTapForwardButton() {
+        presenter.didTapForwardButton()
     }
 }

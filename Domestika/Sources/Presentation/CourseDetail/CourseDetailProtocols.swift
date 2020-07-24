@@ -25,6 +25,10 @@ protocol CourseDetailRouterProtocol {}
 // sourcery: AutoMockable
 protocol CourseDetailPresenterProtocol {
     func viewDidLoad()
+    func didTapPlayButton()
+    func didTapPauseButton()
+    func didTapBackwardButton()
+    func didTapForwardButton()
 }
 
 // MARK: - Interactor
@@ -36,6 +40,10 @@ protocol CourseDetailInteractorProtocol {}
 
 enum CourseDetailViewState: Equatable {
     case show(_ data: CourseDetailViewData)
+    case playVideo
+    case pauseVideo
+    case backwardVideo(_ time: Float64)
+    case forwardVideo(_ time: Float64)
 }
 
 // sourcery: AutoMockable

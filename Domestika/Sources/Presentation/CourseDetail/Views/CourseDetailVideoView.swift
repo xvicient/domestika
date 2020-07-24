@@ -9,6 +9,13 @@
 import UIKit
 import AVKit
 
+protocol CourseDetailVideoViewDelegate: class {
+    func didTapPlayButton()
+    func didTapPauseButton()
+    func didTapBackwardButton()
+    func didTapForwardButton()
+}
+
 protocol CourseDetailVideoViewData {
     var videoUrl: URL? { get }
 }
@@ -16,6 +23,8 @@ protocol CourseDetailVideoViewData {
 extension CourseDetailViewData: CourseDetailVideoViewData {}
 
 class CourseDetailVideoView: DOView {
+
+    weak var videoDelegate: CourseDetailVideoViewDelegate?
 
     private lazy var playerOverlayView: UIView = {
         UIView()
@@ -178,24 +187,18 @@ class CourseDetailVideoView: DOView {
         player.play()
         isVideoPlaying = true
     }
-}
 
-// MARK: - Actions
-
-private extension CourseDetailVideoView {
-    @objc func didTapPlayPauseButton() {
-        if isVideoPlaying {
-            player?.pause()
-            toggleVideoButton.setImage(.playerPlay, for: .normal)
-        } else {
-            player?.play()
-            toggleVideoButton.setImage(.playerPause, for: .normal)
-        }
-
-        isVideoPlaying = !isVideoPlaying
+    func playVideo () {
+        player?.play()
+        toggleVideoButton.setImage(.playerPause, for: .normal)
     }
 
-    @objc func didTapBackwardButton() {
+    func pauseVideo () {
+        player?.pause()
+        toggleVideoButton.setImage(.playerPlay, for: .normal)
+    }
+
+    func backwardVideo(_ time: Float64) {
         guard let time = player?.currentTime() else { return }
         var newTime = CMTimeGetSeconds(time) - backwardForwardTime
         newTime = newTime < 0 ? 0 : newTime
@@ -203,12 +206,34 @@ private extension CourseDetailVideoView {
         player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
     }
 
-    @objc func didTapForwardButton() {
+    func forwardVideo(_ time: Float64) {
         guard let duration = player?.currentItem?.duration, let time = player?.currentTime() else { return }
         var newTime = CMTimeGetSeconds(time) + backwardForwardTime
         newTime = newTime > duration.seconds ? duration.seconds : newTime
 
         player?.seek(to: CMTimeMake(value: Int64(newTime), timescale: 1))
+    }
+}
+
+// MARK: - Actions
+
+private extension CourseDetailVideoView {
+    @objc func didTapPlayPauseButton() {
+        if isVideoPlaying {
+            videoDelegate?.didTapPlayButton()
+        } else {
+            videoDelegate?.didTapPauseButton()
+        }
+
+        isVideoPlaying = !isVideoPlaying
+    }
+
+    @objc func didTapBackwardButton() {
+        videoDelegate?.didTapBackwardButton()
+    }
+
+    @objc func didTapForwardButton() {
+        videoDelegate?.didTapForwardButton()
     }
 }
 
