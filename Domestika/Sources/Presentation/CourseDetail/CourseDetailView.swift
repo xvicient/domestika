@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVKit
 
 struct CourseDetailViewData: Equatable {
     let imageUrl: URL?

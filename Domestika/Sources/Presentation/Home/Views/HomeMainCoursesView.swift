@@ -59,7 +59,7 @@ class HomeMainCoursesView: DOView {
     override func addConstraints() {
         pageControl.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.bottom.equalToSuperview().inset(10)
         }
 
         collectionView.snp.makeConstraints {

@@ -72,7 +72,7 @@ final class HomeView: DOView {
 
         stackView.snp.makeConstraints {
             $0.leading.top.trailing.equalTo(contentView)
-            $0.bottom.equalTo(contentView).offset(-40)
+            $0.bottom.equalTo(contentView).inset(40)
         }
 
         mainCoursesView.snp.makeConstraints {

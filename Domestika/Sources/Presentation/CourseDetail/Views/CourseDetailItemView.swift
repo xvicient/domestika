@@ -50,7 +50,7 @@ class CourseDetailItemView: DOView {
         label.isHidden = true
         label.backgroundColor = .systemOrange
         label.roundCorners(radius: 8.0)
-        label.contentInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+        label.contentInsets = UIEdgeInsets(top: 6.0, left: 6.0, bottom: 6.0, right: 6.0)
         return label
     }()
 

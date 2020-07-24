@@ -33,7 +33,6 @@ class CourseDetailVideoView: DOView {
         label.textColor = .systemGray5
         label.font = UIFont.systemFont(ofSize: 10.0, weight: .medium)
         label.numberOfLines = 1
-        label.text = "00:00"
         return label
     }()
 
@@ -51,13 +50,12 @@ class CourseDetailVideoView: DOView {
         label.textColor = .systemGray5
         label.font = UIFont.systemFont(ofSize: 10.0, weight: .medium)
         label.numberOfLines = 1
-        label.text = "00:00"
         return label
     }()
 
     private lazy var toggleVideoButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        button.setImage(.playerPause, for: .normal)
         button.tintColor = .systemGray5
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         button.addTarget(self, action: #selector(didTapPlayPauseButton), for: .touchUpInside)
@@ -137,23 +135,23 @@ class CourseDetailVideoView: DOView {
         timeSlider.snp.makeConstraints {
             $0.top.equalToSuperview().inset(11)
             $0.left.equalTo(currentTimeLabel.snp.right).offset(12)
-            $0.right.equalTo(leftTimeLabel.snp.left).offset(-12)
         }
 
         leftTimeLabel.snp.makeConstraints {
             $0.top.trailing.equalToSuperview().inset(8)
             $0.width.equalTo(30)
+            $0.left.equalTo(timeSlider.snp.right).offset(12)
         }
 
         toggleVideoButton.snp.makeConstraints {
             $0.size.equalTo(25)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(2)
+            $0.left.equalTo(backwardButton.snp.right).offset(12)
         }
 
         backwardButton.snp.makeConstraints {
             $0.size.equalTo(25)
-            $0.right.equalTo(toggleVideoButton.snp.left).offset(-12)
             $0.centerY.equalTo(toggleVideoButton)
         }
 
@@ -168,6 +166,7 @@ class CourseDetailVideoView: DOView {
         guard let url = data.videoUrl else { return }
 
         let player = AVPlayer(url: url)
+        player.automaticallyWaitsToMinimizeStalling = true
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
         layer.insertSublayer(playerLayer, at: 0)
@@ -186,10 +185,10 @@ private extension CourseDetailVideoView {
     @objc func didTapPlayPauseButton() {
         if isVideoPlaying {
             player?.pause()
-            toggleVideoButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            toggleVideoButton.setImage(.playerPlay, for: .normal)
         } else {
             player?.play()
-            toggleVideoButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            toggleVideoButton.setImage(.playerPause, for: .normal)
         }
 
         isVideoPlaying = !isVideoPlaying

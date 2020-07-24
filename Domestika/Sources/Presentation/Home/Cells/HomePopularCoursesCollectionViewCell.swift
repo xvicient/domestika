@@ -64,7 +64,7 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
     private lazy var arrowImageView: UIImageView = {
         let view = UIImageView()
         view.tintColor = .gray
-        view.image = UIImage(systemName: "chevron.right")
+        view.image = .rightArrow
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
         return view
@@ -98,13 +98,13 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
 
         titleLabel.snp.makeConstraints {
             $0.leading.top.equalToSuperview().offset(18)
-            $0.trailing.equalToSuperview().offset(-18)
+            $0.trailing.equalToSuperview().inset(18)
         }
 
         teacherLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(6)
             $0.leading.equalToSuperview().offset(18)
-            $0.trailing.equalToSuperview().offset(-18)
+            $0.trailing.equalToSuperview().inset(18)
         }
 
         separatorView.snp.makeConstraints {
@@ -116,14 +116,14 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
         watchCourseLabel.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(16)
             $0.leading.equalToSuperview().offset(18)
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().inset(16)
         }
 
         arrowImageView.snp.makeConstraints {
             $0.top.equalTo(separatorView.snp.bottom).offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
+            $0.trailing.equalToSuperview().inset(16)
             $0.left.equalTo(watchCourseLabel.snp.right).offset(16)
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.bottom.equalToSuperview().inset(16)
             $0.width.equalTo(14)
             $0.height.equalTo(14)
         }
