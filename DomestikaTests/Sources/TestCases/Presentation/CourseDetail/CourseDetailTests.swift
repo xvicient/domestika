@@ -34,32 +34,47 @@ class CourseDetailViewTests: XCTestCase {
 
     func test_playButtonTapped() {
         view.didTapPlayButton()
-        Verify(presenterMock, .didTapPlayButton())
+        Verify(presenterMock, 1, .didTapPlayButton())
     }
 
     func test_pauseButtonTapped() {
         view.didTapPauseButton()
-        Verify(presenterMock, .didTapPauseButton())
+        Verify(presenterMock, 1, .didTapPauseButton())
     }
 
     func test_backwardButtonTapped() {
         view.didTapBackwardButton()
-        Verify(presenterMock, .didTapBackwardButton())
+        Verify(presenterMock, 1, .didTapBackwardButton())
     }
 
     func test_forwardButtonTapped() {
         view.didTapForwardButton()
-        Verify(presenterMock, .didTapForwardButton())
+        Verify(presenterMock, 1, .didTapForwardButton())
+    }
+
+    func test_showPlayerControls() {
+        view.didTapShowPlayerControls()
+        Verify(presenterMock, 1, .didTapShowPlayerControls())
+    }
+
+    func test_hidePlayerControls() {
+        view.didTapHidePlayerControls()
+        Verify(presenterMock, 1, .didTapHidePlayerControls())
     }
 
     func test_videoBufferingStarted() {
         view.didStartVideoBuffering()
-        Verify(presenterMock, .didStartVideoBuffering())
+        Verify(presenterMock, 1, .didStartVideoBuffering())
     }
 
     func test_videoBufferingStopped() {
         view.didStopVideoBuffering()
-        Verify(presenterMock, .didStopVideoBuffering())
+        Verify(presenterMock, 1, .didStopVideoBuffering())
+    }
+
+    func test_startVideoPlaying() {
+        view.didStartVideoPlaying()
+        Verify(presenterMock, 1, .didStartVideoPlaying())
     }
 }
 
@@ -126,14 +141,30 @@ class CourseDetailPresenterTests: XCTestCase {
         Verify(viewMock, 1, .render(state: .value(.forwardVideo(backwardForwardTime))))
     }
 
+    func test_showPlayerControls() {
+        presenter.didTapShowPlayerControls()
+        Verify(viewMock, 1, .render(state: .value(.showPlayerControls(true))))
+    }
+
+    func test_hidePlayerControls() {
+        presenter.didTapHidePlayerControls()
+        Verify(viewMock, 1, .render(state: .value(.showPlayerControls(false))))
+    }
+
     func test_startBuffering() {
         presenter.didStartVideoBuffering()
-        Verify(viewMock, 1, .render(state: .value(.showLoading(true))))
+        Verify(viewMock, 1, .render(state: .value(.showVideoLoading(true))))
     }
 
     func test_stopBuffering() {
         presenter.didStopVideoBuffering()
-        Verify(viewMock, 1, .render(state: .value(.showLoading(false))))
+        Verify(viewMock, 1, .render(state: .value(.showVideoLoading(false))))
+    }
+
+    func test_startVideoPlaying() {
+        presenter.didStartVideoPlaying()
+        Verify(viewMock, 1, .render(state: .value(.showVideoLoading(false))))
+        Verify(viewMock, 1, .render(state: .value(.showPlayerControls(false, delay: 2.0))))
     }
 }
 

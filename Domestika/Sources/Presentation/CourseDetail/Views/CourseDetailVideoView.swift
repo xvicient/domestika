@@ -13,6 +13,7 @@ enum VideoBufferingKey: String {
     case playbackBufferEmpty
     case playbackLikelyToKeepUp
     case playbackBufferFull
+    case status
 }
 
 protocol CourseDetailVideoViewDelegate: AnyObject {
@@ -20,8 +21,11 @@ protocol CourseDetailVideoViewDelegate: AnyObject {
     func didTapPauseButton()
     func didTapBackwardButton()
     func didTapForwardButton()
+    func didTapShowPlayerControls()
+    func didTapHidePlayerControls()
     func didStartVideoBuffering()
     func didStopVideoBuffering()
+    func didStartVideoPlaying()
 }
 
 struct CourseDetailVideoViewData: Equatable {
@@ -33,7 +37,9 @@ class CourseDetailVideoView: DOView {
     weak var videoDelegate: CourseDetailVideoViewDelegate?
 
     private lazy var playerOverlayView: UIView = {
-        UIView()
+        let view = UIView()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapVideo)))
+        return view
     }()
 
     private lazy var playerControlsView: UIView = {
@@ -79,7 +85,7 @@ class CourseDetailVideoView: DOView {
 
     private lazy var backwardButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "backward"), for: .normal)
+        button.setImage(.backward, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
@@ -89,7 +95,7 @@ class CourseDetailVideoView: DOView {
 
     private lazy var forwardButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
+        button.setImage(.forward, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         button.titleEdgeInsets = UIEdgeInsets(top: 2.0, left: -15.0, bottom: 0.0, right: 0.0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 8.0, weight: .regular)
@@ -108,14 +114,10 @@ class CourseDetailVideoView: DOView {
 
     private var player: AVPlayer? {
         willSet {
-            removePeriodicTimeObserver()
-            removeBufferObserver()
-            removePlayerDidFinishPlayingNotification()
+            removeVideoObservers()
         }
         didSet {
-            addPeriodicTimeObserver()
-            addBufferObserver()
-            addPlayerDidFinishPlayingNotification()
+            addVideoObservers()
         }
     }
 
@@ -128,14 +130,18 @@ class CourseDetailVideoView: DOView {
         playerLayer?.frame = bounds
     }
 
+    deinit {
+        removeVideoObservers()
+    }
+
     override func setup() {
         backgroundColor = .systemGray6
     }
 
     override func addSubviews() {
         addSubview(playerOverlayView)
-        playerOverlayView.addSubview(activityIndicator)
-        playerOverlayView.addSubview(playerControlsView)
+        addSubview(activityIndicator)
+        addSubview(playerControlsView)
         playerControlsView.addSubview(currentTimeLabel)
         playerControlsView.addSubview(timeSlider)
         playerControlsView.addSubview(leftTimeLabel)
@@ -154,7 +160,7 @@ class CourseDetailVideoView: DOView {
         }
 
         playerControlsView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalTo(playerOverlayView).inset(8)
+            $0.leading.trailing.bottom.equalToSuperview().inset(8)
             $0.height.equalTo(46)
         }
 
@@ -224,8 +230,15 @@ class CourseDetailVideoView: DOView {
         seekTime(newTime)
     }
 
-    func showLoading(_ on: Bool) {
+    func showVideoLoading(_ on: Bool) {
         on ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+    }
+
+    func showPlayerControls(_ on: Bool, delay: Double) {
+        UIView.animate(withDuration: 0.25, delay: delay, options: .curveEaseOut, animations: { [weak self] in
+            guard let self = self else { return }
+            self.playerControlsView.alpha = on ? 1.0 : 0.0
+        })
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
@@ -233,8 +246,13 @@ class CourseDetailVideoView: DOView {
         switch bufferingKey {
         case .playbackBufferEmpty:
             videoDelegate?.didStartVideoBuffering()
-        case .playbackLikelyToKeepUp, .playbackBufferFull:
+        case .playbackLikelyToKeepUp,
+             .playbackBufferFull:
             videoDelegate?.didStopVideoBuffering()
+        case .status:
+            if player?.status == AVPlayer.Status.readyToPlay {
+                videoDelegate?.didStartVideoPlaying()
+            }
         }
     }
 }
@@ -257,6 +275,14 @@ private extension CourseDetailVideoView {
     @objc func didTapForwardButton() {
         videoDelegate?.didTapForwardButton()
     }
+
+    @objc func didTapVideo() {
+        if playerControlsView.alpha == 1.0 {
+            videoDelegate?.didTapHidePlayerControls()
+        } else {
+            videoDelegate?.didTapShowPlayerControls()
+        }
+    }
 }
 
 // MARK: - Private
@@ -266,7 +292,6 @@ private extension CourseDetailVideoView {
         guard let url = url else { return }
 
         let player = AVPlayer(url: url)
-        player.automaticallyWaitsToMinimizeStalling = false
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
         layer.insertSublayer(playerLayer, at: 0)
@@ -274,8 +299,7 @@ private extension CourseDetailVideoView {
         self.player = player
         self.playerLayer = playerLayer
 
-        player.play()
-        isVideoPlaying = true
+        playVideo()
     }
 
     func setupControls(_ timeLabel: String) {
@@ -289,6 +313,18 @@ private extension CourseDetailVideoView {
         if isVideoPlaying {
             player?.play()
         }
+    }
+
+    func addVideoObservers() {
+        addPeriodicTimeObserver()
+        addBufferObserver()
+        addPlayerDidFinishPlayingNotification()
+    }
+
+    func removeVideoObservers() {
+        removePeriodicTimeObserver()
+        removeBufferObserver()
+        removePlayerDidFinishPlayingNotification()
     }
 
     func addPeriodicTimeObserver() {
@@ -324,17 +360,22 @@ private extension CourseDetailVideoView {
                                          forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue,
                                          options: .new,
                                          context: nil)
+        player?.addObserver(self,
+                            forKeyPath: VideoBufferingKey.status.rawValue,
+                            options: .new,
+                            context: nil)
     }
 
     func removeBufferObserver() {
         player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferEmpty.rawValue)
         player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackLikelyToKeepUp.rawValue)
         player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue)
+        player?.removeObserver(self, forKeyPath: VideoBufferingKey.status.rawValue)
     }
 
     func addPlayerDidFinishPlayingNotification() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(playerDidFinishPlaying(sender:)),
+                                               selector: #selector(playerDidFinishPlaying),
                                                name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
                                                object: player?.currentItem)
     }
@@ -345,7 +386,7 @@ private extension CourseDetailVideoView {
                                                   object: player?.currentItem)
     }
 
-    @objc func playerDidFinishPlaying(sender: Notification) {
+    @objc func playerDidFinishPlaying() {
         isVideoPlaying = false
         toggleVideoButton.setImage(.playerPlay, for: .normal)
         timeSlider.value = 0

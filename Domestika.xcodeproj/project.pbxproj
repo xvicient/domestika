@@ -12,7 +12,7 @@
 		C748809324C9BFD400A7089A /* CourseDetailInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */; };
 		C748809524C9E07100A7089A /* CourseDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809424C9E07100A7089A /* CourseDetailItemView.swift */; };
 		C748809724C9E2C600A7089A /* CourseDetailLocales.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809624C9E2C600A7089A /* CourseDetailLocales.swift */; };
-		C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809824C9FC1A00A7089A /* InsetLabel.swift */; };
+		C748809924C9FC1A00A7089A /* UIInsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809824C9FC1A00A7089A /* UIInsetLabel.swift */; };
 		C748809B24CA43D400A7089A /* UISlider+Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809A24CA43D400A7089A /* UISlider+Thumbnail.swift */; };
 		C748809D24CAC2F500A7089A /* Double+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = C748809C24CAC2F500A7089A /* Double+Time.swift */; };
 		C760A57224C717AF00FA6035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C760A57124C717AF00FA6035 /* AppDelegate.swift */; };
@@ -90,7 +90,7 @@
 		C748809224C9BFD400A7089A /* CourseDetailInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailInformationView.swift; sourceTree = "<group>"; };
 		C748809424C9E07100A7089A /* CourseDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailItemView.swift; sourceTree = "<group>"; };
 		C748809624C9E2C600A7089A /* CourseDetailLocales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailLocales.swift; sourceTree = "<group>"; };
-		C748809824C9FC1A00A7089A /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		C748809824C9FC1A00A7089A /* UIInsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInsetLabel.swift; sourceTree = "<group>"; };
 		C748809A24CA43D400A7089A /* UISlider+Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Thumbnail.swift"; sourceTree = "<group>"; };
 		C748809C24CAC2F500A7089A /* Double+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Time.swift"; sourceTree = "<group>"; };
 		C760A56E24C717AF00FA6035 /* Domestika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Domestika.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,7 +321,7 @@
 			children = (
 				C774742224C75487003067FE /* DOView.swift */,
 				C774745024C7678A003067FE /* DOViewCell.swift */,
-				C748809824C9FC1A00A7089A /* InsetLabel.swift */,
+				C748809824C9FC1A00A7089A /* UIInsetLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -799,7 +799,7 @@
 				C774745A24C788B1003067FE /* HomeLocales.swift in Sources */,
 				C774745C24C788F3003067FE /* String+Localization.swift in Sources */,
 				C7CBEC2624C8A6E70093CD8B /* CourseDetailBuilder.swift in Sources */,
-				C748809924C9FC1A00A7089A /* InsetLabel.swift in Sources */,
+				C748809924C9FC1A00A7089A /* UIInsetLabel.swift in Sources */,
 				C7CBEC2224C8A6E70093CD8B /* CourseDetailPresenter.swift in Sources */,
 				C748809124C9AF2600A7089A /* CourseDetailVideoView.swift in Sources */,
 				C774743824C758D2003067FE /* CourseService.swift in Sources */,

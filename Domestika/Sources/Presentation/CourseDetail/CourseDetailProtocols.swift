@@ -29,8 +29,11 @@ protocol CourseDetailPresenterProtocol {
     func didTapPauseButton()
     func didTapBackwardButton()
     func didTapForwardButton()
+    func didTapShowPlayerControls()
+    func didTapHidePlayerControls()
     func didStartVideoBuffering()
     func didStopVideoBuffering()
+    func didStartVideoPlaying()
 }
 
 // MARK: - Interactor
@@ -46,7 +49,8 @@ enum CourseDetailViewState: Equatable {
     case pauseVideo
     case backwardVideo(_ time: Float64)
     case forwardVideo(_ time: Float64)
-    case showLoading(_ on: Bool)
+    case showVideoLoading(_ on: Bool)
+    case showPlayerControls(_ on: Bool, delay: Double = 0.0)
 }
 
 // sourcery: AutoMockable

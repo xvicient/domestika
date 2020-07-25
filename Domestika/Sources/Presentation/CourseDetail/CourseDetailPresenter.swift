@@ -52,12 +52,25 @@ extension CourseDetailPresenter: CourseDetailPresenterProtocol {
         view.render(state: .forwardVideo(backwardForwardTime))
     }
 
+    func didTapShowPlayerControls() {
+        view.render(state: .showPlayerControls(true))
+    }
+
+    func didTapHidePlayerControls() {
+        view.render(state: .showPlayerControls(false))
+    }
+
     func didStartVideoBuffering() {
-        view.render(state: .showLoading(true))
+        view.render(state: .showVideoLoading(true))
     }
 
     func didStopVideoBuffering() {
-        view.render(state: .showLoading(false))
+        view.render(state: .showVideoLoading(false))
+    }
+
+    func didStartVideoPlaying() {
+        view.render(state: .showVideoLoading(false))
+        view.render(state: .showPlayerControls(false, delay: 2.0))
     }
 }
 

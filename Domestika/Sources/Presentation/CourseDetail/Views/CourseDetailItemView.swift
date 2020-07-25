@@ -41,8 +41,8 @@ class CourseDetailItemView: DOView {
         return label
     }()
 
-    private lazy var subtitleLabel: InsetLabel = {
-        let label = InsetLabel()
+    private lazy var subtitleLabel: UIInsetLabel = {
+        let label = UIInsetLabel()
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 10.0, weight: .bold)
         label.numberOfLines = 1

@@ -1,5 +1,5 @@
 //
-//  InsetLabel.swift
+//  UIInsetLabel.swift
 //  Domestika
 //
 //  Created by Xavier on 23/07/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InsetLabel: UILabel {
+class UIInsetLabel: UILabel {
     var contentInsets = UIEdgeInsets.zero
 
     override func drawText(in rect: CGRect) {
@@ -17,11 +17,11 @@ class InsetLabel: UILabel {
     }
 
     override var intrinsicContentSize: CGSize {
-        return addInsets(to: super.intrinsicContentSize)
+        addInsets(to: super.intrinsicContentSize)
     }
 
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return addInsets(to: super.sizeThatFits(size))
+        addInsets(to: super.sizeThatFits(size))
     }
 
     private func addInsets(to size: CGSize) -> CGSize {

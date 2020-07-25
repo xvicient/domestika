@@ -14,4 +14,6 @@ extension UIImage {
     static var rightArrow = UIImage(systemName: "chevron.right")!
     static var share = #imageLiteral(resourceName: "share")
     static var backArrow = #imageLiteral(resourceName: "back_arrow")
+    static var backward = #imageLiteral(resourceName: "backward")
+    static var forward = #imageLiteral(resourceName: "forward")
 }
