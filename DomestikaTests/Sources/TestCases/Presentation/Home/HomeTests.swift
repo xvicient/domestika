@@ -73,7 +73,9 @@ class HomePresenterTests: XCTestCase {
         mockCourses(.success(coursesMock))
         presenter.viewDidLoad()
 
+        Verify(viewMock, 1, .render(state: .value(.showLoading(true))))
         Verify(interactorMock, 1, .courses(completion: .any))
+        Verify(viewMock, 1, .render(state: .value(.showLoading(false))))
 
         let mainCourses = Array(coursesMock.prefix(4)).map {
             HomeViewMainCourse(imageURL: URL(string: $0.thumbnailUrl),
@@ -97,7 +99,9 @@ class HomePresenterTests: XCTestCase {
         mockCourses(.failure(APIError.httpCode(404, nil)))
         presenter.viewDidLoad()
 
+        Verify(viewMock, 1, .render(state: .value(.showLoading(true))))
         Verify(interactorMock, 1, .courses(completion: .any))
+        Verify(viewMock, 1, .render(state: .value(.showLoading(false))))
         Verify(routerMock, 1, .show(.value(locales.genericErrorMessage), okTitle: .value(locales.alertOkTitle)))
     }
 

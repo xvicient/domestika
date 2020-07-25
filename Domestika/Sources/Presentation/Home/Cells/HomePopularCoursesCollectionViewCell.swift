@@ -20,6 +20,7 @@ class HomePopularCoursesCollectionViewCell: DOViewCell {
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
         view.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 4.0)
+        view.backgroundColor = .systemGray6
         return view
     }()
 

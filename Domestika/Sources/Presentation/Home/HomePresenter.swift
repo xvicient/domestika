@@ -47,8 +47,10 @@ extension HomePresenter: HomePresenterProtocol {
 
 private extension HomePresenter {
     func showCourses() {
+        view.render(state: .showLoading(true))
         interactor.courses { [weak self] result in
             guard let self = self else { return }
+            self.view.render(state: .showLoading(false))
             switch result {
             case let .success(courses):
                 self.showMainCourses(courses)

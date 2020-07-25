@@ -60,6 +60,7 @@ class CourseDetailInformationView: DOView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.roundCorners(radius: 20.0)
+        view.backgroundColor = .systemGray6
         return view
     }()
 

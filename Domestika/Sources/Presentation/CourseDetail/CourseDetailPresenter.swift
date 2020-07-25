@@ -70,7 +70,7 @@ extension CourseDetailPresenter: CourseDetailPresenterProtocol {
 
     func didStartVideoPlaying() {
         view.render(state: .showVideoLoading(false))
-        view.render(state: .showPlayerControls(false, delay: 2.0))
+        view.render(state: .showPlayerControls(false, delay: 3.0))
     }
 }
 

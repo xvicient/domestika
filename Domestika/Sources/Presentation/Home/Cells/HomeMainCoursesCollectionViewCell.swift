@@ -13,6 +13,7 @@ class HomeMainCoursesCollectionViewCell: DOViewCell {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true
+        view.backgroundColor = .systemGray6
         return view
     }()
 

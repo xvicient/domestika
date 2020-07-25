@@ -164,7 +164,7 @@ class CourseDetailPresenterTests: XCTestCase {
     func test_startVideoPlaying() {
         presenter.didStartVideoPlaying()
         Verify(viewMock, 1, .render(state: .value(.showVideoLoading(false))))
-        Verify(viewMock, 1, .render(state: .value(.showPlayerControls(false, delay: 2.0))))
+        Verify(viewMock, 1, .render(state: .value(.showPlayerControls(false, delay: 3.0))))
     }
 }
 

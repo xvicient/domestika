@@ -9,7 +9,7 @@
 import AVKit
 import UIKit
 
-enum VideoBufferingKey: String {
+enum PlayerPlaybackKey: String {
     case playbackBufferEmpty
     case playbackLikelyToKeepUp
     case playbackBufferFull
@@ -114,10 +114,10 @@ class CourseDetailVideoView: DOView {
 
     private var player: AVPlayer? {
         willSet {
-            removeVideoObservers()
+            removePlayerObservers()
         }
         didSet {
-            addVideoObservers()
+            addPlayerObservers()
         }
     }
 
@@ -131,7 +131,7 @@ class CourseDetailVideoView: DOView {
     }
 
     deinit {
-        removeVideoObservers()
+        removePlayerObservers()
     }
 
     override func setup() {
@@ -139,8 +139,8 @@ class CourseDetailVideoView: DOView {
     }
 
     override func addSubviews() {
-        addSubview(playerOverlayView)
         addSubview(activityIndicator)
+        addSubview(playerOverlayView)
         addSubview(playerControlsView)
         playerControlsView.addSubview(currentTimeLabel)
         playerControlsView.addSubview(timeSlider)
@@ -151,11 +151,11 @@ class CourseDetailVideoView: DOView {
     }
 
     override func addConstraints() {
-        playerOverlayView.snp.makeConstraints {
+        activityIndicator.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
 
-        activityIndicator.snp.makeConstraints {
+        playerOverlayView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
 
@@ -242,7 +242,7 @@ class CourseDetailVideoView: DOView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let key = keyPath, let bufferingKey = VideoBufferingKey(rawValue: key) else { return }
+        guard let key = keyPath, let bufferingKey = PlayerPlaybackKey(rawValue: key) else { return }
         switch bufferingKey {
         case .playbackBufferEmpty:
             videoDelegate?.didStartVideoBuffering()
@@ -315,15 +315,15 @@ private extension CourseDetailVideoView {
         }
     }
 
-    func addVideoObservers() {
+    func addPlayerObservers() {
         addPeriodicTimeObserver()
-        addBufferObserver()
+        addPlaybackObservers()
         addPlayerDidFinishPlayingNotification()
     }
 
-    func removeVideoObservers() {
+    func removePlayerObservers() {
         removePeriodicTimeObserver()
-        removeBufferObserver()
+        removePlaybackObservers()
         removePlayerDidFinishPlayingNotification()
     }
 
@@ -347,30 +347,30 @@ private extension CourseDetailVideoView {
         }
     }
 
-    func addBufferObserver() {
+    func addPlaybackObservers() {
         player?.currentItem?.addObserver(self,
-                                         forKeyPath: VideoBufferingKey.playbackBufferEmpty.rawValue,
+                                         forKeyPath: PlayerPlaybackKey.playbackBufferEmpty.rawValue,
                                          options: .new,
                                          context: nil)
         player?.currentItem?.addObserver(self,
-                                         forKeyPath: VideoBufferingKey.playbackLikelyToKeepUp.rawValue,
+                                         forKeyPath: PlayerPlaybackKey.playbackLikelyToKeepUp.rawValue,
                                          options: .new,
                                          context: nil)
         player?.currentItem?.addObserver(self,
-                                         forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue,
+                                         forKeyPath: PlayerPlaybackKey.playbackBufferFull.rawValue,
                                          options: .new,
                                          context: nil)
-        player?.addObserver(self,
-                            forKeyPath: VideoBufferingKey.status.rawValue,
-                            options: .new,
-                            context: nil)
+        player?.currentItem?.addObserver(self,
+                                         forKeyPath: PlayerPlaybackKey.status.rawValue,
+                                         options: .new,
+                                         context: nil)
     }
 
-    func removeBufferObserver() {
-        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferEmpty.rawValue)
-        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackLikelyToKeepUp.rawValue)
-        player?.currentItem?.removeObserver(self, forKeyPath: VideoBufferingKey.playbackBufferFull.rawValue)
-        player?.removeObserver(self, forKeyPath: VideoBufferingKey.status.rawValue)
+    func removePlaybackObservers() {
+        player?.currentItem?.removeObserver(self, forKeyPath: PlayerPlaybackKey.playbackBufferEmpty.rawValue)
+        player?.currentItem?.removeObserver(self, forKeyPath: PlayerPlaybackKey.playbackLikelyToKeepUp.rawValue)
+        player?.currentItem?.removeObserver(self, forKeyPath: PlayerPlaybackKey.playbackBufferFull.rawValue)
+        player?.currentItem?.removeObserver(self, forKeyPath: PlayerPlaybackKey.status.rawValue)
     }
 
     func addPlayerDidFinishPlayingNotification() {

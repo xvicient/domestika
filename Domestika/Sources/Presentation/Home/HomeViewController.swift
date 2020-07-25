@@ -42,6 +42,15 @@ final class HomeViewController: UIViewController {
         return view
     }()
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.color = .gray
+        view.style = .large
+        view.hidesWhenStopped = true
+        view.startAnimating()
+        return view
+    }()
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         onViewWillAppear()
@@ -67,6 +76,7 @@ extension HomeViewController {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(mainCoursesView)
         stackView.addArrangedSubview(popularCoursesView)
+        view.addSubview(activityIndicator)
     }
 
     func addConstraints() {
@@ -92,6 +102,10 @@ extension HomeViewController {
         popularCoursesView.snp.makeConstraints {
             $0.height.equalTo(325)
         }
+
+        activityIndicator.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
 
@@ -104,6 +118,8 @@ extension HomeViewController: HomeViewProtocol {
             showMainCourses(data)
         case let .showPopularCourses(data):
             showPopularCourses(data)
+        case let .showLoading(on):
+            showLoading(on)
         }
     }
 }
@@ -131,6 +147,10 @@ private extension HomeViewController {
 
     func showPopularCourses(_ data: HomeViewPopularCourseData) {
         popularCoursesView.data = data
+    }
+
+    func showLoading(_ on: Bool) {
+        on ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
     }
 }
 
